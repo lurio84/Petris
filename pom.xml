@@ -47,6 +47,21 @@
 			<email>robservil@alumn.us.es</email>
 			<url>https://github.com/robservil</url>
 		</developer>
+		<developer>
+			<name>JMQ0481</name>
+			<email>jaigonsor@alum.us.es</email>
+			<url>https://github.com/JMQ0481</url>
+        </developer>
+        <developer>
+			<name>Guillermociria</name>
+			<email>guijai34@gmail.com</email>
+			<url>https://github.com/Guillermociria</url>
+		</developer>
+		<developer>
+			<name>Lucas</name>
+			<email>lucronber@alum.us.es</email>
+			<url>https://github.com/lurio84</url>
+		</developer>
 	</developers>
 
 	<dependencies>

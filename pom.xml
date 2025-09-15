@@ -57,6 +57,11 @@
 			<email>lucronber@alum.us.es</email>
 			<url>https://github.com/lurio84</url>
 		</developer>
+		<developer>
+			<name>Jesús Cárdenas Conejo</name>
+			<email>jescarcon@alum.us.es</email>
+			<url>https://github.com/jescarcon</url>
+		</developer>
 	</developers>
 
 	<dependencies>

@@ -3,7 +3,7 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.us.dp1</groupId>
-	<artifactId>lx-xy-2425-game-name</artifactId>
+	<artifactId>l4-01-2425-petris</artifactId>
 	<version>0.1.0.BUILD-SNAPSHOT</version>
 
 	<parent>
@@ -11,7 +11,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.5</version>
 	</parent>
-	<name>DP1 Game Template</name>
+	<name>l4-01</name>
 
 	<properties>
 		<!-- Generic properties -->
@@ -43,9 +43,29 @@
 			<url>https://github.com/japarejo</url>
 		</developer>
 		<developer>
+			<name>JMQ0481</name>
+			<email>jaigonsor@alum.us.es</email>
+			<url>https://github.com/JMQ0481</url>
+        </developer>
+        <developer>
 			<name>Guillermociria</name>
 			<email>guijai34@gmail.com</email>
 			<url>https://github.com/Guillermociria</url>
+		</developer>
+		<developer>
+			<name>Lucas</name>
+			<email>lucronber@alum.us.es</email>
+			<url>https://github.com/lurio84</url>
+		</developer>
+		<developer>
+			<name>Conor Lopez</name>
+			<email>conlopchi@alum.us.es</email>
+			<url>https://github.com/ConorLopezChivite</url>
+    </developer>
+    <developer>
+			<name>Jesús Cárdenas Conejo</name>
+			<email>jescarcon@alum.us.es</email>
+			<url>https://github.com/jescarcon</url>
 		</developer>
 	</developers>
 

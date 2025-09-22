@@ -83,8 +83,7 @@ function AppNavbar() {
         <div>
             <Navbar expand="md" dark color="dark">
                 <NavbarBrand href="/">
-                    <img alt="logo" src="/logo1-recortado.png" style={{ height: 40, width: 40 }} />
-                    Your Game
+                    <img alt="logo" src="/logo-petris.png" style={{ height: 40 }} />
                 </NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className="ms-2" />
                 <Collapse isOpen={!collapsed} navbar>

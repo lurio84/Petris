@@ -38,39 +38,34 @@
 
 	<developers>
 		<developer>
-			<name>JAParejo</name>
-			<email>japarejo@us.es</email>
-			<url>https://github.com/japarejo</url>
+			<name>Jesús Cárdenas Conejo</name>
+			<email>jescarcon@alum.us.es</email>
+			<url>https://github.com/jescarcon</url>
 		</developer>
-		<developer>
-			<name>robservil</name>
-			<email>robservil@alumn.us.es</email>
-			<url>https://github.com/robservil</url>
-		</developer>
-		<developer>
-			<name>JMQ0481</name>
-			<email>jaigonsor@alum.us.es</email>
-			<url>https://github.com/JMQ0481</url>
-        </developer>
         <developer>
-			<name>Guillermociria</name>
+			<name>Guillermo Ciria González</name>
 			<email>guijai34@gmail.com</email>
 			<url>https://github.com/Guillermociria</url>
 		</developer>
 		<developer>
-			<name>Lucas</name>
+			<name>Jaime González de Herrera Soriano</name>
+			<email>jaigonsor@alum.us.es</email>
+			<url>https://github.com/JMQ0481</url>
+        </developer>
+		<developer>
+			<name>Conor López Chivite</name>
+			<email>conlopchi@alum.us.es</email>
+			<url>https://github.com/ConorLopezChivite</url>
+    	</developer>
+		<developer>
+			<name>Lucas Ronquillo Bernáldez</name>
 			<email>lucronber@alum.us.es</email>
 			<url>https://github.com/lurio84</url>
 		</developer>
 		<developer>
-			<name>Conor Lopez</name>
-			<email>conlopchi@alum.us.es</email>
-			<url>https://github.com/ConorLopezChivite</url>
-    </developer>
-    <developer>
-			<name>Jesús Cárdenas Conejo</name>
-			<email>jescarcon@alum.us.es</email>
-			<url>https://github.com/jescarcon</url>
+			<name>Roberto Serrano Villalba</name>
+			<email>robservil@alumn.us.es</email>
+			<url>https://github.com/robservil</url>
 		</developer>
 	</developers>
 

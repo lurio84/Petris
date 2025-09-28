@@ -1,10 +1,11 @@
-import {   Table   } from "reactstrap"
+import {   Table   } from "reactstrap";
+import useFetchState from "../util/useFetchState";
 
 export default function DeveloperList() {
-    const developers = [
-        { name: "Stu Mackenzie", email: "kglw@gmail.com", url:"kglw.com", picUrl:"https://cdn.getmidnight.com/f655f096d6a1f6fbcbed5d050759ab54/2025/06/stu-mackenzie-king-gizzard-and-the-lizard-wizard-getty-images-joseph-okpako.jpg" },
-        {name: "Kirby", email: "poyo@gmail.com", url: "poyo.com", picUrl:"https://static.wikia.nocookie.net/kirby/images/8/86/KRtDLD_Kirby.png/revision/latest?cb=20230214153003"}
-    ]
+    
+
+    const [developers, setDevelopers] = useFetchState([], "api/v1/developers");
+    const imgnotfound = "https://cdn-icons-png.flaticon.com/512/2927/2927712.png"; // Placeholder, se cambiará en un futuro
 
     const developerList = developers.map((d) => {
         return (
@@ -12,7 +13,7 @@ export default function DeveloperList() {
                 <td className="text-center">{d.name}</td>
                 <td className="text-center">{d.email}</td>
                 <td className="text-center"><a href={d.url}>{d.url}</a></td>
-                <td className="text-center"><img src={d.picUrl} alt={d.name} width="50px"/></td>
+                <td className="text-center"><img src={d.properties.picUrl ? d.properties.picUrl : imgnotfound} alt={d.name} width="50px"/></td>
             </tr>
         )
     });

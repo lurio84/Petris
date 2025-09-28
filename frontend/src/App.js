@@ -13,6 +13,8 @@ import tokenService from "./services/token.service";
 import UserListAdmin from "./admin/users/UserListAdmin";
 import UserEditAdmin from "./admin/users/UserEditAdmin";
 import SwaggerDocs from "./public/swagger";
+import DeveloperList from "./developers";
+
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
@@ -66,7 +68,8 @@ function App() {
   } else {
     userRoutes = (
       <>
-        {/* <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */}        
+        {/* <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */} 
+        <Route path="/developers" element={<DeveloperList />}/>       
         <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
       </>

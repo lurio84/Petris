@@ -14,6 +14,8 @@ import UserListAdmin from "./admin/users/UserListAdmin";
 import UserEditAdmin from "./admin/users/UserEditAdmin";
 import SwaggerDocs from "./public/swagger";
 import DeveloperList from "./developers";
+import AchievementList from "./achievements/achievementList";
+import AchievementEdit from "./achievements/achievementEdit";
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -48,19 +50,20 @@ function App() {
       adminRoutes = (
         <>
           <Route path="/users" exact={true} element={<PrivateRoute><UserListAdmin /></PrivateRoute>} />
-          <Route path="/users/:username" exact={true} element={<PrivateRoute><UserEditAdmin /></PrivateRoute>} />          
+          <Route path="/users/:username" exact={true} element={<PrivateRoute><UserEditAdmin /></PrivateRoute>} />
         </>)
     }
     if (role === "PLAYER") {
       ownerRoutes = (
         <>
-          
+          <Route path="/achievements" exact={true} element={<PrivateRoute><AchievementList/></PrivateRoute>} />
+          <Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />
         </>)
-    }    
+    }
   })
   if (!jwt) {
     publicRoutes = (
-      <>        
+      <>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </>
@@ -68,8 +71,8 @@ function App() {
   } else {
     userRoutes = (
       <>
-        {/* <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */} 
-        <Route path="/developers" element={<DeveloperList />}/>       
+        {/* <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */}
+        <Route path="/developers" element={<DeveloperList />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
       </>

@@ -71,7 +71,13 @@ Como jugador, quiero eliminar mi perfil para poder deshacerme de los datos de m�
 Dado un jugador que intente eliminar su perfil, dicho jugador será completamente eliminado de la base de datos del sistema.
 
 
-## H-XX ¿Ver peticiones de amistad?
+## H-XX Ver solicitudes de amistad
+
+Como jugador, quiero ver las solicitudes de amistad que haya recibido de otros jugadores para poder aceptarlas o ignorarlas.
+
+### H-XX-E1 – Éxito al ver solicitudes de amistad
+
+Dado un jugador que intente ver sus solicitudes de amistad, se mostrará una lista con todas las solicitudes de amistad que ha recibido y aún no haya aceptado o ignorado.
 
 
 ## H-XX – Enviar solicitud de amistad
@@ -99,6 +105,15 @@ Como jugador, quiero ignorar las solicitudes de amistad que reciba de otros juga
 ### H-XX+E1 – Éxito al ignorar solicitud de amistad
 
 Dado un jugador que intente ignorar una petición de amistad que reciba de otro jugador, la petición será ignorarada, desapareciendo de la lista de peticiones, y los dos jugadores no serán amigos.
+
+
+## H-XX – Eliminar amigo
+
+Como jugador, quiero eliminar a un jugador de mi lista de amigos para poder controlar qué jugadores son mis amigos.
+
+### H-XX+E1 – Éxito al eliminar amigo
+
+Dado un jugador que intente eliminar a un jugador de su lista de amigos desde el perfil de dicho jugador, ambos jugadores ya no serán amigos.
 
 
 ## H-XX – Ver amigos
@@ -152,3 +167,12 @@ Como jugador, quiero rechazar la invitación de partida que me envíe un amigo p
 ### H-XX+E1 – Éxito al rechazar invitación
 
 Dado un jugador que intente aceptar una invitación de partida de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se rechaza la invitación, dicho amigo será notificado, la invitación será deshechada y la partida no comenzará.
+
+
+## H-XX – Ver logros
+
+Como jugador, quiero ver todos los logros que tenga (obtenidos y no obtenidos) para poder saber qué logros he obtenido hasta el momento y cómo conseguir los que aún no tengo.
+
+### H-XX+E1 – Éxito al ver logros
+
+Dado un jugador que intente ver sus logros, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.

@@ -44,7 +44,10 @@ import io.qameta.allure.Owner;
 @Epic("Users & Admin Module")
 @Feature("Users Management")
 @Owner("DP1-tutors")
-@WebMvcTest(controllers = UserRestController.class, excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = WebSecurityConfigurer.class), excludeAutoConfiguration = SecurityConfiguration.class)
+@WebMvcTest(controllers = UserRestController.class,
+ excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, 
+ classes = WebSecurityConfigurer.class), 
+ excludeAutoConfiguration = SecurityConfiguration.class)
 class UserControllerTests {
 
 	private static final int TEST_USER_ID = 1;

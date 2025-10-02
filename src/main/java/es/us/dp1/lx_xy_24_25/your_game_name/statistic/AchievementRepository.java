@@ -8,7 +8,7 @@ import es.us.dp1.lx_xy_24_25.your_game_name.statistic.Achievement;
 
 @Repository
 public interface AchievementRepository extends CrudRepository<Achievement, Integer>{
-    
+     
     List<Achievement> findAll();
     
     public Achievement findByName(String name);

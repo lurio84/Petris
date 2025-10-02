@@ -21,7 +21,7 @@ public class AchievementService {
     }
 
     @Transactional(readOnly = true)    
-    List<Achievement> getAchievements(){
+    public  List<Achievement> getAchievements(){
         return repo.findAll();
     }
     

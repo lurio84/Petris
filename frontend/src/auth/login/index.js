@@ -9,7 +9,6 @@ export default function Login() {
   const [message, setMessage] = useState(null)
   const loginFormRef = React.createRef();      
   
-
   async function handleSubmit({ values }) {
 
     const reqBody = values;
@@ -32,7 +31,6 @@ export default function Login() {
         setMessage(error);
       });            
   }
-
   
     return (
       <div className="auth-page-container">

@@ -127,11 +127,11 @@ Dado un jugador que intente eliminar a un jugador de su lista de amigos desde el
 
 ## H-XX – Ver amigos
 
-Como jugador, quiero ver los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos, ver cuáles están en línea y poder comenzar partidas con ellos.
+Como jugador, quiero ver los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos y ver cuáles están en línea.
 
 ### H-XX+E1 – Lista de amigos
 
-Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, indicando si cada uno está en línea o no y opciones para invitar o unirse a una partida.
+Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, indicando si cada uno está en línea o no.
 
 ### H-XX+E2 – Lista vacía de amigos
 

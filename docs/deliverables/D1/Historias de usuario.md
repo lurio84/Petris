@@ -62,6 +62,15 @@ Dado un jugador que introduzca campos de perfil con formato correcto al intentar
 Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar su perfil, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.
 
 
+## H-XX – Ver logros
+
+Como jugador, quiero ver todos los logros que tenga (obtenidos y no obtenidos) para poder saber qué logros he obtenido hasta el momento y cómo conseguir los que aún no tengo.
+
+### H-XX+E1 – Éxito al ver logros
+
+Dado un jugador que intente ver sus logros, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.
+
+
 ## H-XX – Eliminar jugador
 
 Como jugador, quiero eliminar mi perfil para poder deshacerme de los datos de mí que estén guardados en la base de datos del sistema.
@@ -86,7 +95,7 @@ Como jugador, quiero enviar solicitudes de amistad a otros jugadores para poder 
 
 ### H-XX+E1 – Éxito al enviar solicitud de amistad
 
-Dado un jugador que intente enviar una petición de amistad desde el perfil de otro jugador o desde su lista de amigos, la petición será enviada al jugador correctamente.
+Dado un jugador que intente enviar una petición de amistad desde su lista de amigos mediante el id de otro jugador, la petición será enviada al jugador correctamente.
 
 
 ## H-XX – Aceptar solicitud de amistad
@@ -95,7 +104,7 @@ Como jugador, quiero aceptar las solicitudes de amistad que reciba de otros juga
 
 ### H-XX+E1 – Éxito al aceptar solicitud de amistad
 
-Dado un jugador que intente aceptar una petición de amistad que reciba de otro jugador, la petición será aceptada, se enviará una notificación al otro jugador, y los dos jugadores se convertirán en amigos.
+Dado un jugador que intente aceptar una petición de amistad que reciba de otro jugador, la petición será aceptada y los dos jugadores se convertirán en amigos.
 
 
 ## H-XX – Ignorar solicitud de amistad
@@ -118,61 +127,92 @@ Dado un jugador que intente eliminar a un jugador de su lista de amigos desde el
 
 ## H-XX – Ver amigos
 
-Como jugador, quiero ver los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos y poder comenzar partidas con ellos.
+Como jugador, quiero ver los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos, ver cuáles están en línea y poder comenzar partidas con ellos.
 
 ### H-XX+E1 – Lista de amigos
 
-Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, con opciones para invitar o unirse a una partida.
+Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, indicando si cada uno está en línea o no y opciones para invitar o unirse a una partida.
 
 ### H-XX+E2 – Lista vacía de amigos
 
 Dado un jugador que intente ver sus amigos sin tener ninguno, se mostrará una lista vacía con un mensaje que indique que el usuario aún no tiene amigos.
 
 
-## H-XX – Enviar invitación
+## H-XX – Enviar invitación de jugar partida privada
 
-Como jugador, quiero invitar a un amigo a comenzar una partida para poder jugar a Petris con él.
+Como jugador, quiero invitar a un amigo a jugar una partida privada para poder jugar a Petris con él.
 
-### H-XX+E1 – Éxito al enviar invitación
+### H-XX+E1 – Éxito al enviar invitación de jugar partida privada
 
-Dado un jugador que intente enviar una invitación de partida a uno de sus amigos, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, dicho amigo recibirá la invitación y la partida comenzará cuando la acepte.
+Dado un jugador que intente enviar una invitación de jugar partida privada a uno de sus amigos, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, dicho amigo recibirá la invitación y la partida comenzará cuando la acepte.
 
-### H-XX+E2 – Cancelación al enviar invitación
+### H-XX+E2 – Cancelación al enviar invitación de jugar partida privada
 
-Dado un jugador que intente enviar una invitación de partida a uno de sus amigos, se abrirá una pantalla para configurar las normas de la partida. Si el jugador decide cancelar la creación de la partida, se volverá a la lista de amigos y la invitación no será enviada.
-
-
-## H-XX – Eliminar invitación
-
-Como jugador, quiero eliminar la invitación que he enviado a un amigo (y que aún no ha sido aceptada) para poder cancelar el comienzo de la partida.
-
-### H-XX+E1 – Éxito al eliminar invitación
-
-Dado un jugador que intente eliminar una invitación de partida aún no aceptada que envió a uno de sus amigos, la invitación se eliminará correctamente, por lo que dicho amigo ya no podrá aceptarla, y la partida no comenzará.
+Dado un jugador que intente enviar una invitación de jugar partida privada a uno de sus amigos, se abrirá una pantalla para configurar las normas de la partida. Si el jugador decide cancelar la creación de la partida, se volverá a la lista de amigos y la invitación no será enviada.
 
 
-## H-XX – Aceptar invitación
+## H-XX – Eliminar invitación de jugar partida privada
 
-Como jugador, quiero aceptar la invitación de partida que me envíe un amigo para poder jugar a Petris con él.
+Como jugador, quiero eliminar la invitación de jugar partida privada que he enviado a un amigo (y que aún no ha sido aceptada) para poder cancelar el comienzo de la partida.
 
-### H-XX+E1 – Éxito al aceptar invitación
+### H-XX+E1 – Éxito al eliminar invitación de jugar partida privada
 
-Dado un jugador que intente aceptar una invitación de partida de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se acepta la invitación, dicho amigo será notificado y la partida comenzará.
-
-
-## H-XX – Rechazar invitación
-
-Como jugador, quiero rechazar la invitación de partida que me envíe un amigo para poder cancelarla y que no me aparezca en la lista de amigos.
-
-### H-XX+E1 – Éxito al rechazar invitación
-
-Dado un jugador que intente aceptar una invitación de partida de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se rechaza la invitación, dicho amigo será notificado, la invitación será deshechada y la partida no comenzará.
+Dado un jugador que intente eliminar una invitación de jugar partida privada aún no aceptada que envió a uno de sus amigos, la invitación se eliminará correctamente, por lo que dicho amigo ya no podrá aceptarla, y la partida no comenzará.
 
 
-## H-XX – Ver logros
+## H-XX – Aceptar invitación de jugar partida privada
 
-Como jugador, quiero ver todos los logros que tenga (obtenidos y no obtenidos) para poder saber qué logros he obtenido hasta el momento y cómo conseguir los que aún no tengo.
+Como jugador, quiero aceptar la invitación de jugar partida privada que me envíe un amigo para poder jugar a Petris con él.
 
-### H-XX+E1 – Éxito al ver logros
+### H-XX+E1 – Éxito al aceptar invitación de jugar partida privada
 
-Dado un jugador que intente ver sus logros, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.
+Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se acepta la invitación, la partida comenzará.
+
+
+## H-XX – Rechazar invitación de jugar partida privada
+
+Como jugador, quiero rechazar la invitación de jugar partida privada que me envíe un amigo para poder cancelarla y que no me aparezca en la lista de amigos.
+
+### H-XX+E1 – Éxito al rechazar invitación de jugar partida privada
+
+Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se rechaza la invitación, la invitación será deshechada y la partida no comenzará.
+
+
+## H-XX – Enviar invitación de espectar partida privada
+
+Como jugador, quiero invitar a un amigo a espectar una partida privada en la que esté actualmente para que pueda ver mi partida.
+
+### H-XX+E1 – Éxito al enviar invitación de espectar partida privada
+
+Dado un jugador que intente enviar una invitación de espectar partida privada, se abrirá una pantalla para que el jugador decida a qué amigo se la mandará (solo aparecerán los usuarios que sean amigos con ambos participantes de la partida). Si se escoge a un amigo, recibirá la invitación.
+
+### H-XX+E2 – Cancelación al enviar invitación de espectar partida privada
+
+Dado un jugador que intente enviar una invitación de espectar partida privada, se abrirá una pantalla para que el jugador decida a qué amigo se la mandará (solo aparecerán los usuarios que sean amigos con ambos participantes de la partida). Si el jugador decide cancelar el envío, se volverá a la partida y la invitación no será enviada.
+
+
+## H-XX – Eliminar invitación de espectar partida privada
+
+Como jugador, quiero eliminar la invitación de espectar partida privada que he enviado a un amigo (y que aún no ha sido aceptada) para poder cancelar que pueda ver la partida.
+
+### H-XX+E1 – Éxito al eliminar invitación de espectar partida privada
+
+Dado un jugador que intente eliminar una invitación de espectar partida privada aún no aceptada que envió a uno de sus amigos, la invitación se eliminará correctamente, por lo que dicho amigo ya no podrá aceptarla.
+
+
+## H-XX – Aceptar invitación de espectar partida privada
+
+Como jugador, quiero aceptar la invitación de espectar partida privada que me envíe un amigo para poder ver su partida.
+
+### H-XX+E1 – Éxito al aceptar invitación de espectar partida privada
+
+Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se rechaza la invitación, la invitación será deshechada y la partida no se espectará.
+
+
+## H-XX – Rechazar invitación de espectar partida privada
+
+Como jugador, quiero rechazar la invitación de espectar partida privada que me envíe un amigo para poder cancelarla y que no me aparezca en la lista de amigos.
+
+### H-XX+E1 – Éxito al rechazar invitación de espectar partida privada
+
+Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se rechaza la invitación, la invitación será deshechada y la partida no se espectará.

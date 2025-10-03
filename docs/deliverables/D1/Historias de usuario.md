@@ -46,7 +46,16 @@ Como jugador, quiero ver mi perfil para poder comprobar qué información muestr
 
 ### H-XX+E1 – Éxito al ver perfil
 
-Dado un jugador que intente ver su perfil, se le mostrará junto con toda su información: logros, estadísticas y datos personales.
+Dado un jugador que intente ver su perfil, se le mostrará junto con toda su información: últimos logros obtenidos, estadísticas y datos personales.
+
+
+## H-XX – Ver todos los logros
+
+Como jugador, quiero ver todos los logros que tenga (obtenidos y no obtenidos) para poder saber qué logros he obtenido hasta el momento y cómo conseguir los que aún no tengo.
+
+### H-XX+E1 – Éxito al ver todos los logros
+
+Dado un jugador que intente ver todos sus logros desde su perfil, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.
 
 
 ## H-XX – Editar perfil
@@ -60,15 +69,6 @@ Dado un jugador que introduzca campos de perfil con formato correcto al intentar
 ### H-XX-E2 – Intentar editar perfil con datos no válidos
 
 Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar su perfil, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.
-
-
-## H-XX – Ver logros
-
-Como jugador, quiero ver todos los logros que tenga (obtenidos y no obtenidos) para poder saber qué logros he obtenido hasta el momento y cómo conseguir los que aún no tengo.
-
-### H-XX+E1 – Éxito al ver logros
-
-Dado un jugador que intente ver sus logros, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.
 
 
 ## H-XX – Eliminar jugador
@@ -127,15 +127,46 @@ Dado un jugador que intente eliminar a un jugador de su lista de amigos desde el
 
 ## H-XX – Ver amigos
 
-Como jugador, quiero ver los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos, ver cuáles están en línea y poder comenzar partidas con ellos.
+Como jugador, quiero ver los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos y ver cuáles están en línea.
 
 ### H-XX+E1 – Lista de amigos
 
-Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, indicando si cada uno está en línea o no y opciones para invitar o unirse a una partida.
+Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, indicando si cada uno está en línea o no.
 
 ### H-XX+E2 – Lista vacía de amigos
 
 Dado un jugador que intente ver sus amigos sin tener ninguno, se mostrará una lista vacía con un mensaje que indique que el usuario aún no tiene amigos.
+
+
+## H-XX – Ver partidas públicas
+
+Como jugador, quiero ver las partidas públicas abiertas para poder unirme a alguna.
+
+### H-XX+E1 – Ëxito al ver partidas públicas
+
+Dado un jugador que intente ver las partidas públicas abiertas, se mostrará una lista con todas las partidas públicas con un solo jugador esperando que aún no hayan empezado.
+
+
+## H-XX – Unirse a partida pública
+
+Como jugador, quiero unirme a alguna partida pública abierta para poder jugar a Petris.
+
+### H-XX – Éxito al unirse a partida pública
+
+Dado un jugador que intente unirse a una partida pública con un solo jugador esperando que aún no haya empezado, se le llevará a esa partida, la cual comenzará.
+
+
+## H-XX – Crear partida pública
+
+Como jugador, quiero crear una partida pública para poder jugar a Petris con cualquier usuario.
+
+### H-XX+E1 – Éxito al crear partida pública
+
+Dado un jugador que intente crear una partida pública, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, aparecerá en la lista de partidas públicas y comenzará cuando otro usuario se una a ella.
+
+### H-XX+E2 – Cancelación al crear partida pública
+
+Dado un jugador que intente crear una partida pública, se abrirá una pantalla para configurar las normas de la partida. Si el jugador decide cancelar la creación de la partida, se volverá a la pantalla anterior y la partida no se creará.
 
 
 ## H-XX – Enviar invitación de jugar partida privada
@@ -216,3 +247,30 @@ Como jugador, quiero rechazar la invitación de espectar partida privada que me 
 ### H-XX+E1 – Éxito al rechazar invitación de espectar partida privada
 
 Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se rechaza la invitación, la invitación será deshechada y la partida no se espectará.
+
+
+## H-XX – Ver partidas en curso
+
+Como jugador, quiero ver las partidas que estoy jugando para poder ver cuáles están en curso y cómo van.
+
+### H-XX+E1 – Éxito al ver partidas en curso
+
+Dado un jugador que intente ver las partidas que tiene en curso, se mostrará una pantalla con todas las partidas que ha empezado y aún no han terminado (por abandono o victoria de un jugador), indicando también si el siguiente turno es de dicho jugador.
+
+
+## H-XX – Retomar partida en curso
+
+Como jugador, quiero retomar una partida que esté jugando y de la que haya salido para poder continuarla.
+
+### H-XX+E1 Éxito al retomar partida en curso
+
+Dado un jugador que intente retomar una partida que tiene en curso de la que haya salido (que no abandonado) desde la pantalla de partidas en curso, se le llevará a la partida para poder continuarla.
+
+
+## H-XX – Abandonar partida
+
+Como jugador, quiero abandonar una partida que esté jugando para poder dejarla si no quiero continuar.
+
+### H-XX+E1 – Éxito al abandonar partida
+
+Dado un jugador que intente abandonar una partida que esté jugando, el jugador saldrá de la partida, la cual se eliminará.

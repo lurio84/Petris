@@ -33,11 +33,15 @@ Dado un usuario que introduzca un nombre y contraseña donde la contraseña no e
 
 ## H-XX – Cerrar sesión
 
-Como jugador/administrador, quiero cerrar mi sesión para poder dejar de usar el sistema y/o permitir a otro jugador/administrador iniciar sesión.
+Como usuario, quiero cerrar mi sesión para poder dejar de usar el sistema y permitir a otro usuario iniciar sesión.
 
 ### H-XX+E1 – Éxito al cerrar sesión
 
-Dado un usuario con una sesión iniciada que intente cerrarla, la sesión se cerrará de forma segura y el sistema volverá a la pantalla de inicio.
+Dado un usuario con una sesión iniciada que intente cerrarla, la sesión se cerrará de forma segura y la aplicación volverá a la pantalla de inicio.
+
+### H-XX-E2 – Jugador inexistente
+
+Dado un usuario que no esté en la base de datos con una sesión iniciada que intente cerrarla, se mostrará un error indicando que el usuario no existe.
 
 
 ## H-XX – Ver perfil
@@ -48,14 +52,13 @@ Como jugador, quiero ver mi perfil para poder comprobar qué información muestr
 
 Dado un jugador que intente ver su perfil, se le mostrará junto con toda su información: últimos logros obtenidos, estadísticas y datos personales.
 
-
-## H-XX – Ver todos los logros
-
-Como jugador, quiero ver todos los logros que tenga (obtenidos y no obtenidos) para poder saber qué logros he obtenido hasta el momento y cómo conseguir los que aún no tengo.
-
-### H-XX+E1 – Éxito al ver todos los logros
+### H-XX+E2 – Éxito al ver todos los logros
 
 Dado un jugador que intente ver todos sus logros desde su perfil, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.
+
+### H-XX-E3 – Jugador inexistente
+
+Dado un jugador que no esté en la base de datos que intente ver su perfil, se mostrará un error indicando que el usuario no existe.
 
 
 ## H-XX – Editar perfil
@@ -70,23 +73,22 @@ Dado un jugador que introduzca campos de perfil con formato correcto al intentar
 
 Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar su perfil, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.
 
+### H-XX-E3 – Jugador inexistente
+
+Dado un jugador que no esté en la base de datos que intente editar su perfil, se mostrará un error indicando que el usuario no existe.
+
 
 ## H-XX – Eliminar jugador
 
-Como jugador, quiero eliminar mi perfil para poder deshacerme de los datos de mí que estén guardados en la base de datos del sistema.
+Como jugador, quiero eliminar mi cuenta para poder deshacerme de los datos de mí que estén guardados en la base de datos del sistema.
 
 ### H-XX+E1 – Éxito al eliminar jugador
 
-Dado un jugador que intente eliminar su perfil, dicho jugador será completamente eliminado de la base de datos del sistema.
+Dado un jugador que intente eliminar su cuenta, dicho jugador será completamente eliminado de la base de datos del sistema, junto con todos sus datos asociados.
 
+### H-XX-E2 – Jugador inexistente
 
-## H-XX Ver solicitudes de amistad
-
-Como jugador, quiero ver las solicitudes de amistad que haya recibido de otros jugadores para poder aceptarlas o ignorarlas.
-
-### H-XX-E1 – Éxito al ver solicitudes de amistad
-
-Dado un jugador que intente ver sus solicitudes de amistad, se mostrará una lista con todas las solicitudes de amistad que ha recibido y aún no haya aceptado o ignorado.
+Dado un jugador que no esté en la base de datos que intente eliminar su cuenta, se mostrará un error indicando que el usuario no existe.
 
 
 ## H-XX – Enviar solicitud de amistad
@@ -95,39 +97,61 @@ Como jugador, quiero enviar solicitudes de amistad a otros jugadores para poder 
 
 ### H-XX+E1 – Éxito al enviar solicitud de amistad
 
-Dado un jugador que intente enviar una petición de amistad desde su lista de amigos mediante el id de otro jugador, la petición será enviada al jugador correctamente.
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, la petición será enviada al jugador correctamente.
+
+### H-XX-E2 – Jugador/es inexistente/s
+
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+
+### H-XX-E3 – Solicitud de amistad a sí mismo
+
+Dado un jugador que intente enviar una petición de amistad mediante su mismo código de amigo, se mostrará un error indicando que no se puede enviar una solicitud de amistad a uno mismo.
+
+### H-XX-E4 – Solicitud de amistad a amigo
+
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de un jugador que ya es su amigo, se mostrará un error indicando que no se puede enviar una solicitud de amistad a un jugador que ya sea tu amigo.
+
+### H-XX-E5 – Solicitud de amistad a jugador con solicitud pendiente
+
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, cuando ya existe una solicitud pendiente de un jugador al otro o viceversa, se mostrará un error indicando que aún hay una solicitud pendiente de gestionar.
+
+### H-XX-E6 – Solicitud de amistad a administrador
+
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de un administrador, se mostrará un error indicando que no se puede enviar una solicitud de amistad a un administrador.
 
 
-## H-XX – Aceptar solicitud de amistad
+## H-XX Gestionar solicitudes de amistad
 
-Como jugador, quiero aceptar las solicitudes de amistad que reciba de otros jugadores para poder ser amigos y jugar partidas juntos.
+Como jugador, quiero gestionar las solicitudes de amistad que haya recibido de otros jugadores para poder aceptarlas o ignorarlas.
 
-### H-XX+E1 – Éxito al aceptar solicitud de amistad
+### H-XX-E1 – Éxito al ver solicitudes de amistad
 
-Dado un jugador que intente aceptar una petición de amistad que reciba de otro jugador, la petición será aceptada y los dos jugadores se convertirán en amigos.
+Dado un jugador que intente ver sus solicitudes de amistad, se mostrará una lista con todas las solicitudes de amistad que ha recibido y aún no haya aceptado o ignorado.
 
+### H-XX+E2 – Éxito al aceptar solicitud de amistad
 
-## H-XX – Ignorar solicitud de amistad
+Dado un jugador que intente aceptar una solicitud de amistad que reciba de otro jugador, la solicitud será aceptada y los dos jugadores se convertirán en amigos.
 
-Como jugador, quiero ignorar las solicitudes de amistad que reciba de otros jugadores para poder rechazar ser amigos con jugadores con los que no quiera serlo.
-
-### H-XX+E1 – Éxito al ignorar solicitud de amistad
+### H-XX+E3 – Éxito al ignorar solicitud de amistad
 
 Dado un jugador que intente ignorar una petición de amistad que reciba de otro jugador, la petición será ignorarada, desapareciendo de la lista de peticiones, y los dos jugadores no serán amigos.
 
+### H-XX-E4 – Jugador/es inexistente/s
 
-## H-XX – Eliminar amigo
+Dado un jugador que intente aceptar o ignorar una petición de amistad, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
 
-Como jugador, quiero eliminar a un jugador de mi lista de amigos para poder controlar qué jugadores son mis amigos.
+### H-XX-E5 – Solicitud inexistente
 
-### H-XX+E1 – Éxito al eliminar amigo
+Dado un jugador que intente aceptar o ignorar una petición de amistad que no esté en la base de datos, se mostrará un error indicando que la solicitud no existe.
 
-Dado un jugador que intente eliminar a un jugador de su lista de amigos desde el perfil de dicho jugador, ambos jugadores ya no serán amigos.
+### H-XX-E5 – Jugadores amigos
+
+Dado un jugador que intente aceptar o ignorar una petición de amistad de un jugador que es su amigo, se mostrará un error indicando que los dos ya son amigos.
 
 
-## H-XX – Ver amigos
+## H-XX – Gestionar amigos
 
-Como jugador, quiero ver los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos y ver cuáles están en línea.
+Como jugador, quiero gestionar los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos y ver cuáles están en línea.
 
 ### H-XX+E1 – Lista de amigos
 
@@ -137,140 +161,132 @@ Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los
 
 Dado un jugador que intente ver sus amigos sin tener ninguno, se mostrará una lista vacía con un mensaje que indique que el usuario aún no tiene amigos.
 
+### H-XX+E3 – Éxito al eliminar amigo
 
-## H-XX – Ver partidas públicas
+Dado un jugador que intente eliminar a un jugador de su lista de amigos desde el perfil de dicho jugador, ambos jugadores ya no serán amigos.
 
-Como jugador, quiero ver las partidas públicas abiertas para poder unirme a alguna.
+### H-XX-E4 – Jugador inexistente al eliminar amigo
 
-### H-XX+E1 – Ëxito al ver partidas públicas
+Dado un jugador que intente eliminar a un jugador de su lista de amigos, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+
+### H-XX-E5 – Jugador no amigo al eliminar amigo
+
+Dado un jugador que intente eliminar a un jugador que no es su amigo de su lista de amigos, se mostrará un error indicando que el usuario ya no es su amigo.
+
+
+## H-XX – Ver partidas
+
+Como jugador, quiero ver las partidas que existan para poder decidir si me interesa unirme o espectar alguna.
+
+### H-XX+E1 – Éxito al ver partidas públicas
 
 Dado un jugador que intente ver las partidas públicas abiertas, se mostrará una lista con todas las partidas públicas con un solo jugador esperando que aún no hayan empezado.
 
+### H-XX+E2 – Éxito al ver invitaciones de jugar o espectar partida privada
 
-## H-XX – Unirse a partida pública
+Dado un jugador que intente ver las invitaciones de jugar o espectar partida privada que haya recibido, se mostrará una lista con todas las invitaciones que no haya aceptado o rechazado.
 
-Como jugador, quiero unirme a alguna partida pública abierta para poder jugar a Petris.
 
-### H-XX – Éxito al unirse a partida pública
+## H-XX – Unirse a partida
+
+Como jugador, quiero unirme a alguna partida para poder jugar a Petris.
+
+### H-XX+E1 – Éxito al unirse a partida pública
 
 Dado un jugador que intente unirse a una partida pública con un solo jugador esperando que aún no haya empezado, se le llevará a esa partida, la cual comenzará.
 
+### H-XX+E2 – Éxito al aceptar invitación de jugar partida privada
 
-## H-XX – Crear partida pública
+Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se acepta la invitación, la partida comenzará.
 
-Como jugador, quiero crear una partida pública para poder jugar a Petris con cualquier usuario.
+### H-XX-E3 – Partida inexistente
+
+Dado un jugador que intente unirse a una partida pública que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
+
+### H-XX-E4 – Invitación inexistente
+
+Dado un jugador que intente aceptar una invitación de jugar partida privada que no esté en la base de datos, se mostrará un error indicando que la invitación no existe.
+
+### H-XX-E5 – Jugador/es inexistente/s
+
+Dado un jugador que intente unirse a una partida pública o privada, no estando el jugador que la envía y/o el que está esperando a que comience en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+
+
+## H-XX – Crear partida
+
+Como jugador, quiero crear una partida pública para poder jugar a Petris con otro usuario.
 
 ### H-XX+E1 – Éxito al crear partida pública
 
 Dado un jugador que intente crear una partida pública, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, aparecerá en la lista de partidas públicas y comenzará cuando otro usuario se una a ella.
 
-### H-XX+E2 – Cancelación al crear partida pública
-
-Dado un jugador que intente crear una partida pública, se abrirá una pantalla para configurar las normas de la partida. Si el jugador decide cancelar la creación de la partida, se volverá a la pantalla anterior y la partida no se creará.
-
-
-## H-XX – Enviar invitación de jugar partida privada
-
-Como jugador, quiero invitar a un amigo a jugar una partida privada para poder jugar a Petris con él.
-
-### H-XX+E1 – Éxito al enviar invitación de jugar partida privada
+### H-XX+E2 – Éxito al enviar invitación de jugar partida privada
 
 Dado un jugador que intente enviar una invitación de jugar partida privada a uno de sus amigos, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, dicho amigo recibirá la invitación y la partida comenzará cuando la acepte.
 
-### H-XX+E2 – Cancelación al enviar invitación de jugar partida privada
+### H-XX-E3 – Jugador/es inexistente/s
 
-Dado un jugador que intente enviar una invitación de jugar partida privada a uno de sus amigos, se abrirá una pantalla para configurar las normas de la partida. Si el jugador decide cancelar la creación de la partida, se volverá a la lista de amigos y la invitación no será enviada.
+Dado un jugador que intente crear una partida pública o enviar una invitación de jugar partida privada a uno de sus amigos, no estando el jugador que la envía y/o el amigo en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
 
+### H-XX-E4 – Jugador no amigo al enviar invitación
 
-## H-XX – Eliminar invitación de jugar partida privada
-
-Como jugador, quiero eliminar la invitación de jugar partida privada que he enviado a un amigo (y que aún no ha sido aceptada) para poder cancelar el comienzo de la partida.
-
-### H-XX+E1 – Éxito al eliminar invitación de jugar partida privada
-
-Dado un jugador que intente eliminar una invitación de jugar partida privada aún no aceptada que envió a uno de sus amigos, la invitación se eliminará correctamente, por lo que dicho amigo ya no podrá aceptarla, y la partida no comenzará.
+Dado un jugador que intente enviar una invitación de jugar partida privada a un jugador que no es su amigo, se mostrará un error indicando que el usuario ya no es su amigo.
 
 
-## H-XX – Aceptar invitación de jugar partida privada
+## H-XX Espectar partida
 
-Como jugador, quiero aceptar la invitación de jugar partida privada que me envíe un amigo para poder jugar a Petris con él.
-
-### H-XX+E1 – Éxito al aceptar invitación de jugar partida privada
-
-Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se acepta la invitación, la partida comenzará.
-
-
-## H-XX – Rechazar invitación de jugar partida privada
-
-Como jugador, quiero rechazar la invitación de jugar partida privada que me envíe un amigo para poder cancelarla y que no me aparezca en la lista de amigos.
-
-### H-XX+E1 – Éxito al rechazar invitación de jugar partida privada
-
-Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se rechaza la invitación, la invitación será deshechada y la partida no comenzará.
-
-
-## H-XX – Enviar invitación de espectar partida privada
-
-Como jugador, quiero invitar a un amigo a espectar una partida privada en la que esté actualmente para que pueda ver mi partida.
+Como jugador, quiero espectar una partida que estén jugando mis amigos para poder ver el curso de su partida.
 
 ### H-XX+E1 – Éxito al enviar invitación de espectar partida privada
 
 Dado un jugador que intente enviar una invitación de espectar partida privada, se abrirá una pantalla para que el jugador decida a qué amigo se la mandará (solo aparecerán los usuarios que sean amigos con ambos participantes de la partida). Si se escoge a un amigo, recibirá la invitación.
 
-### H-XX+E2 – Cancelación al enviar invitación de espectar partida privada
+### H-XX+E2 – Éxito al aceptar invitación de espectar partida privada
 
-Dado un jugador que intente enviar una invitación de espectar partida privada, se abrirá una pantalla para que el jugador decida a qué amigo se la mandará (solo aparecerán los usuarios que sean amigos con ambos participantes de la partida). Si el jugador decide cancelar el envío, se volverá a la partida y la invitación no será enviada.
-
-
-## H-XX – Eliminar invitación de espectar partida privada
-
-Como jugador, quiero eliminar la invitación de espectar partida privada que he enviado a un amigo (y que aún no ha sido aceptada) para poder cancelar que pueda ver la partida.
-
-### H-XX+E1 – Éxito al eliminar invitación de espectar partida privada
-
-Dado un jugador que intente eliminar una invitación de espectar partida privada aún no aceptada que envió a uno de sus amigos, la invitación se eliminará correctamente, por lo que dicho amigo ya no podrá aceptarla.
+Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se acepta la invitación, se mostrará la partida que se está jugando en tiempo real.
 
 
-## H-XX – Aceptar invitación de espectar partida privada
+## H-XX – Rechazar invitaciones recibidas
 
-Como jugador, quiero aceptar la invitación de espectar partida privada que me envíe un amigo para poder ver su partida.
+Como jugador, quiero rechazar las invitaciones que reciba de mis amigos para que no me aparezcan si no me interesan.
 
-### H-XX+E1 – Éxito al aceptar invitación de espectar partida privada
+### H-XX+E1 – Éxito al rechazar invitación de jugar partida privada
+
+Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se rechaza la invitación, la invitación será deshechada y la partida no comenzará.
+
+### H-XX+E2 – Éxito al rechazar invitación de espectar partida privada
 
 Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se rechaza la invitación, la invitación será deshechada y la partida no se espectará.
 
+### H-XX-E3 – Invitación inexistente
 
-## H-XX – Rechazar invitación de espectar partida privada
+Dado un jugador que intente rechazar una invitación que no esté en la base de datos, se mostrará un error indicando que la invitación no existe.
 
-Como jugador, quiero rechazar la invitación de espectar partida privada que me envíe un amigo para poder cancelarla y que no me aparezca en la lista de amigos.
+### H-XX-E4 – Jugador/es inexistente/s
 
-### H-XX+E1 – Éxito al rechazar invitación de espectar partida privada
-
-Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se rechaza la invitación, la invitación será deshechada y la partida no se espectará.
+Dado un jugador que intente rechazar una invitación, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
 
 
-## H-XX – Ver partidas en curso
+## H-XX – Gestionar partidas en curso
 
-Como jugador, quiero ver las partidas que estoy jugando para poder ver cuáles están en curso y cómo van.
+Como jugador, quiero gestionar las partidas que estoy jugando actualmente para poder ver cuáles están en curso y cómo van.
 
 ### H-XX+E1 – Éxito al ver partidas en curso
 
 Dado un jugador que intente ver las partidas que tiene en curso, se mostrará una pantalla con todas las partidas que ha empezado y aún no han terminado (por abandono o victoria de un jugador), indicando también si el siguiente turno es de dicho jugador.
 
-
-## H-XX – Retomar partida en curso
-
-Como jugador, quiero retomar una partida que esté jugando y de la que haya salido para poder continuarla.
-
-### H-XX+E1 Éxito al retomar partida en curso
+### H-XX+E2 – Éxito al retomar partida en curso
 
 Dado un jugador que intente retomar una partida que tiene en curso de la que haya salido (que no abandonado) desde la pantalla de partidas en curso, se le llevará a la partida para poder continuarla.
 
-
-## H-XX – Abandonar partida
-
-Como jugador, quiero abandonar una partida que esté jugando para poder dejarla si no quiero continuar.
-
-### H-XX+E1 – Éxito al abandonar partida
+### H-XX+E3 – Éxito al abandonar partida
 
 Dado un jugador que intente abandonar una partida que esté jugando, el jugador saldrá de la partida, la cual se eliminará.
+
+### H-XX-E4 – Partida inexistente
+
+Dado un jugador que intente retomar o abandonar una partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
+
+### H-XX-E5 – Jugador/es inexistente/s
+
+Dado un jugador que intente retomar o abandonar una partida, no estando el jugador que la envía y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.

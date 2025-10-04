@@ -271,26 +271,18 @@ Dado un jugador que intente rechazar una invitación que no esté en la base de 
 Dado un jugador que intente rechazar una invitación, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
 
 
-## H-XX – Gestionar partidas en curso
+## H-XX – Abandonar partida
 
-Como jugador, quiero gestionar las partidas que estoy jugando actualmente para poder ver cuáles están en curso y cómo van.
+Como jugador, quiero abandonar una partida que esté jugando para poder dejarla si no quiero continuar.
 
-### H-XX+E1 – Éxito al ver partidas en curso
-
-Dado un jugador que intente ver las partidas que tiene en curso, se mostrará una pantalla con todas las partidas que ha empezado y aún no han terminado (por abandono o victoria de un jugador), indicando también si el siguiente turno es de dicho jugador.
-
-### H-XX+E2 – Éxito al retomar partida en curso
-
-Dado un jugador que intente retomar una partida que tiene en curso de la que haya salido (que no abandonado) desde la pantalla de partidas en curso, se le llevará a la partida para poder continuarla.
-
-### H-XX+E3 – Éxito al abandonar partida
+### H-XX+E1 – Éxito al abandonar partida
 
 Dado un jugador que intente abandonar una partida que esté jugando, el jugador saldrá de la partida, la cual se eliminará.
 
-### H-XX-E4 – Partida inexistente
+### H-XX-E2 – Partida inexistente
 
 Dado un jugador que intente retomar o abandonar una partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
 
-### H-XX-E5 – Jugador/es inexistente/s
+### H-XX-E3 – Jugador/es inexistente/s
 
-Dado un jugador que intente retomar o abandonar una partida, no estando el jugador que la envía y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente retomar o abandonar una partida, no estando el jugador que lo intenta y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.

@@ -84,9 +84,13 @@ Como jugador, quiero eliminar mi cuenta para poder deshacerme de los datos de m�
 
 ### H-XX+E1 – Éxito al eliminar jugador
 
-Dado un jugador que intente eliminar su cuenta, dicho jugador será completamente eliminado de la base de datos del sistema, junto con todos sus datos asociados.
+Dado un jugador que intente eliminar su cuenta, al introducir su contraseña dicho jugador será completamente eliminado de la base de datos del sistema, junto con todos sus datos asociados.
 
-### H-XX-E2 – Jugador inexistente
+### H-XX+E2 - Fallo al eliminar jugador
+
+Dado un jugador que intente eliminar su cuenta, al fallar al introducir su contraseña dicho jugador no se eliminará de la base de datos y se dará un mensaje de error.
+
+### H-XX+E3 – Jugador inexistente
 
 Dado un jugador que no esté en la base de datos que intente eliminar su cuenta, se mostrará un error indicando que el usuario no existe.
 

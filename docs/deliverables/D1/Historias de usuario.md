@@ -260,33 +260,172 @@ Dado un jugador que intente aceptar una invitación de espectar partida privada 
 
 ### H-XX-E3 – Invitación inexistente
 
-Dado un jugador que intente rechazar una invitación que no esté en la base de datos, se mostrará un error indicando que la invitación no existe.
+Dado un jugador que intente rechazar una invitación que no esté en la base de datos (por haber expirado), se mostrará un error indicando que la invitación no existe.
 
 ### H-XX-E4 – Jugador/es inexistente/s
 
 Dado un jugador que intente rechazar una invitación, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
 
 
-## H-XX – Gestionar partidas en curso
+## H-XX – Ver información de partida
 
-Como jugador, quiero gestionar las partidas que estoy jugando actualmente para poder ver cuáles están en curso y cómo van.
+Como jugador, quiero ver la información de la partida que esté jugando o espectando para poder saber cómo va.
 
-### H-XX+E1 – Éxito al ver partidas en curso
+### H-XX+E1 – Éxito al ver información de partida
 
-Dado un jugador que intente ver las partidas que tiene en curso, se mostrará una pantalla con todas las partidas que ha empezado y aún no han terminado (por abandono o victoria de un jugador), indicando también si el siguiente turno es de dicho jugador.
+Dado un jugador que esté jugando o espectando una partida, se mostrarán los siguientes aspectos en tiempo real: posición de las bacterias y sarcinas, tablero de ayuda que indica cuál es la fase actual y las siguientes, y puntos de contaminación de cada jugador.
 
-### H-XX+E2 – Éxito al retomar partida en curso
 
-Dado un jugador que intente retomar una partida que tiene en curso de la que haya salido (que no abandonado) desde la pantalla de partidas en curso, se le llevará a la partida para poder continuarla.
+## H-XX – Funcionamiento de la partida
 
-### H-XX+E3 – Éxito al abandonar partida
+Como jugador, quiero que la partida que estoy jugando funcione correctamente para poder jugar a Petris con otros jugadores sin complicaciones.
+
+### H-XX+E1 – Fases
+
+Una partida avanzará de una fase a la siguiente, de la forma definida por el tablero de ayuda (los círculos indican fases de propagación, los rectángulos verdes indican fases de fisión y el rectángulo amarillo indica fase de contaminación) hasta que la partida termine. Las fases de propagación tienen asociadas un jugador, que es el que deberá mover sus bacterias para llegar a la siguiente fase; aparte de ésta, las demás fases avanzan automáticamente.
+
+## H-XX-E2 – Acción de jugador en fase incorrecta
+
+Dado un jugador que esté jugando una partida que intente mover sus bacterias en una fase que no sea de las suyas de propagación, la aplicación ignorará su acción.
+
+## H-XX-E3 – Abandono de partida
+
+Dado un jugador que esté jugando una partida que la abandone, la partida terminará sin ganador.
+
+## H-XX-E4 – Jugador/es inexistente/s
+
+Dado un usuario que esté jugando o espectando una partida, no estando el usuario y/o los jugadores de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n (si el usuario era uno de los jugadores de la partida, la partida terminará).
+
+## H-XX-E5 – Jugadores no amigos en partida privada
+
+Dado un usuario que esté jugando o espectando una partida privada, no siendo amigo de el/los jugador/es, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida (si el usuario era uno de los jugadores de la partida, la partida terminará).
+
+## H-XX-E6 – Espectador no amigo de jugadores en partida pública
+
+Dado un espectador que esté espectando una partida pública, no siendo amigo de alguno de los jugadores, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida.
+
+## H-XX-E7 – Partida inexistente
+
+Dado un usuario que esté jugando o espectando una partida, no estando la partida en la base de datos, se mostrará un error indicando que la partida no existe.
+
+
+## H-XX – Condiciones de victoria
+
+Como jugador, quiero que la partida que estoy jugando tenga condiciones de victoria para poder intentar ganar, sabiendo que la aplicación detectará mi victoria o derrota correctamente.
+
+### H-XX+E1 – Sin movimientos disponibles
+
+Dado un jugador que esté jugando una partida y sea una de sus fases de propagación, si no puede hacer ningún movimiento válido, la partida terminará con su derrota y la victoria del otro jugador.
+
+### H-XX+E2 – Máximo de puntos de contaminación
+
+Dado un jugador que esté jugando una partida y sea una fase de contaminación, si al final de la fase ha alcanzado C puntos de contaminación (siendo C un número que el creador de la partida escogerá), la partida terminará con su derrota y la victoria del otro jugador.
+
+### H-XX+E3 – Fase de contaminación final
+
+Dado un jugador que esté jugando una partida y sea la última fase de contaminación, si al final de la fase aún no se ha decidido el ganador, se observarán los puntos de contaminación de cada jugador. Si dicho jugador es el que tiene más puntos, la partida terminarácon su derrota y la victoria del otro jugador.
+
+### H-XX+E4 – Desempate
+
+Si ambos jugadores han llegado a una condición de derrota en la misma fase, el ganador se decidirá por quién tiene menos bacterias en el tablero (contando también las sarcinas, que valen S bacterias cada una, siendo S un número que el creador de la partida escogerá). Si no se llega a desempatar de ese modo, el ganador será el jugador con menos sarcinas en el tablero. Si se ha decidido el ganador, la partida terminará con su victoria y la derrota del otro jugador.
+
+### H-XX-E5 – Imposible desempatar
+
+Si se ha intentado desempatar y no se ha decidido ningún ganador, la partida terminará en empate, y ninguno de los jugadores ganará o perderá.
+
+
+## H-XX – Fase de propagación
+
+Como jugador, quiero que la partida que estoy jugando tenga fases de progapación para poder mover mis bacterias por el tablero.
+
+### H-XX+E1 – Mover bacterias
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, puede mover sus bacterias de una loseta a otra si el movimiento es válido (el movimiento es válido si no incumple los escenarios negativos de esta historia de usuario).
+
+### H-XX+E2 – Fin de fase
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, la fase terminará si el jugador mueve todas las bacterias de una loseta de forma válida, o si no mueve todas las bacterias de una loseta pero sí termina la fase manualmente.
+
+### H-XX+E3 – Reiniciar fase
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, si ha movido una o más bacterias pero aún no ha terminado la fase, puede reiniciarla para deshacer los movimientos que ha hecho.
+
+### H-XX+E4 – Creación de sarcinas
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, al final de la fase se observarán las losetas y, para cada una, se reemplazarán cada S bacterias del jugador por una sarcina (siendo S un número que el creador de la partida escogerá).
+
+### H-XX-E5 – Bacterias desde varias losetas
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, si ha movido una bacteria de una loseta a otra, y después intenta mover una bacteria de una loseta distinta, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben pertenecer a la misma loseta.
+
+### H-XX-E6 – Loseta/s no adyacente/s
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, si intenta mover una bacteria a una loseta no adyacente, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben moverse a losetas adyacentes.
+
+### H-XX-E7 – Loseta/s con mismas bacterias de ambos jugadores
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, si al terminar la fase existe/n una o más losetas con el mismo número de bacterias de ambos jugadores, la aplicación deshará todos los movimientos e indicará que no pueden haber losetas con el mismo número de bacterias de ambos jugadores.
+
+### H-XX-E8 – Intentar mover hacia sarcina
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, si intenta mover una de sus bacterias a una loseta que tenga una de sus sarcinas, la aplicación deshará el movimiento e indicará que no se puede mover una bacteria propia a una loseta con una sarcina propia.
+
+### H-XX-E9 – Mover al menos una bacteria
+
+Dado un jugador que esté jugando una partida y sea una fase suya de propagación, si intenta terminar la fase manualmente sin haber movido ninguna bacteria, la aplicación no lo permitirá.
+
+
+## H-XX – Fase de fisión
+
+Como jugador, quiero que la partida que estoy jugando tenga fases de fisión para poder crear nuevas bacterias en el tablero.
+
+### H-XX+E1 – Creación de bacterias
+
+En una fase de fisión, se observará cada loseta y, por cada una en la que haya bacterias de un solo jugador, se añadirán B a esa loseta (siendo B un número que el creador de la partida escogerá).
+
+### H-XX+E2 – Creación de sarcinas
+
+En una fase de fisión, tras crear las bacterias por loseta, se observarán las loseta y, para cada una, se reemplazarán cada S bacterias del jugador por una sarcina (siendo S un número que el creador de la partida escogerá). Tras ello, la fase terminará.
+
+
+## H-XX – Fase de contaminación
+
+Como jugador, quiero que la partida que estoy jugando tenga fases de contaminación para poder añadir puntos de contaminación a ambos jugadores.
+
+### H-XX+E1 – Añadir puntos de contaminación
+
+En una fase de contaminación, se observará cada loseta y, por cada una, si hay más bacterias de un jugador que de otro (contando también las sarcinas, que valen S bacterias cada una, siendo S un número que el creador de la partida escogerá), se añadirá un punto de contaminación a dicho jugador. Si se hace esto para todas las losetas y ningún jugador ha perdido, la fase terminará.
+
+
+## H-XX – Abandonar partida
+
+Como jugador, quiero abandonar una partida que esté jugando para poder dejarla si no quiero continuar.
+
+### H-XX+E1 – Éxito al abandonar partida
 
 Dado un jugador que intente abandonar una partida que esté jugando, el jugador saldrá de la partida, la cual se eliminará.
 
-### H-XX-E4 – Partida inexistente
+### H-XX-E2 – Partida inexistente
 
 Dado un jugador que intente retomar o abandonar una partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
 
-### H-XX-E5 – Jugador/es inexistente/s
+### H-XX-E3 – Jugador/es inexistente/s
 
-Dado un jugador que intente retomar o abandonar una partida, no estando el jugador que la envía y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente abandonar una partida, no estando el jugador que lo intenta y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+
+
+## H-XX – Chat de partida
+
+Como jugador o espectador, quiero ver y mandar mensajes en el chat de la partida que esté jugando o espectando para comunicarme con los otros usuarios.
+
+### H-XX+E1 – Ver mensajes
+
+Dado un jugador o espectador que esté jugando o espectando una partida, se mostrarán los mensajes enviados en el chat en tiempo real, al igual que quién ha enviado cada uno.
+
+### H-XX+E2 – Enviar mensajes
+
+Dado un jugador o espectador que esté jugando o espectando una partida que intente enviar un mensaje en el chat, el mensaje se guardará en el chat y los otros usuarios podrán verlo.
+
+### H-XX-E3 – Mensajes de espectadores
+
+Dado un jugador o espectador que esté jugando una partida, no se mostrarán los mensajes enviados en el chat por espectadores; solamente los que han sido enviados por los jugadores.

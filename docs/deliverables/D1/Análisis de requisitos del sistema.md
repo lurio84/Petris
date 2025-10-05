@@ -1,16 +1,27 @@
 # Documento de análisis de requisitos del sistema
 
-**Asignatura:** Diseño y Pruebas (Grado en Ingeniería del Software, Universidad de Sevilla)  
+**Asignatura:** Diseño y Pruebas (Grado en Ingeniería del Software, Universidad de Sevilla)
+
 **Curso académico:** 2025/2026
+
 **Grupo/Equipo:** Grupo 2 L4-01
+
 **Nombre del proyecto:** Petris
+
 **Repositorio:** https://github.com/gii-is-DP1/dp1-2025-2026-l4-1
+
 **Integrantes (máx. 6):**
+
 Jesús Cárdenas Conejo (jescarcon / jescarcon@alum.us.es)
+
 Guillermo Ciria González (NQP9307 / guicirgon@alum.us.es, gciria@us.es)
+
 Jaime González de Herrera Soriano (JMQ0481 / jaigonsor@us.es)
+
 Conor López Chivite (LCY2956 / conlopchi@alum.us.es)
+
 Lucas Ronquillo Bernáldez (HGK2646 / lucronber@alum.us.es)
+
 Roberto Serrano Villalba (XDW2012 / robservil@alum.us.es)
 
 ## Introducción
@@ -809,9 +820,10 @@ _Restricción: Solo los administradores podrán pausar o eliminar una partida qu
 
 _Restricción: Solo los creadores de una partida pueden personalizar sus normas._
 
-=======
 ## Orden para abordar en el desarrollo
+
 Para este proyecto vamos a seguir el siguiente orden de desarrollo e integración, en orden natural:
+
 ### 1-Registrar jugador
 ### 2-Iniciar sesión
 ### 3-Cerrar sesión
@@ -838,7 +850,8 @@ Para este proyecto vamos a seguir el siguiente orden de desarrollo e integració
 ### 24-Rechazar invitaciones recibidas
 ### 25-Ver información de la partida
 
-En el caso de las entidades uml y de los objetos de la base de datos (que coinciden con las mismas), seguiremos este orden:
+En el caso de las entidades UML y de los objetos de la base de datos (que coinciden con las mismas), seguiremos este orden:
+
 ### 1-User
 ### 2-Game
 ### 3-Invitation
@@ -854,6 +867,4 @@ En el caso de las entidades uml y de los objetos de la base de datos (que coinci
 ### 13-Achievement
 ### 14-FriendRequest
 
-Los servicios y controladores de la API tendrán el mismo orden de implementación que las entidades. Dentro de esto
-se intentará crear los servicios y los controladores correspondentes a cada entidad tras la creación de ésta.
-Posteriormente junto con la integración en React se implementarán las pruebas.
+Los servicios y controladores de la API tendrán el mismo orden de implementación que las entidades. Dentro de esto se intentará crear los servicios y los controladores correspondentes a cada entidad tras la creación de ésta. Posteriormente junto con la integración en React se implementarán las pruebas.

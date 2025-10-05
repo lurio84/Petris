@@ -17,13 +17,13 @@ _En esta sección debes describir de manera general cual es la funcionalidad del
 
 ## Tipos de Usuarios / Roles
 
-**Jugador:**
+**Jugador:** Un usuario registrado que no es administrador. Puede modificar su perfil, enviar y aceptar/rechazar solicitudes de amistad, gestionar su lista de amigos, crear y unirse a partidas públicas y privadas y eliminar su cuenta.
 
-**Jugador en partida:**
+**Jugador en partida:** Un jugador que está en medio de una partida. Puede mover sus bacterias en sus fases de propagación, escribir en el chat, invitar espectadores y abandonar la partida.
 
-**Espectador:**
+**Espectador:** Un espectador ve la partida en tiempo real de otros dos jugadores. Puede escribir en el chat, aunque sus mensajes sólo pueden ser vistos por otros espectadores, pero no puede interactuar de ninguna forma con la partida.
 
-**Administrador:**
+**Administrador:** Un administrador tiene control casi total sobre el sistema. Puede modificar y eliminar jugadores; crear, modificar y eliminar logros; y eliminar partidas públicas y privadas.
 
 ## Historias de Usuario
 

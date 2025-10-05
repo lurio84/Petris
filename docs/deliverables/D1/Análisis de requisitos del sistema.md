@@ -654,3 +654,51 @@ _Restricción: Solo los administradores podrán ver, modificar o eliminar jugado
 ### R44 – Control de partidas activas
 
 _Restricción: Solo los administradores podrán pausar o eliminar una partida que esté en curso._
+
+## Orden para abordar en el desarrollo
+Para este proyecto vamos a seguir el siguiente orden de desarrollo e integración, en orden natural:
+### 1-Registrar jugador
+### 2-Iniciar sesión
+### 3-Cerrar sesión
+### 4-Crear partida
+### 5-Ver lista de partidas
+### 6-Unirse a partida
+### 7-Funcionamiento de la partida
+### 8-Condiciones de victoria
+### 9-Fase de propagación
+### 10-Fase de fisión
+### 11-Fase de contaminación
+### 12-Abandonar partida
+### 13-Administrar jugadores
+### 14-Administrar partidas en curso
+### 15-Administrar logros
+### 16-Chat de partida
+### 17-Ver perfil
+### 18-Editar perfil
+### 19-Eliminar jugador
+### 20-Enviar solicitud de amistad
+### 21-Gestionar solicitudes de amistad
+### 22-Solicitud inexistente
+### 23-Espectar partida
+### 24-Rechazar invitaciones recibidas
+### 25-Ver información de la partida
+
+En el caso de las entidades uml y de los objetos de la base de datos (que coinciden con las mismas), seguiremos este orden:
+### 1-User
+### 2-Game
+### 3-Invitation
+### 4-PlayerGame
+### 5-PetriPlate
+### 6-Sarcine
+### 7-Bactery
+### 8-Turn
+### 9-Action
+### 10-GameStatistics
+### 11-Profile
+### 12-AchievementList
+### 13-Achievement
+### 14-FriendRequest
+
+Los servicios y controladores de la API tendrán el mismo orden de implementación que las entidades. Dentro de esto
+se intentará crear los servicios y los controladores correspondentes a cada entidad tras la creación de ésta.
+Posteriormente junto con la integración en React se implementarán las pruebas.

@@ -1,13 +1,17 @@
 # Documento de análisis de requisitos del sistema
 
 **Asignatura:** Diseño y Pruebas (Grado en Ingeniería del Software, Universidad de Sevilla)  
-**Curso académico:** <!-- p.ej., 2025/2026 -->  
-**Grupo/Equipo:** <!-- p.ej., L4-03 Equipo 33 -->  
-**Nombre del proyecto:** <!-- p. ej. Petris -->  
-**Repositorio:** <!-- URL del repo -->  
-**Integrantes (máx. 6):** <!-- Nombre Apellidos (US-Id / correo @us.es) -->
-
-_Esta es una plantilla que sirve como guía para realizar este entregable. Por favor, mantén las mismas secciones y los contenidos que se indican para poder hacer su revisión más ágil._
+**Curso académico:** 2025/2026
+**Grupo/Equipo:** Grupo 2 L4-01
+**Nombre del proyecto:** Petris
+**Repositorio:** https://github.com/gii-is-DP1/dp1-2025-2026-l4-1
+**Integrantes (máx. 6):**
+Jesús Cárdenas Conejo (jescarcon / jescarcon@alum.us.es)
+Guillermo Ciria González (NQP9307 / guicirgon@alum.us.es, gciria@us.es)
+Jaime González de Herrera Soriano (JMQ0481 / jaigonsor@us.es)
+Conor López Chivite (LCY2956 / conlopchi@alum.us.es)
+Lucas Ronquillo Bernáldez (HGK2646 / lucronber@alum.us.es)
+Roberto Serrano Villalba (XDW2012 / robservil@alum.us.es)
 
 ## Introducción
 

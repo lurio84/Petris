@@ -223,43 +223,43 @@ Dado un jugador que intente rechazar una invitación, no estando el jugador que 
 
 ### H-15: Funcionamiento de la partida
 
-| Como jugador de partida, quiero que la partida que estoy jugando funcione correctamente para poder jugar a Petris con otros jugadores sin complicaciones. |
+| Como jugador en partida, quiero que la partida que estoy jugando funcione correctamente para poder jugar a Petris con otros jugadores sin complicaciones. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-15+E1: Fases**
 Una partida avanzará de una fase a la siguiente, de la forma definida por el tablero de ayuda (los círculos indican fases de propagación, los rectángulos verdes indican fases de fisión y el rectángulo amarillo indica fase de contaminación) hasta que la partida termine. Las fases de propagación tienen asociadas un jugador, que es el que deberá mover sus bacterias para llegar a la siguiente fase; aparte de ésta, las demás fases avanzan automáticamente.
 **H-15-E2: Acción de jugador en fase incorrecta**
-Dado un jugador de partida que intente mover sus bacterias en una fase que no sea de las suyas de propagación, la aplicación ignorará su acción.
+Dado un jugador en partida que intente mover sus bacterias en una fase que no sea de las suyas de propagación, la aplicación ignorará su acción.
 **H-15-E3: Abandono de partida**
-Dado un jugador de partida que abandone la partida, la partida terminará sin ganador.
+Dado un jugador en partida que abandone la partida, la partida terminará sin ganador.
 **H-15-E4: Jugador/es inexistente/s**
-Dado un jugador de partida o espectador, no estando el usuario y/o los jugadores de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n (si el usuario era uno de los jugadores de la partida, la partida terminará).
+Dado un jugador en partida o espectador, no estando el usuario y/o los jugadores de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n (si el usuario era uno de los jugadores de la partida, la partida terminará).
 **H-15-E5: Jugadores no amigos en partida privada**
-Dado un jugador de partida o espectador en una partida privada, no siendo amigo de el/los jugador/es, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida (si el usuario era uno de los jugadores de la partida, la partida terminará).
+Dado un jugador en partida o espectador en una partida privada, no siendo amigo de el/los jugador/es, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida (si el usuario era uno de los jugadores de la partida, la partida terminará).
 **H-15-E6: Espectador no amigo de jugadores en partida pública**
 Dado un espectador en una partida pública, no siendo amigo de alguno de los jugadores, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida.
 **H-15-E7: Partida inexistente**
-Dado un jugador de partida o espectador, no estando la partida en la base de datos, se mostrará un error indicando que la partida no existe.
+Dado un jugador en partida o espectador, no estando la partida en la base de datos, se mostrará un error indicando que la partida no existe.
 
 ### H-16: Ver información de partida
 
-| Como jugador de partida o espectador, quiero ver la información de la partida que esté jugando o espectando para poder saber cómo va. |
+| Como jugador en partida o espectador, quiero ver la información de la partida que esté jugando o espectando para poder saber cómo va. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-16+E1: Éxito al ver información de partida**
-Dado un jugador de partida o espectador, se mostrarán los siguientes aspectos en tiempo real: posición de las bacterias y sarcinas, tablero de ayuda que indica cuál es la fase actual y las siguientes, y puntos de contaminación de cada jugador.
+Dado un jugador en partida o espectador, se mostrarán los siguientes aspectos en tiempo real: posición de las bacterias y sarcinas, tablero de ayuda que indica cuál es la fase actual y las siguientes, y puntos de contaminación de cada jugador.
 
 ### H-17: Condiciones de victoria
 
-| Como jugador de partida, quiero que la partida que estoy jugando tenga condiciones de victoria para poder intentar ganar, sabiendo que la aplicación detectará mi victoria o derrota correctamente. |
+| Como jugador en partida, quiero que la partida que estoy jugando tenga condiciones de victoria para poder intentar ganar, sabiendo que la aplicación detectará mi victoria o derrota correctamente. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-17+E1: Sin movimientos disponibles**
-Dado un jugador de partida cuando sea una de sus fases de propagación, si no puede hacer ningún movimiento válido, la partida terminará con su derrota y la victoria del otro jugador.
+Dado un jugador en partida cuando sea una de sus fases de propagación, si no puede hacer ningún movimiento válido, la partida terminará con su derrota y la victoria del otro jugador.
 **H-17+E2: Máximo de puntos de contaminación**
-Dado un jugador de partida cuando sea una fase de contaminación, si al final de la fase ha alcanzado C puntos de contaminación (siendo C un número que el creador de la partida escogerá), la partida terminará con su derrota y la victoria del otro jugador.
+Dado un jugador en partida cuando sea una fase de contaminación, si al final de la fase ha alcanzado C puntos de contaminación (siendo C un número que el creador de la partida escogerá), la partida terminará con su derrota y la victoria del otro jugador.
 **H-17+E3: Fase de contaminación final**
-Dado un jugador de partida cuando sea la última fase de contaminación, si al final de la fase aún no se ha decidido el ganador, se observarán los puntos de contaminación de cada jugador. Si dicho jugador es el que tiene más puntos, la partida terminarácon su derrota y la victoria del otro jugador.
+Dado un jugador en partida cuando sea la última fase de contaminación, si al final de la fase aún no se ha decidido el ganador, se observarán los puntos de contaminación de cada jugador. Si dicho jugador es el que tiene más puntos, la partida terminarácon su derrota y la victoria del otro jugador.
 **H-17+E4: Desempate**
 Si ambos jugadores de partida han llegado a una condición de derrota en la misma fase, el ganador se decidirá por quién tiene menos bacterias en el tablero (contando también las sarcinas, que valen S bacterias cada una, siendo S un número que el creador de la partida escogerá). Si no se llega a desempatar de ese modo, el ganador será el jugador con menos sarcinas en el tablero. Si se ha decidido el ganador, la partida terminará con su victoria y la derrota del otro jugador.
 **H-17-E5: Imposible desempatar**
@@ -267,31 +267,31 @@ Si se ha intentado desempatar y no se ha decidido ningún ganador, la partida te
 
 ### H-18: Fase de propagación
 
-| Como jugador de partida, quiero que la partida que estoy jugando tenga fases de progapación para poder mover mis bacterias por el tablero. |
+| Como jugador en partida, quiero que la partida que estoy jugando tenga fases de progapación para poder mover mis bacterias por el tablero. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-18+E1: Mover bacterias**
-Dado un jugador de partida cuando sea una fase suya de propagación, puede mover sus bacterias de una loseta a otra si el movimiento es válido (el movimiento es válido si no incumple los escenarios negativos de esta historia de usuario).
+Dado un jugador en partida cuando sea una fase suya de propagación, puede mover sus bacterias de una loseta a otra si el movimiento es válido (el movimiento es válido si no incumple los escenarios negativos de esta historia de usuario).
 **H-18+E2: Fin de fase**
-Dado un jugador de partida cuando sea una fase suya de propagación, la fase terminará si el jugador mueve todas las bacterias de una loseta de forma válida, o si no mueve todas las bacterias de una loseta pero sí termina la fase manualmente.
+Dado un jugador en partida cuando sea una fase suya de propagación, la fase terminará si el jugador mueve todas las bacterias de una loseta de forma válida, o si no mueve todas las bacterias de una loseta pero sí termina la fase manualmente.
 **H-18+E3: Reiniciar fase**
-Dado un jugador de partida cuando sea una fase suya de propagación, si ha movido una o más bacterias pero aún no ha terminado la fase, puede reiniciarla para deshacer los movimientos que ha hecho.
+Dado un jugador en partida cuando sea una fase suya de propagación, si ha movido una o más bacterias pero aún no ha terminado la fase, puede reiniciarla para deshacer los movimientos que ha hecho.
 **H-18+E4: Creación de sarcinas**
-Dado un jugador de partida cuando sea una fase suya de propagación, al final de la fase se observarán las losetas y, para cada una, se reemplazarán cada S bacterias del jugador por una sarcina (siendo S un número que el creador de la partida escogerá).
+Dado un jugador en partida cuando sea una fase suya de propagación, al final de la fase se observarán las losetas y, para cada una, se reemplazarán cada S bacterias del jugador por una sarcina (siendo S un número que el creador de la partida escogerá).
 **H-18-E5: Bacterias desde varias losetas**
-Dado un jugador de partida cuando sea una fase suya de propagación, si ha movido una bacteria de una loseta a otra, y después intenta mover una bacteria de una loseta distinta, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben pertenecer a la misma loseta.
+Dado un jugador en partida cuando sea una fase suya de propagación, si ha movido una bacteria de una loseta a otra, y después intenta mover una bacteria de una loseta distinta, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben pertenecer a la misma loseta.
 **H-18-E6: Loseta/s no adyacente/s**
-Dado un jugador de partida cuando sea una fase suya de propagación, si intenta mover una bacteria a una loseta no adyacente, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben moverse a losetas adyacentes.
+Dado un jugador en partida cuando sea una fase suya de propagación, si intenta mover una bacteria a una loseta no adyacente, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben moverse a losetas adyacentes.
 **H-18-E7: Loseta/s con mismas bacterias de ambos jugadores**
-Dado un jugador de partida cuando sea una fase suya de propagación, si al terminar la fase existe/n una o más losetas con el mismo número de bacterias de ambos jugadores, la aplicación deshará todos los movimientos e indicará que no pueden haber losetas con el mismo número de bacterias de ambos jugadores.
+Dado un jugador en partida cuando sea una fase suya de propagación, si al terminar la fase existe/n una o más losetas con el mismo número de bacterias de ambos jugadores, la aplicación deshará todos los movimientos e indicará que no pueden haber losetas con el mismo número de bacterias de ambos jugadores.
 **H-18-E8: Intentar mover hacia sarcina**
-Dado un jugador de partida cuando sea una fase suya de propagación, si intenta mover una de sus bacterias a una loseta que tenga una de sus sarcinas, la aplicación deshará el movimiento e indicará que no se puede mover una bacteria propia a una loseta con una sarcina propia.
+Dado un jugador en partida cuando sea una fase suya de propagación, si intenta mover una de sus bacterias a una loseta que tenga una de sus sarcinas, la aplicación deshará el movimiento e indicará que no se puede mover una bacteria propia a una loseta con una sarcina propia.
 **H-18-E9: Mover al menos una bacteria**
-Dado un jugador de partida cuando sea una fase suya de propagación, si intenta terminar la fase manualmente sin haber movido ninguna bacteria, la aplicación no lo permitirá.
+Dado un jugador en partida cuando sea una fase suya de propagación, si intenta terminar la fase manualmente sin haber movido ninguna bacteria, la aplicación no lo permitirá.
 
 ### H-19: Fase de fisión
 
-| Como jugador de partida, quiero que la partida que estoy jugando tenga fases de fisión para poder crear nuevas bacterias en el tablero. |
+| Como jugador en partida, quiero que la partida que estoy jugando tenga fases de fisión para poder crear nuevas bacterias en el tablero. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-19+E1: Creación de bacterias**
@@ -301,7 +301,7 @@ En una fase de fisión, tras crear las bacterias por loseta, se observarán las 
 
 ### H-20: Fase de contaminación
 
-| Como jugador de partida, quiero que la partida que estoy jugando tenga fases de contaminación para poder añadir puntos de contaminación a ambos jugadores. |
+| Como jugador en partida, quiero que la partida que estoy jugando tenga fases de contaminación para poder añadir puntos de contaminación a ambos jugadores. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-20+E1: Añadir puntos de contaminación**
@@ -309,27 +309,27 @@ En una fase de contaminación, se observará cada loseta y, por cada una, si hay
 
 ### H-21: Abandonar partida
 
-| Como jugador de partida, quiero abandonar una partida que esté jugando para poder dejarla si no quiero continuar. |
+| Como jugador en partida, quiero abandonar una partida que esté jugando para poder dejarla si no quiero continuar. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-21+E1: Éxito al abandonar partida**
-Dado un jugador de partida que intente abandonar su partida, el jugador saldrá de la partida, la cual se eliminará.
+Dado un jugador en partida que intente abandonar su partida, el jugador saldrá de la partida, la cual se eliminará.
 **H-21-E2: Partida inexistente**
-Dado un jugador de partida que intente abandonar su partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
+Dado un jugador en partida que intente abandonar su partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
 **H-21-E3: Jugador/es inexistente/s**
-Dado un jugador de partida que intente abandonar su partida, no estando el jugador que lo intenta y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador en partida que intente abandonar su partida, no estando el jugador que lo intenta y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
 
 ### H-22: Chat de partida
 
-| Como jugador de partida o espectador, quiero ver y mandar mensajes en el chat de la partida que esté jugando o espectando para comunicarme con los otros usuarios. |
+| Como jugador en partida o espectador, quiero ver y mandar mensajes en el chat de la partida que esté jugando o espectando para comunicarme con los otros usuarios. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-22+E1: Ver mensajes**
-Dado un jugador de partida o espectador, se mostrarán los mensajes enviados en el chat en tiempo real, al igual que quién ha enviado cada uno.
+Dado un jugador en partida o espectador, se mostrarán los mensajes enviados en el chat en tiempo real, al igual que quién ha enviado cada uno.
 **H-22+E2: Enviar mensajes**
-Dado un jugador de partida o espectador que intente enviar un mensaje en el chat, el mensaje se guardará en el chat y los otros usuarios podrán verlo.
+Dado un jugador en partida o espectador que intente enviar un mensaje en el chat, el mensaje se guardará en el chat y los otros usuarios podrán verlo.
 **H-22-E3: Mensajes de espectadores**
-Dado un jugador de partida, no se mostrarán los mensajes enviados en el chat por espectadores; solamente los que han sido enviados por los jugadores.
+Dado un jugador en partida, no se mostrarán los mensajes enviados en el chat por espectadores; solamente los que han sido enviados por los jugadores.
 
 ### **Administradores**
 

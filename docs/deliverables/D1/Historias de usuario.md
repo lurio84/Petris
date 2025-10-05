@@ -69,7 +69,7 @@ Como jugador, quiero editar mi perfil para poder elegir qué información muestr
 
 Dado un jugador que introduzca campos de perfil con formato correcto al intentar editar su perfil, los valores de su perfil serán reemplazados correctamente con los que ha introducido.
 
-### H-XX-E2 – Intentar editar perfil con datos no válidos
+### H-XX-E2 – Editar perfil con datos no válidos
 
 Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar su perfil, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.
 
@@ -124,7 +124,7 @@ Dado un jugador que intente enviar una petición de amistad mediante el código 
 Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de un administrador, se mostrará un error indicando que no se puede enviar una solicitud de amistad a un administrador.
 
 
-## H-XX Gestionar solicitudes de amistad
+## H-XX – Gestionar solicitudes de amistad
 
 Como jugador, quiero gestionar las solicitudes de amistad que haya recibido de otros jugadores para poder aceptarlas o ignorarlas.
 
@@ -167,15 +167,15 @@ Dado un jugador que intente ver sus amigos sin tener ninguno, se mostrará una l
 
 ### H-XX+E3 – Éxito al eliminar amigo
 
-Dado un jugador que intente eliminar a un jugador de su lista de amigos desde el perfil de dicho jugador, ambos jugadores ya no serán amigos.
+Dado un jugador que intente eliminar un jugador de su lista de amigos, ambos jugadores ya no serán amigos.
 
 ### H-XX-E4 – Jugador inexistente al eliminar amigo
 
-Dado un jugador que intente eliminar a un jugador de su lista de amigos, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente eliminar un jugador de su lista de amigos, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
 
 ### H-XX-E5 – Jugador no amigo al eliminar amigo
 
-Dado un jugador que intente eliminar a un jugador que no es su amigo de su lista de amigos, se mostrará un error indicando que el usuario ya no es su amigo.
+Dado un jugador que intente eliminar un jugador que no es su amigo de su lista de amigos, se mostrará un error indicando que el usuario no es su amigo.
 
 
 ## H-XX – Ver partidas
@@ -237,7 +237,7 @@ Dado un jugador que intente crear una partida pública o enviar una invitación 
 Dado un jugador que intente enviar una invitación de jugar partida privada a un jugador que no es su amigo, se mostrará un error indicando que el usuario ya no es su amigo.
 
 
-## H-XX Espectar partida
+## H-XX – Espectar partida
 
 Como jugador, quiero espectar una partida que estén jugando mis amigos para poder ver el curso de su partida.
 
@@ -432,4 +432,87 @@ Dado un jugador o espectador que esté jugando o espectando una partida que inte
 
 ### H-XX-E3 – Mensajes de espectadores
 
-Dado un jugador o espectador que esté jugando una partida, no se mostrarán los mensajes enviados en el chat por espectadores; solamente los que han sido enviados por los jugadores.
+Dado un jugador que esté jugando una partida, no se mostrarán los mensajes enviados en el chat por espectadores; solamente los que han sido enviados por los jugadores.
+
+
+## H-XX – Administrar jugadores
+
+Como administrador, quiero administrar los jugadores existentes en la base de datos para poder verlos, modificarlos o eliminarlos.
+
+### H-XX+E1 – Ver jugadores
+
+Dado un administrador que intente ver todos los jugadores de la base de datos, se mostrará una lista con todos, junto con opciones para modificarlos o eliminarlos.
+
+### H-XX+E2 – Modificar jugador
+
+Dado un administrador que introduzca campos de perfil con formato correcto al intentar editar el perfil de un jugador de la base de datos, los valores de su perfil serán reemplazados correctamente con los que ha introducido.
+
+### H-XX+E4 – Eliminar amigos
+
+Dado un administrador que intente eliminar un jugador de la lista de amigos de otro jugador desde la pantalla de modificar jugador, ambos jugadores ya no serán amigos.
+
+### H-XX+E5 – Eliminar jugador
+
+Dado un administrador que intente eliminar un jugador de la base de datos, dicho jugador será completamente eliminado de la base de datos del sistema, junto con todos sus datos asociados.
+
+### H-XX-E6 – Editar perfil con datos no válidos
+
+Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar el perfil de un jugador de la base de datos, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.
+
+### H-XX-E7 – Jugador inexistente
+
+Dado un administrador que intente modificar o eliminar un jugador que no esté en la base de datos, se mostrará un error indicando que el usuario no existe.
+
+### H-XX-E8 – Jugador no amigo
+
+Dado un administrador que intente eliminar un jugador que no es su amigo de la lista de amigos de otro jugador, se mostrará un error indicando que el usuario no es su amigo.
+
+### H-XX-E9 – Amigo inexistente
+
+Dado un administrador que intente eliminar un jugador que no esté en la base de datos de la lista de amigos de otro jugador, se mostrará un error indicando que el usuario no existe.
+
+
+## H-XX – Administrar logros
+
+Como administrador, quiero administrar los logros existentes en la base de datos para poder verlos, modificarlos, eliminarlos o crear nuevos.
+
+### H-XX+E1 – Ver logros
+
+Dado un administrador que intente ver todos los logros de la base de datos, se mostrará una lista con todos, junto con opciones para modificarlos o eliminarlos.
+
+### H-XX+E2 – Crear logro
+
+Dado un administrador que introduzca campos de logro con formato correcto al intentar crear un logro, se creará un logro en la base de datos con dichos valores.
+
+### H-XX+E3 – Modificar logro
+
+Dado un administrador que introduzca campos de logro con formato correcto al intentar modificar un logro de la base de datos, los valores del logro serán reemplazados correctamente con los que ha introducido.
+
+### H-XX+E4 – Eliminar logro
+
+Dado un administrador que intente eliminar un logro de la base de datos, dicho logro será completamente eliminado de la base de datos del sistema, junto con todos las instancias de logros obtenidos de todos los jugadores de la aplicación.
+
+### H-XX-E5 – Crear o modificar logro con datos no válidos
+
+Dado un jugador que introduzca campos de logro con formato incorrecto al intentar crear o modificar un logro de la base de datos, se mostrará un error en pantalla indicando que los datos no son válidos y el logro no se creará/los valores del logro no cambiarán.
+
+### H-XX-E6 – Logro inexistente
+
+Dado un administrador que intente modificar o eliminar un logro que no esté en la base de datos, se mostrará un error indicando que el logro no existe.
+
+
+## H-XX – Administrar partidas en curso
+
+Como administrador, quiero administrar las partidas en curso existentes en la base de datos para poder verlas o eliminarlas.
+
+### H-XX+E1 – Ver partidas en curso
+
+Dado un administrador que intente ver todas las partidas en curso existentes en la base de datos, se mostrará una lista con todas, junto con opciones para eliminarlas.
+
+### H-XX+E2 – Eliminar partida en curso
+
+Dado un administrador que intente eliminar una partida en curso de la base de datos, dicha partida será completamente eliminada de la base de datos del sistema.
+
+### H-XX-E3 – Partida inexistente
+
+Dado un administrador que intente eliminar una partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.

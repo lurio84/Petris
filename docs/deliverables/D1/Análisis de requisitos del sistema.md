@@ -39,11 +39,13 @@ A continuación se definen todas las historias de usuario a implementar:
 
 | Como usuario, quiero registrarme como jugador en el sistema para poder identificarme y acceder a las funcionalidades de jugador. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| <img width="1290" height="916" alt="H-01" src="https://github.com/user-attachments/assets/9e01a1fd-1950-4bcf-9753-d2b185ec647d" />
 **H-01+E1: Éxito al registrar jugador**
 Dado un usuario que introduzca un nombre, contraseña y campos de perfil con formato correcto al intentar registrar un jugador, se creará un jugador en la base de datos con dichas credenciales, y el usuario iniciará sesión como dicho jugador.
 **H-01-E2: Intentar registrar jugador con datos no válidos**
-Dado un usuario que introduzca un nombre, contraseña y/o campo/s de perfil con formato incorrecto al intentar registrar un jugador, se mostrará un error en pantalla indicando que los datos no son válidos y el jugador no será creado en la base de datos.
+Dado un usuario que introduzca un nombre, contraseña y/o campo/s de perfil con formato incorrecto al intentar registrar un jugador, se mostrará un error en pantalla indicando que los datos no son válidos y el jugador no será creado en la base de datos.<img width="1290" height="916" alt="H-01-E2" src="https://github.com/user-attachments/assets/f53c2030-2f59-4b72-88a4-66ab6a2c8a7d" />
+
+
 
 ### H-02: Iniciar sesión
 
@@ -51,9 +53,11 @@ Dado un usuario que introduzca un nombre, contraseña y/o campo/s de perfil con 
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-02+E1: Éxito al iniciar sesión**
-Dado un usuario que introduzca un nombre y/o contraseña asociados a un jugador/administrador existente en la base de datos del sistema al intentar iniciar sesión, el usuario iniciará sesión como dicho jugador.
+Dado un usuario que introduzca un nombre y/o contraseña asociados a un jugador/administrador existente en la base de datos del sistema al intentar iniciar sesión, el usuario iniciará sesión como dicho jugador.<img width="1290" height="916" alt="H-02-E1" src="https://github.com/user-attachments/assets/14c8077d-29ec-41c0-8795-8c6aea7a95ab" />
+
 **H-02-E2: Intentar iniciar sesión con nombre de usuario inexistente**
-Dado un usuario que introduzca un nombre no asociado a ningún jugador/administrador de la base de datos del sistema al intentar iniciar sesión, se mostrará un error en pantalla indicando que ningún jugador de la base de datos tiene dicho nombre y el usuario no iniciará sesión.
+Dado un usuario que introduzca un nombre no asociado a ningún jugador/administrador de la base de datos del sistema al intentar iniciar sesión, se mostrará un error en pantalla indicando que ningún jugador de la base de datos tiene dicho nombre y el usuario no iniciará sesión.<img width="1290" height="916" alt="H-02-E2" src="https://github.com/user-attachments/assets/edeb5963-d40a-4fea-8902-4573c08d25f2" />
+
 **H-02-E3: Intentar iniciar sesión con contraseña incorrecta**
 Dado un usuario que introduzca un nombre y contraseña donde la contraseña no esté asociada al jugador/administrador con dicho nombre en la base de datos al intentar iniciar sesión, se mostrará un error en pantalla indicando el jugador/administrador con dicho nombre no tiene dicha contraseña y el usuario no iniciará sesión.
 
@@ -61,35 +65,42 @@ Dado un usuario que introduzca un nombre y contraseña donde la contraseña no e
 
 | Como jugador, quiero cerrar mi sesión para poder dejar de usar el sistema y permitir a otro usuario iniciar sesión. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|
+                             |
 **H-03+E1: Éxito al cerrar sesión**
 Dado un jugador con una sesión iniciada que intente cerrarla, la sesión se cerrará de forma segura y la aplicación volverá a la pantalla de inicio.
 **H-03-E2: Jugador inexistente**
 Dado un jugador que no esté en la base de datos con una sesión iniciada que intente cerrarla, se mostrará un error indicando que el usuario no existe.
-
+<img width="1290" height="916" alt="H-03-E2" src="https://github.com/user-attachments/assets/01e5690a-3292-43b4-9623-34edd0f93d80" />
 ### H-04: Ver perfil
 
 | Como jugador, quiero ver mi perfil para poder comprobar qué información muestro sobre mí. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|                                       |
 **H-04+E1: Éxito al ver perfil**
-Dado un jugador que intente ver su perfil, se le mostrará junto con toda su información: últimos logros obtenidos, estadísticas y datos personales.
+Dado un jugador que intente ver su perfil, se le mostrará junto con toda su información: últimos logros obtenidos, estadísticas y datos personales.<img width="1288" height="916" alt="H-04+E1" src="https://github.com/user-attachments/assets/063672c3-3918-4a2a-96f7-8fe589a43131" />
+
 **H-04+E2: Éxito al ver todos los logros**
-Dado un jugador que intente ver todos sus logros desde su perfil, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.
+Dado un jugador que intente ver todos sus logros desde su perfil, se mostrará una lista de todos los logros del juego, mostrando para cada uno si se ha obtenido o no y cómo obtenerlo.<img width="1288" height="916" alt="H-04+E2" src="https://github.com/user-attachments/assets/2d7c024f-15ea-4993-9b4a-ca16dc6a4175" />
+
 **H-04-E3: Jugador inexistente**
-Dado un jugador que no esté en la base de datos que intente ver su perfil, se mostrará un error indicando que el usuario no existe.
+Dado un jugador que no esté en la base de datos que intente ver su perfil, se mostrará un error indicando que el usuario no existe.<img width="1290" height="916" alt="H-04-E3" src="https://github.com/user-attachments/assets/4d45dbce-959a-42d9-a360-5ed3d43fe63b" />
+
 
 ### H-05: Editar perfil
 
 | Como jugador, quiero editar mi perfil para poder elegir qué información muestro sobre mí. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|                                      
 **H-05+E1: Éxito al editar perfil**
-Dado un jugador que introduzca campos de perfil con formato correcto al intentar editar su perfil, los valores de su perfil serán reemplazados correctamente con los que ha introducido.
+Dado un jugador que introduzca campos de perfil con formato correcto al intentar editar su perfil, los valores de su perfil serán reemplazados correctamente con los que ha introducido.<img width="1288" height="916" alt="H-05+E1" src="https://github.com/user-attachments/assets/1855281c-2ccb-4fef-911d-82f0e5580c45" />
+
 **H-05-E2: Editar perfil con datos no válidos**
-Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar su perfil, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.
+Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar su perfil, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.<img width="1288" height="916" alt="H-05-E2" src="https://github.com/user-attachments/assets/990dd44a-c385-4eb1-bf4a-9ae9ff7cfacb" />
+
 **H-05-E3: Jugador inexistente**
-Dado un jugador que no esté en la base de datos que intente editar su perfil, se mostrará un error indicando que el usuario no existe.
+Dado un jugador que no esté en la base de datos que intente editar su perfil, se mostrará un error indicando que el usuario no existe.<img width="1290" height="916" alt="H-05-E3" src="https://github.com/user-attachments/assets/81a7d09f-64ad-40df-b26d-6cbe37d306fd" />
+
 
 ### H-06: Eliminar jugador
 
@@ -97,11 +108,14 @@ Dado un jugador que no esté en la base de datos que intente editar su perfil, s
 | ------------------------------------------------------------------------------------------------------------------------------------ |
 | *Mockups (si hay)*                                      |
 **H-06+E1: Éxito al eliminar jugador**
-Dado un jugador que intente eliminar su cuenta, al introducir su contraseña dicho jugador será completamente eliminado de la base de datos del sistema, junto con todos sus datos asociados.
+Dado un jugador que intente eliminar su cuenta, al introducir su contraseña dicho jugador será completamente eliminado de la base de datos del sistema, junto con todos sus datos asociados.<img width="1288" height="916" alt="H-06+E1" src="https://github.com/user-attachments/assets/76101273-4add-431c-8320-25cab7480c86" />
+
 **H-06-E2 - Contraseña incorrecta**
-Dado un jugador que intente eliminar su cuenta, al introducir una contraseña incorrecta, dicho jugador no se eliminará de la base de datos y se dará un mensaje de error.
+Dado un jugador que intente eliminar su cuenta, al introducir una contraseña incorrecta, dicho jugador no se eliminará de la base de datos y se dará un mensaje de error.<img width="1288" height="916" alt="H-06-E2" src="https://github.com/user-attachments/assets/1251580f-daf8-40a6-8a97-78adc040f697" />
+
 **H-06+E3: Jugador inexistente**
-Dado un jugador que no esté en la base de datos que intente eliminar su cuenta, se mostrará un error indicando que el usuario no existe.
+Dado un jugador que no esté en la base de datos que intente eliminar su cuenta, se mostrará un error indicando que el usuario no existe.<img width="1290" height="916" alt="H-06-E3" src="https://github.com/user-attachments/assets/4a996b8e-ac98-4dfd-a274-63c67723272e" />
+
 
 ### **Gestión de amigos**
 
@@ -109,25 +123,32 @@ Dado un jugador que no esté en la base de datos que intente eliminar su cuenta,
 
 | Como jugador, quiero enviar solicitudes de amistad a otros jugadores para poder ser amigos y jugar partidas juntos. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|           <img width="1288" height="916" alt="H-07" src="https://github.com/user-attachments/assets/9e60d063-c5f6-4bcd-aec2-8f2f429c4628" />
+                         
 **H-07+E1: Éxito al enviar solicitud de amistad**
 Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, la petición será enviada al jugador correctamente.
 **H-07-E2: Jugador/es inexistente/s**
-Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.<img width="1290" height="916" alt="H-07-E2" src="https://github.com/user-attachments/assets/c56eaf68-0eaf-4f8e-87bd-ab6b6b5c4533" />
+
 **H-07-E3: Solicitud de amistad a sí mismo**
-Dado un jugador que intente enviar una petición de amistad mediante su mismo código de amigo, se mostrará un error indicando que no se puede enviar una solicitud de amistad a uno mismo.
+Dado un jugador que intente enviar una petición de amistad mediante su mismo código de amigo, se mostrará un error indicando que no se puede enviar una solicitud de amistad a uno mismo.<img width="1288" height="916" alt="H-07-E3" src="https://github.com/user-attachments/assets/dcc779dd-b50f-4143-84c5-55abac392a82" />
+
 **H-07-E4: Solicitud de amistad a amigo**
-Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de un jugador que ya es su amigo, se mostrará un error indicando que no se puede enviar una solicitud de amistad a un jugador que ya sea tu amigo.
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de un jugador que ya es su amigo, se mostrará un error indicando que no se puede enviar una solicitud de amistad a un jugador que ya sea tu amigo.<img width="1288" height="916" alt="H-07-E4" src="https://github.com/user-attachments/assets/257bd80d-ef37-4b98-b4a9-39cdeb646ca9" />
+
 **H-07-E5: Solicitud de amistad a jugador con solicitud pendiente**
-Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, cuando ya existe una solicitud pendiente de un jugador al otro o viceversa, se mostrará un error indicando que aún hay una solicitud pendiente de gestionar.
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de otro jugador, cuando ya existe una solicitud pendiente de un jugador al otro o viceversa, se mostrará un error indicando que aún hay una solicitud pendiente de gestionar.<img width="1288" height="916" alt="H-07-E5" src="https://github.com/user-attachments/assets/bab0f3b1-00fc-4995-a4b3-f98e2787e567" />
+
 **H-07-E6: Solicitud de amistad a administrador**
-Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de un administrador, se mostrará un error indicando que no se puede enviar una solicitud de amistad a un administrador.
+Dado un jugador que intente enviar una petición de amistad mediante el código de amigo de un administrador, se mostrará un error indicando que no se puede enviar una solicitud de amistad a un administrador.<img width="1288" height="916" alt="H-07-E6" src="https://github.com/user-attachments/assets/6273fdb8-4a31-4d87-ad06-d0fcc04754f2" />
+
 
 ### H-08: Gestionar solicitudes de amistad
 
 | Como jugador, quiero gestionar las solicitudes de amistad que haya recibido de otros jugadores para poder aceptarlas o ignorarlas. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|           <img width="1288" height="916" alt="H-08" src="https://github.com/user-attachments/assets/af4ba9d2-e3a4-4817-bd0c-457d4b527038" />
+             
 **H-08+E1: Éxito al ver solicitudes de amistad**
 Dado un jugador que intente ver sus solicitudes de amistad, se mostrará una lista con todas las solicitudes de amistad que ha recibido y aún no haya aceptado o ignorado.
 **H-08+E2: Éxito al aceptar solicitud de amistad**
@@ -135,27 +156,35 @@ Dado un jugador que intente aceptar una solicitud de amistad que reciba de otro 
 **H-08+E3: Éxito al ignorar solicitud de amistad**
 Dado un jugador que intente ignorar una petición de amistad que reciba de otro jugador, la petición será ignorarada, desapareciendo de la lista de peticiones, y los dos jugadores no serán amigos.
 **H-08-E4: Jugador/es inexistente/s**
-Dado un jugador que intente aceptar o ignorar una petición de amistad, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente aceptar o ignorar una petición de amistad, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.<img width="1288" height="916" alt="H-08-E4" src="https://github.com/user-attachments/assets/f0fafb43-aac6-4991-8a6a-21fb35cf8ac5" />
+
 **H-08-E5: Solicitud inexistente**
-Dado un jugador que intente aceptar o ignorar una petición de amistad que no esté en la base de datos, se mostrará un error indicando que la solicitud no existe.
+Dado un jugador que intente aceptar o ignorar una petición de amistad que no esté en la base de datos, se mostrará un error indicando que la solicitud no existe.<img width="1288" height="916" alt="H-08-E5" src="https://github.com/user-attachments/assets/b7f1efdc-c791-474d-94f9-7ba10a9b532c" />
+
 **H-08-E6: Jugadores amigos**
-Dado un jugador que intente aceptar o ignorar una petición de amistad de un jugador que es su amigo, se mostrará un error indicando que los dos ya son amigos.
+Dado un jugador que intente aceptar o ignorar una petición de amistad de un jugador que es su amigo, se mostrará un error indicando que los dos ya son amigos.<img width="1288" height="916" alt="H-08-E6" src="https://github.com/user-attachments/assets/7e029d8f-3445-49d2-a919-f24b18370d93" />
+
 
 ### H-09: Gestionar amigos
 
 | Como jugador, quiero gestionar los amigos que tengo en la aplicación para poder comprobar qué usuarios son mis amigos y ver cuáles están en línea. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|                                     
 **H-09+E1: Lista de amigos**
-Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, indicando si cada uno está en línea o no.
+Dado un jugador que intente ver sus amigos, se mostrará una lista con todos los que tenga, indicando si cada uno está en línea o no.<img width="1288" height="916" alt="H-09+E1" src="https://github.com/user-attachments/assets/98c3dbbd-f084-4f20-af96-8c279dce80b1" />
+
 **H-09+E2: Lista vacía de amigos**
-Dado un jugador que intente ver sus amigos sin tener ninguno, se mostrará una lista vacía con un mensaje que indique que el usuario aún no tiene amigos.
+Dado un jugador que intente ver sus amigos sin tener ninguno, se mostrará una lista vacía con un mensaje que indique que el usuario aún no tiene amigos.<img width="1288" height="916" alt="H-09+E2" src="https://github.com/user-attachments/assets/371d587e-8856-404f-8a12-f91d87ac9abf" />
+
 **H-09+E3: Éxito al eliminar amigo**
-Dado un jugador que intente eliminar un jugador de su lista de amigos, ambos jugadores ya no serán amigos.
+Dado un jugador que intente eliminar un jugador de su lista de amigos, ambos jugadores ya no serán amigos.<img width="1288" height="916" alt="H-09+E3" src="https://github.com/user-attachments/assets/9992c791-de8c-4a93-82b4-f8fba9f74e14" />
+
 **H-09-E4: Jugador inexistente al eliminar amigo**
-Dado un jugador que intente eliminar un jugador de su lista de amigos, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente eliminar un jugador de su lista de amigos, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.<img width="1290" height="916" alt="H-09-E4" src="https://github.com/user-attachments/assets/3bcd50aa-d682-4b85-b1ef-85bdb0d0cf1b" />
+
 **H-09-E5: Jugador no amigo al eliminar amigo**
-Dado un jugador que intente eliminar un jugador que no es su amigo de su lista de amigos, se mostrará un error indicando que el usuario no es su amigo.
+Dado un jugador que intente eliminar un jugador que no es su amigo de su lista de amigos, se mostrará un error indicando que el usuario no es su amigo.<img width="1288" height="916" alt="H-09-E5" src="https://github.com/user-attachments/assets/c00571da-c382-4788-bb55-e60d642c2f22" />
+
 
 ### **Gestión de partidas**
 
@@ -163,49 +192,59 @@ Dado un jugador que intente eliminar un jugador que no es su amigo de su lista d
 
 | Como jugador, quiero ver las partidas que existan para poder decidir si me interesa unirme o espectar alguna. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|
 **H-10+E1: Éxito al ver partidas públicas**
-Dado un jugador que intente ver las partidas públicas abiertas, se mostrará una lista con todas las partidas públicas con un solo jugador esperando que aún no hayan empezado.
+Dado un jugador que intente ver las partidas públicas abiertas, se mostrará una lista con todas las partidas públicas con un solo jugador esperando que aún no hayan empezado.<img width="1288" height="916" alt="H-10+E1" src="https://github.com/user-attachments/assets/f8a33286-ee6e-4a19-9ce2-91fa6ee624ce" />
+
 **H-10+E2: Éxito al ver invitaciones de jugar o espectar partida privada**
-Dado un jugador que intente ver las invitaciones de jugar o espectar partida privada que haya recibido, se mostrará una lista con todas las invitaciones que no haya aceptado o rechazado.
+Dado un jugador que intente ver las invitaciones de jugar o espectar partida privada que haya recibido, se mostrará una lista con todas las invitaciones que no haya aceptado o rechazado.<img width="1288" height="916" alt="H-10+E2" src="https://github.com/user-attachments/assets/21339f89-682b-4bdd-8b42-34238c293def" />
+
 
 ### H-11: Unirse a partida
 
 | Como jugador, quiero unirme a alguna partida para poder jugar a Petris. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-11+E1: Éxito al unirse a partida pública**
 Dado un jugador que intente unirse a una partida pública con un solo jugador esperando que aún no haya empezado, se le llevará a esa partida, la cual comenzará.
 **H-11+E2: Éxito al aceptar invitación de jugar partida privada**
-Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se acepta la invitación, la partida comenzará.
+Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se acepta la invitación, la partida comenzará.<img width="1288" height="916" alt="H-11+E2" src="https://github.com/user-attachments/assets/324d834d-f35c-46f9-b94d-ef796b44fde5" />
+
 **H-11-E3: Partida inexistente**
-Dado un jugador que intente unirse a una partida pública que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
+Dado un jugador que intente unirse a una partida pública que no esté en la base de datos, se mostrará un error indicando que la partida no existe.<img width="1288" height="916" alt="H-11-E3" src="https://github.com/user-attachments/assets/a72eec33-5fd6-4c58-8c87-ec0914798358" />
+
 **H-11-E4: Invitación inexistente**
-Dado un jugador que intente aceptar una invitación de jugar partida privada que no esté en la base de datos, se mostrará un error indicando que la invitación no existe.
+Dado un jugador que intente aceptar una invitación de jugar partida privada que no esté en la base de datos, se mostrará un error indicando que la invitación no existe.<img width="1288" height="916" alt="H-11-E4" src="https://github.com/user-attachments/assets/013d859c-c0bf-4d4b-a3b9-31b6c9f44b01" />
+
 **H-11-E5: Jugador/es inexistente/s**
-Dado un jugador que intente unirse a una partida pública o privada, no estando el jugador que la envía y/o el que está esperando a que comience en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente unirse a una partida pública o privada, no estando el jugador que la envía y/o el que está esperando a que comience en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.<img width="1288" height="916" alt="H-11-E5" src="https://github.com/user-attachments/assets/993a8ebf-6645-4bd5-b794-7d0aea008b35" />
+
 
 ### H-12: Crear partida
 
 | Como jugador, quiero crear una partida pública para poder jugar a Petris con otro usuario. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-12+E1: Éxito al crear partida pública**
-Dado un jugador que intente crear una partida pública, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, aparecerá en la lista de partidas públicas y comenzará cuando otro usuario se una a ella.
+Dado un jugador que intente crear una partida pública, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, aparecerá en la lista de partidas públicas y comenzará cuando otro usuario se una a ella.<img width="1288" height="916" alt="H-12+E1" src="https://github.com/user-attachments/assets/78ffabc4-f7bf-4dfb-b930-3b9b3d68e07f" />
+
 **H-12+E2: Éxito al enviar invitación de jugar partida privada**
 Dado un jugador que intente enviar una invitación de jugar partida privada a uno de sus amigos, se abrirá una pantalla para configurar las normas de la partida. Si la partida se crea, dicho amigo recibirá la invitación y la partida comenzará cuando la acepte.
 **H-12-E3: Jugador/es inexistente/s**
-Dado un jugador que intente crear una partida pública o enviar una invitación de jugar partida privada a uno de sus amigos, no estando el jugador que la envía y/o el amigo en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente crear una partida pública o enviar una invitación de jugar partida privada a uno de sus amigos, no estando el jugador que la envía y/o el amigo en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.<img width="1288" height="916" alt="H-12-E3" src="https://github.com/user-attachments/assets/3b6e5cd2-d2c5-4eff-88bc-8399df35ddea" />
+
 **H-12-E4: Jugador no amigo al enviar invitación**
-Dado un jugador que intente enviar una invitación de jugar partida privada a un jugador que no es ssu amigo, se mostrará un error indicando que el usuario ya no es su amigo.
+Dado un jugador que intente enviar una invitación de jugar partida privada a un jugador que no es ssu amigo, se mostrará un error indicando que el usuario ya no es su amigo.<img width="1288" height="916" alt="H-12-E4" src="https://github.com/user-attachments/assets/a14c98d8-1d07-440c-808f-c73f28b66688" />
+
 
 ### H-13: Espectar partida
 
 | Como jugador, quiero espectar una partida que estén jugando mis amigos para poder ver el curso de su partida. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-13+E1: Éxito al enviar invitación de espectar partida privada**
-Dado un jugador que intente enviar una invitación de espectar partida privada, se abrirá una pantalla para que el jugador decida a qué amigo se la mandará (solo aparecerán los usuarios que sean amigos con ambos participantes de la partida). Si se escoge a un amigo, recibirá la invitación.
+Dado un jugador que intente enviar una invitación de espectar partida privada, se abrirá una pantalla para que el jugador decida a qué amigo se la mandará (solo aparecerán los usuarios que sean amigos con ambos participantes de la partida). Si se escoge a un amigo, recibirá la invitación.<img width="1288" height="916" alt="H-13+E1" src="https://github.com/user-attachments/assets/9a56a349-5f25-4abe-962e-2cc3f9e842a0" />
+
 **H-13+E2: Éxito al aceptar invitación de espectar partida privada**
 Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se acepta la invitación, se mostrará la partida que se está jugando en tiempo real.
 
@@ -213,15 +252,17 @@ Dado un jugador que intente aceptar una invitación de espectar partida privada 
 
 | Como jugador, quiero rechazar las invitaciones que reciba de mis amigos para que no me aparezcan si no me interesan. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-14+E1: Éxito al rechazar invitación de jugar partida privada**
 Dado un jugador que intente aceptar una invitación de jugar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida. Si se rechaza la invitación, la invitación será deshechada y la partida no comenzará.
 **H-14+E2: Éxito al rechazar invitación de espectar partida privada**
 Dado un jugador que intente aceptar una invitación de espectar partida privada de uno de sus amigos, se abrirá una pantalla para mostrar las normas de la partida y quiénes la están jugando. Si se rechaza la invitación, la invitación será deshechada y la partida no se espectará.
 **H-14-E3: Invitación inexistente**
-Dado un jugador que intente rechazar una invitación que no esté en la base de datos (por haber expirado), se mostrará un error indicando que la invitación no existe.
+Dado un jugador que intente rechazar una invitación que no esté en la base de datos (por haber expirado), se mostrará un error indicando que la invitación no existe.<img width="1288" height="916" alt="H-14-E3" src="https://github.com/user-attachments/assets/d1daded7-1bec-496b-b582-cea3edfebe93" />
+
 **H-14-E4: Jugador/es inexistente/s**
-Dado un jugador que intente rechazar una invitación, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador que intente rechazar una invitación, no estando el jugador que la envía y/o el que la recibe en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.<img width="1288" height="916" alt="H-14-E4" src="https://github.com/user-attachments/assets/ad2ac769-c980-4525-b9cc-8fcbe0dac9b2" />
+
 
 ### **Desarrollo de partida**
 
@@ -229,75 +270,90 @@ Dado un jugador que intente rechazar una invitación, no estando el jugador que 
 
 | Como jugador en partida, quiero que la partida que estoy jugando funcione correctamente para poder jugar a Petris con otros jugadores sin complicaciones. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+|
 **H-15+E1: Fases**
 Una partida avanzará de una fase a la siguiente, de la forma definida por el tablero de ayuda (los círculos indican fases de propagación, los rectángulos verdes indican fases de fisión y el rectángulo amarillo indica fase de contaminación) hasta que la partida termine. Las fases de propagación tienen asociadas un jugador, que es el que deberá mover sus bacterias para llegar a la siguiente fase; aparte de ésta, las demás fases avanzan automáticamente.
 **H-15-E2: Acción de jugador en fase incorrecta**
 Dado un jugador en partida que intente mover sus bacterias en una fase que no sea de las suyas de propagación, la aplicación ignorará su acción.
 **H-15-E3: Abandono de partida**
-Dado un jugador en partida que abandone la partida, la partida terminará sin ganador.
+Dado un jugador en partida que abandone la partida, la partida terminará sin ganador.<img width="1288" height="916" alt="H-15-E3" src="https://github.com/user-attachments/assets/0dae7594-44c7-4a0e-9722-76d0be3fc810" />
+
 **H-15-E4: Jugador/es inexistente/s**
-Dado un jugador en partida o espectador, no estando el usuario y/o los jugadores de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n (si el usuario era uno de los jugadores de la partida, la partida terminará).
+Dado un jugador en partida o espectador, no estando el usuario y/o los jugadores de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n (si el usuario era uno de los jugadores de la partida, la partida terminará).<img width="1288" height="916" alt="H-15-E4" src="https://github.com/user-attachments/assets/2c4d8898-d404-4260-bceb-ae4076531e0e" />
+
 **H-15-E5: Jugadores no amigos en partida privada**
-Dado un jugador en partida o espectador en una partida privada, no siendo amigo de el/los jugador/es, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida (si el usuario era uno de los jugadores de la partida, la partida terminará).
+Dado un jugador en partida o espectador en una partida privada, no siendo amigo de el/los jugador/es, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida (si el usuario era uno de los jugadores de la partida, la partida terminará).<img width="1288" height="916" alt="H-15-E5" src="https://github.com/user-attachments/assets/3bb442ba-7643-46a4-9c32-23d186063f43" />
+
 **H-15-E6: Espectador no amigo de jugadores en partida pública**
-Dado un espectador en una partida pública, no siendo amigo de alguno de los jugadores, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida.
+Dado un espectador en una partida pública, no siendo amigo de alguno de los jugadores, se mostrará un error indicando que es necesario ser amigo de todos los jugadores de la partida.<img width="1288" height="916" alt="H-15-E6" src="https://github.com/user-attachments/assets/a33fd9d3-244c-4c0b-a9d3-8bb912c9d53a" />
+
 **H-15-E7: Partida inexistente**
-Dado un jugador en partida o espectador, no estando la partida en la base de datos, se mostrará un error indicando que la partida no existe.
+Dado un jugador en partida o espectador, no estando la partida en la base de datos, se mostrará un error indicando que la partida no existe.<img width="1288" height="916" alt="H-15-E7" src="https://github.com/user-attachments/assets/f6bb7f5f-7d7e-4741-8018-10a50000465a" />
+
 
 ### H-16: Ver información de partida
 
 | Como jugador en partida o espectador, quiero ver la información de la partida que esté jugando o espectando para poder saber cómo va. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-16+E1: Éxito al ver información de partida**
 Dado un jugador en partida o espectador, se mostrarán los siguientes aspectos en tiempo real: posición de las bacterias y sarcinas, tablero de ayuda que indica cuál es la fase actual y las siguientes, y puntos de contaminación de cada jugador.
+<img width="1288" height="916" alt="H-16+E1" src="https://github.com/user-attachments/assets/c457fcab-22ab-42d2-9bff-1975d56da849" />
 
 ### H-17: Condiciones de victoria
 
 | Como jugador en partida, quiero que la partida que estoy jugando tenga condiciones de victoria para poder intentar ganar, sabiendo que la aplicación detectará mi victoria o derrota correctamente. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-17+E1: Sin movimientos disponibles**
-Dado un jugador en partida cuando sea una de sus fases de propagación, si no puede hacer ningún movimiento válido, la partida terminará con su derrota y la victoria del otro jugador.
+Dado un jugador en partida cuando sea una de sus fases de propagación, si no puede hacer ningún movimiento válido, la partida terminará con su derrota y la victoria del otro jugador.<img width="1288" height="916" alt="H-17+E1" src="https://github.com/user-attachments/assets/e6132337-519b-4237-a7ef-d8b04440b420" />
+
 **H-17+E2: Máximo de puntos de contaminación**
-Dado un jugador en partida cuando sea una fase de contaminación, si al final de la fase ha alcanzado C puntos de contaminación (siendo C un número que el creador de la partida escogerá), la partida terminará con su derrota y la victoria del otro jugador.
+Dado un jugador en partida cuando sea una fase de contaminación, si al final de la fase ha alcanzado C puntos de contaminación (siendo C un número que el creador de la partida escogerá), la partida terminará con su derrota y la victoria del otro jugador.<img width="1288" height="916" alt="H-17+E2" src="https://github.com/user-attachments/assets/d7d000bd-c36c-4465-8ae2-cc55dfeaf5df" />
+
 **H-17+E3: Fase de contaminación final**
-Dado un jugador en partida cuando sea la última fase de contaminación, si al final de la fase aún no se ha decidido el ganador, se observarán los puntos de contaminación de cada jugador. Si dicho jugador es el que tiene más puntos, la partida terminarácon su derrota y la victoria del otro jugador.
+Dado un jugador en partida cuando sea la última fase de contaminación, si al final de la fase aún no se ha decidido el ganador, se observarán los puntos de contaminación de cada jugador. Si dicho jugador es el que tiene más puntos, la partida terminarácon su derrota y la victoria del otro jugador.<img width="1288" height="916" alt="H-17+E3" src="https://github.com/user-attachments/assets/0028d0d7-6a59-473a-99ea-e4a9db704c82" />
+
 **H-17+E4: Desempate**
 Si ambos jugadores de partida han llegado a una condición de derrota en la misma fase, el ganador se decidirá por quién tiene menos bacterias en el tablero (contando también las sarcinas, que valen S bacterias cada una, siendo S un número que el creador de la partida escogerá). Si no se llega a desempatar de ese modo, el ganador será el jugador con menos sarcinas en el tablero. Si se ha decidido el ganador, la partida terminará con su victoria y la derrota del otro jugador.
 **H-17-E5: Imposible desempatar**
-Si se ha intentado desempatar y no se ha decidido ningún ganador, la partida terminará en empate, y ninguno de los jugadores ganará o perderá.
+Si se ha intentado desempatar y no se ha decidido ningún ganador, la partida terminará en empate, y ninguno de los jugadores ganará o perderá.<img width="1288" height="916" alt="H-17-E5" src="https://github.com/user-attachments/assets/d9e8f13a-47a5-4f74-8ec2-740851d4d0e0" />
+
 
 ### H-18: Fase de propagación
 
 | Como jugador en partida, quiero que la partida que estoy jugando tenga fases de progapación para poder mover mis bacterias por el tablero. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-18+E1: Mover bacterias**
 Dado un jugador en partida cuando sea una fase suya de propagación, puede mover sus bacterias de una loseta a otra si el movimiento es válido (el movimiento es válido si no incumple los escenarios negativos de esta historia de usuario).
 **H-18+E2: Fin de fase**
-Dado un jugador en partida cuando sea una fase suya de propagación, la fase terminará si el jugador mueve todas las bacterias de una loseta de forma válida, o si no mueve todas las bacterias de una loseta pero sí termina la fase manualmente.
+Dado un jugador en partida cuando sea una fase suya de propagación, la fase terminará si el jugador mueve todas las bacterias de una loseta de forma válida, o si no mueve todas las bacterias de una loseta pero sí termina la fase manualmente.<img width="1288" height="916" alt="H-18+E2" src="https://github.com/user-attachments/assets/b3002992-87bd-4b4d-8026-5cc1e4232dfe" />
+
 **H-18+E3: Reiniciar fase**
-Dado un jugador en partida cuando sea una fase suya de propagación, si ha movido una o más bacterias pero aún no ha terminado la fase, puede reiniciarla para deshacer los movimientos que ha hecho.
+Dado un jugador en partida cuando sea una fase suya de propagación, si ha movido una o más bacterias pero aún no ha terminado la fase, puede reiniciarla para deshacer los movimientos que ha hecho.<img width="1288" height="916" alt="H-18+E3" src="https://github.com/user-attachments/assets/5451f6f5-0cdc-49bc-9731-5d6bee7b3e00" />
+
 **H-18+E4: Creación de sarcinas**
-Dado un jugador en partida cuando sea una fase suya de propagación, al final de la fase se observarán las losetas y, para cada una, se reemplazarán cada S bacterias del jugador por una sarcina (siendo S un número que el creador de la partida escogerá).
+Dado un jugador en partida cuando sea una fase suya de propagación, al final de la fase se observarán las losetas y, para cada una, se reemplazarán cada S bacterias del jugador por una sarcina (siendo S un número que el creador de la partida escogerá).<img width="1288" height="916" alt="H-18+E4" src="https://github.com/user-attachments/assets/ce449ef8-e908-45c3-afea-eb74f895288a" />
+
 **H-18-E5: Bacterias desde varias losetas**
 Dado un jugador en partida cuando sea una fase suya de propagación, si ha movido una bacteria de una loseta a otra, y después intenta mover una bacteria de una loseta distinta, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben pertenecer a la misma loseta.
 **H-18-E6: Loseta/s no adyacente/s**
-Dado un jugador en partida cuando sea una fase suya de propagación, si intenta mover una bacteria a una loseta no adyacente, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben moverse a losetas adyacentes.
+Dado un jugador en partida cuando sea una fase suya de propagación, si intenta mover una bacteria a una loseta no adyacente, la aplicación deshará el movimiento e indicará que todas las bacterias que se muevan deben moverse a losetas adyacentes.<img width="1288" height="916" alt="H-18-E6" src="https://github.com/user-attachments/assets/a782ace5-3b1d-47e5-bd16-5e431f2dab4d" />
+
 **H-18-E7: Loseta/s con mismas bacterias de ambos jugadores**
 Dado un jugador en partida cuando sea una fase suya de propagación, si al terminar la fase existe/n una o más losetas con el mismo número de bacterias de ambos jugadores, la aplicación deshará todos los movimientos e indicará que no pueden haber losetas con el mismo número de bacterias de ambos jugadores.
 **H-18-E8: Intentar mover hacia sarcina**
 Dado un jugador en partida cuando sea una fase suya de propagación, si intenta mover una de sus bacterias a una loseta que tenga una de sus sarcinas, la aplicación deshará el movimiento e indicará que no se puede mover una bacteria propia a una loseta con una sarcina propia.
 **H-18-E9: Mover al menos una bacteria**
-Dado un jugador en partida cuando sea una fase suya de propagación, si intenta terminar la fase manualmente sin haber movido ninguna bacteria, la aplicación no lo permitirá.
+Dado un jugador en partida cuando sea una fase suya de propagación, si intenta terminar la fase manualmente sin haber movido ninguna bacteria, la aplicación no lo permitirá.<img width="1288" height="916" alt="H-18-E9" src="https://github.com/user-attachments/assets/81f2531d-cc5d-465a-9ce5-aec28f275431" />
+
 
 ### H-19: Fase de fisión
 
 | Como jugador en partida, quiero que la partida que estoy jugando tenga fases de fisión para poder crear nuevas bacterias en el tablero. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-19+E1: Creación de bacterias**
 En una fase de fisión, se observará cada loseta y, por cada una en la que haya bacterias de un solo jugador, se añadirán B a esa loseta (siendo B un número que el creador de la partida escogerá).
 **H-19+E2: Creación de sarcinas**
@@ -307,27 +363,30 @@ En una fase de fisión, tras crear las bacterias por loseta, se observarán las 
 
 | Como jugador en partida, quiero que la partida que estoy jugando tenga fases de contaminación para poder añadir puntos de contaminación a ambos jugadores. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-20+E1: Añadir puntos de contaminación**
 En una fase de contaminación, se observará cada loseta y, por cada una, si hay más bacterias de un jugador que de otro (contando también las sarcinas, que valen S bacterias cada una, siendo S un número que el creador de la partida escogerá), se añadirá un punto de contaminación a dicho jugador. Si se hace esto para todas las losetas y ningún jugador ha perdido, la fase terminará.
+<img width="1288" height="916" alt="H-20+E1" src="https://github.com/user-attachments/assets/0771b1cc-01d1-4329-8729-d16af919f7d0" />
 
 ### H-21: Abandonar partida
 
 | Como jugador en partida, quiero abandonar una partida que esté jugando para poder dejarla si no quiero continuar. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-21+E1: Éxito al abandonar partida**
 Dado un jugador en partida que intente abandonar su partida, el jugador saldrá de la partida, la cual se eliminará.
 **H-21-E2: Partida inexistente**
-Dado un jugador en partida que intente abandonar su partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
+Dado un jugador en partida que intente abandonar su partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.<img width="1288" height="916" alt="H-21-E2" src="https://github.com/user-attachments/assets/493fce8d-0f4a-4aa8-a867-b0020c6ee62d" />
+
 **H-21-E3: Jugador/es inexistente/s**
-Dado un jugador en partida que intente abandonar su partida, no estando el jugador que lo intenta y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.
+Dado un jugador en partida que intente abandonar su partida, no estando el jugador que lo intenta y/o el otro jugador de la partida en la base de datos, se mostrará un error indicando que el/los usuario/s no existe/n.<img width="1288" height="916" alt="H-21-E3" src="https://github.com/user-attachments/assets/b096d70d-9378-468b-8362-0791defef5f0" />
+
 
 ### H-22: Chat de partida
 
 | Como jugador en partida o espectador, quiero ver y mandar mensajes en el chat de la partida que esté jugando o espectando para comunicarme con los otros usuarios. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-22+E1: Ver mensajes**
 Dado un jugador en partida o espectador, se mostrarán los mensajes enviados en el chat en tiempo real, al igual que quién ha enviado cada uno.
 **H-22+E2: Enviar mensajes**
@@ -341,54 +400,64 @@ Dado un jugador en partida, no se mostrarán los mensajes enviados en el chat po
 
 | Como administrador, quiero administrar los jugadores existentes en la base de datos para poder verlos, modificarlos o eliminarlos. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-23+E1: Ver jugadores**
-Dado un administrador que intente ver todos los jugadores de la base de datos, se mostrará una lista con todos, junto con opciones para modificarlos o eliminarlos.
+Dado un administrador que intente ver todos los jugadores de la base de datos, se mostrará una lista con todos, junto con opciones para modificarlos o eliminarlos.<img width="1288" height="916" alt="H-23+E1" src="https://github.com/user-attachments/assets/9a845ba7-481b-4547-b48d-4db21e8562a3" />
+
 **H-23+E2: Modificar jugador**
-Dado un administrador que introduzca campos de perfil con formato correcto al intentar editar el perfil de un jugador de la base de datos, los valores de su perfil serán reemplazados correctamente con los que ha introducido.
+Dado un administrador que introduzca campos de perfil con formato correcto al intentar editar el perfil de un jugador de la base de datos, los valores de su perfil serán reemplazados correctamente con los que ha introducido.<img width="1288" height="916" alt="H-23+E2" src="https://github.com/user-attachments/assets/b66c4dec-2536-4da2-8cb8-0100f9706966" />
+
 **H-23+E3: Eliminar amigos**
 Dado un administrador que intente eliminar un jugador de la lista de amigos de otro jugador desde la pantalla de modificar jugador, ambos jugadores ya no serán amigos.
 **H-23+E4: Eliminar jugador**
 Dado un administrador que intente eliminar un jugador de la base de datos, dicho jugador será completamente eliminado de la base de datos del sistema, junto con todos sus datos asociados.
 **H-23-E5: Editar perfil con datos no válidos**
-Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar el perfil de un jugador de la base de datos, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.
+Dado un jugador que introduzca campos de perfil con formato incorrecto al intentar editar el perfil de un jugador de la base de datos, se mostrará un error en pantalla indicando que los datos no son válidos y los valores de su perfil no cambiarán.<img width="1288" height="916" alt="H-23-E5" src="https://github.com/user-attachments/assets/66d080a6-d99c-4636-ac8e-2e6a399136a7" />
+
 **H-23-E6: Jugador inexistente**
-Dado un administrador que intente modificar o eliminar un jugador que no esté en la base de datos, se mostrará un error indicando que el usuario no existe.
+Dado un administrador que intente modificar o eliminar un jugador que no esté en la base de datos, se mostrará un error indicando que el usuario no existe.<img width="1288" height="916" alt="H-23-E6" src="https://github.com/user-attachments/assets/37e9cb6f-5fd9-43d6-95ca-8ce1ed037e7f" />
+
 **H-23-E7: Jugador no amigo**
 Dado un administrador que intente eliminar un jugador que no es su amigo de la lista de amigos de otro jugador, se mostrará un error indicando que el usuario no es su amigo.
 **H-23-E8: Amigo inexistente**
-Dado un administrador que intente eliminar un jugador que no esté en la base de datos de la lista de amigos de otro jugador, se mostrará un error indicando que el usuario no existe.
+Dado un administrador que intente eliminar un jugador que no esté en la base de datos de la lista de amigos de otro jugador, se mostrará un error indicando que el usuario no existe.<img width="1288" height="916" alt="H-23-E8" src="https://github.com/user-attachments/assets/85730441-f072-435f-af23-e68517b3a98b" />
+
 
 ### H-24: Administrar logros
 
 | Como administrador, quiero administrar los logros existentes en la base de datos para poder verlos, modificarlos, eliminarlos o crear nuevos. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-24+E1: Ver logros**
-Dado un administrador que intente ver todos los logros de la base de datos, se mostrará una lista con todos, junto con opciones para modificarlos o eliminarlos.
+Dado un administrador que intente ver todos los logros de la base de datos, se mostrará una lista con todos, junto con opciones para modificarlos o eliminarlos.<img width="1288" height="916" alt="H-24+E1" src="https://github.com/user-attachments/assets/1db113af-e9ea-4777-a5c1-f1778e28294f" />
+
 **H-24+E2: Crear logro**
-Dado un administrador que introduzca campos de logro con formato correcto al intentar crear un logro, se creará un logro en la base de datos con dichos valores.
+Dado un administrador que introduzca campos de logro con formato correcto al intentar crear un logro, se creará un logro en la base de datos con dichos valores.<img width="1288" height="916" alt="H-24+E2" src="https://github.com/user-attachments/assets/a8efda22-dbd3-489b-8152-cb6743c450b8" />
+
 **H-24+E3: Modificar logro**
-Dado un administrador que introduzca campos de logro con formato correcto al intentar modificar un logro de la base de datos, los valores del logro serán reemplazados correctamente con los que ha introducido.
+Dado un administrador que introduzca campos de logro con formato correcto al intentar modificar un logro de la base de datos, los valores del logro serán reemplazados correctamente con los que ha introducido.<img width="1288" height="916" alt="H-24+E3" src="https://github.com/user-attachments/assets/d87c9df1-f742-4175-82b0-06a3eb7af062" />
+
 **H-24+E4: Eliminar logro**
 Dado un administrador que intente eliminar un logro de la base de datos, dicho logro será completamente eliminado de la base de datos del sistema, junto con todos las instancias de logros obtenidos de todos los jugadores de la aplicación.
 **H-24-E5: Crear o modificar logro con datos no válidos**
-Dado un jugador que introduzca campos de logro con formato incorrecto al intentar crear o modificar un logro de la base de datos, se mostrará un error en pantalla indicando que los datos no son válidos y el logro no se creará/los valores del logro no cambiarán.
+Dado un jugador que introduzca campos de logro con formato incorrecto al intentar crear o modificar un logro de la base de datos, se mostrará un error en pantalla indicando que los datos no son válidos y el logro no se creará/los valores del logro no cambiarán.<img width="1288" height="916" alt="H-24-E5" src="https://github.com/user-attachments/assets/7ee1a057-c044-4e76-954c-791f462448fa" />
+
 **H-24-E6: Logro inexistente**
-Dado un administrador que intente modificar o eliminar un logro que no esté en la base de datos, se mostrará un error indicando que el logro no existe.
+Dado un administrador que intente modificar o eliminar un logro que no esté en la base de datos, se mostrará un error indicando que el logro no existe.<img width="1288" height="916" alt="H-24-E6" src="https://github.com/user-attachments/assets/b76687c1-25b3-441e-9468-57dad39afaf8" />
+
 
 ### H-25: Administrar partidas en curso
 
 | Como administrador, quiero administrar las partidas en curso existentes en la base de datos para poder verlas o eliminarlas. |
 | ------------------------------------------------------------------------------------------------------------------------------------ |
-| *Mockups (si hay)*                                      |
+| 
 **H-25+E1: Ver partidas en curso**
-Dado un administrador que intente ver todas las partidas en curso existentes en la base de datos, se mostrará una lista con todas, junto con opciones para eliminarlas.
+Dado un administrador que intente ver todas las partidas en curso existentes en la base de datos, se mostrará una lista con todas, junto con opciones para eliminarlas.<img width="1288" height="916" alt="H-25+E1" src="https://github.com/user-attachments/assets/0724429b-ae21-4934-9f55-b64850d10219" />
+
 **H-25+E2: Eliminar partida en curso**
 Dado un administrador que intente eliminar una partida en curso de la base de datos, dicha partida será completamente eliminada de la base de datos del sistema.
 **H-25-E3: Partida inexistente**
-Dado un administrador que intente eliminar una partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.
-
+Dado un administrador que intente eliminar una partida que no esté en la base de datos, se mostrará un error indicando que la partida no existe.<img width="1288" height="916" alt="H-25-E3" src="https://github.com/user-attachments/assets/7a1870b5-648e-4068-86b2-068934f4fbea" />
 **Diagrama conceptual del sistema**
 
 ![Diagrama UML del sistema](./PetrisUML.png)

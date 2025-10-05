@@ -15,9 +15,88 @@ Roberto Serrano Villalba (XDW2012 / robservil@alum.us.es)
 
 ## Introducción
 
-_En esta sección debes describir de manera general cual es la funcionalidad del proyecto a rasgos generales. ¿Qué valor puede aportar? ¿Qué objetivos pretendemos alcanzar con su implementación? ¿Cuántos jugadores pueden intervenir en una partida como máximo y como mínimo? ¿Cómo se desarrolla normalmente una partida?¿Cuánto suelen durar?¿Cuando termina la partida?¿Cuantos puntos gana cada jugador o cual es el criterio para elegir al vencedor?_
+La aplicación que vamos a diseñar se trata de una adaptación virtual interactiva del juego de mesa **Petris**. El juego consiste en encarnar el rol de unos científicos que tratan de impedir que una plaga de bacterias se expanda. El sistema no consiste solamente en permitir que se juegue a Petris; también tendrá funcionalidades que aprovechen el entorno digital de la aplicación para dar una experiencia más amplia que el juego normal.
 
-[Enlace al vídeo de explicación de las reglas del juego / partida jugada por el grupo](https://www.youtube.com/watch?v=ZcoIduJaJIo)
+Las funcionalidades que implementaremos son las siguientes:
+
+- **Registro de jugadores:** Los usuarios podrán registrarse en la aplicación con nombre y contraseña, al igual que iniciar y cerrar sesión cuando deseen.
+- **Personalización de perfil:** Cada jugador tendrá un perfil que puede personalizar a su gusto (foto de perfil, descripción...).
+- **Gestionar amigos:** Se podrán mandar y recibir solicitudes de amistad para ser amigo de otros jugadores, permitiendo jugar partidas con ellos.
+- **Partidas públicas y privadas:** Se podrán crear tanto partidas públicas en las que cualquier persona pueda unirse, y partidas privadas para jugar únicamente con amigos, y las partidas tendrán normas personalizables por el creador.
+- **Chat en tiempo real:** Los jugadores y espectadores de una partida podrán comunicarse por chat en tiempo real.
+- **Estadísticas:** Cada jugador tendrá estadísticas sobre las partidas que han jugado (número de victorias, duración media de partida...).
+- **Logros:** Habrá logros que los jugadores podrán obtener si cumplen ciertos objetivos.
+- **Administradores:** Existirán administradores que controlen el uso de la aplicación para asegurar que no haya problemas.
+
+En cuanto a la implementación del juego Petris en sí, nos aseguraremos de incluir las reglas del juego, que son las siguientes:
+
+(Algunas de estas reglas podrán ser personalizadas por el creador de la partida, pero aquí se muestran las reglas por defecto)
+
+### El juego de un vistazo
+
+Petris es un juego de control bacteriano para 2 jugadores, +10 años y 10’ de duración.
+
+Cada jugador encarna un científico y deberá controlar la propagación de las bacterias bajo su supervisión. Dichas bacterias están hambrientas y siempre están buscando alimento en los discos de Petri colindantes. ¡Cuidado! Las bacterias que estén solas en un disco de Petri comerán mucho y se reproducirán... ¡haciendo más difícil la tarea de controlarlas!
+
+Durante la partida, deberás gestionar la propagación de las bacterias a tu cargo, para que se reproduzcan menos y así no poner en riesgo los cultivos de los discos de Petri. En cada fase contaminación, recibirás puntos de contaminación por cada disco de Petri en el que haya más bacterias tuyas que del oponente. Al final de la partida, ¡el jugador con menos puntos de contaminación será el ganador!
+
+### Componentes
+
+- 7 Losetas de disco de Petri a doble cara (discos, de ahora en adelante)
+- 1 Ficha de marcador de turno
+- 1 Ficha de contaminación por jugador
+- 1 Tablero
+
+### Preparación de la partida
+
+1. Se muestra el área de juego con los 7 discos. Esto representa el cultivo comunitario.
+2. Se muestra el tablero al lado del área de juego, con la cara de 2 jugadores hacia arriba, y coloca la ficha de marcador de turno en el espacio inicial del contador de turnos.
+3. Cada jugador tiene su ficha de contaminación en el espacio inicial del contador de contaminación.
+4. Cada jugador tiene una bacteria de su reserva en el disco de su color.
+
+### Cómo se juega
+
+Tal y como se indica en el tablero, se jugarán 4 rondas. En cada ronda hay 3 fases de propagación por jugador, 3 fases de fisión binaria y 1 fase de contaminación.
+
+**Fase de propagación**
+
+En cada fase de propagación, el jugador activo deberá realizar una propagación válida. Para ello:
+
+El jugador seleccionará un disco que contenga al menos una de sus bacterias. Desde dicho disco podrá mover cualquier número de sus bacterias a uno o más discos adyacentes, repartiendo dichas bacterias como considere oportuno, pero siempre respetando las dos reglas siguientes:
+
+1. Un disco nunca puede albergar exactamente el mismo número de bacterias de cada jugador.
+2. Siempre se deberá mover al menos una bacteria.
+
+Si el jugador no puede realizar una propagación válida, dicho jugador pierde la partida automáticamente.
+
+Si después de una propagación (o una fisión binaria, ver más adelante) un disco contiene 5 bacterias de un jugador, se sustituyen inmediatamente dichas 5 bacterias por una sarcina. Las sarcinas nunca pueden ser retiradas ni movidas y equivalen a 5 bacterias. Adicionalmente, un jugador nunca puede mover bacterias a un disco que contenga una de sus sarcinas.
+
+Una vez que el jugador realiza su propagación, se moverá el marcador de turno.
+
+**Fase de fisión binaria**
+
+Cada 2 propagaciones hay una fase de fisión binaria. Por cada disco:
+
+- Si contiene bacterias de un único jugador, estas se reproducen y dicho jugador añade una bacteria adicional. Esto puede resultar en la aparición de una sarcina. 
+- Si contiene bacterias de ambos jugadores, no ocurre nada. Una vez realizada la fisión binaria, se moverá el marcador de turno, dando paso a la siguiente fase de propagación o de contaminación.
+
+**Fase de contaminación**
+
+Cada 3 propagaciones hay una fase de contaminación, que se registrará en el contador de contaminación. Por cada disco:
+
+- El jugador con más bacterias en dicho disco anota 1 punto de contaminación. Para ello, desciende 1 espacio su ficha de contaminación en el contador de contaminación, pudiendo provocar el final de la partida (ver más adelante).
+
+Una vez realizada la contaminación, se moverá el marcador de turno, dando paso a la siguiente fase de propagación. Durante la partida hay 4 fases de contaminación, y después de la cuarta se procede al final de partida.
+
+### Final de la partida
+
+El final de partida se puede producir de tres formas:
+
+1. Si durante su turno un jugador no puede realizar una propagación válida (bien porque no tiene bacterias para mover, bien porque no puede desplazarlas a ningún disco libre), pierde automáticamente la partida.     
+2. Si durante alguna fase de contaminación, un jugador mueve su ficha de contaminación al último espacio del contador de contaminación, su oponente gana automáticamente la partida. Esto refleja que las bacterias del primer jugador se han descontrolado totalmente, y han arruinado el cultivo comunitario. En el caso que ambos jugadores llegaran al último espacio del contador de contaminación en la misma fase de contaminación, ganará el jugador con menos fichas (bacterias y sarcinas) en los discos. Si el empate persiste, ganará el jugador con menos sarcinas en los discos.
+3. Si después de la cuarta fase de contaminación ningún jugador ha ganado la partida, la gana el jugador cuya ficha de contaminación esté menos avanzada en el contador de contaminación. Si estuvieran empatados, se rompe el empate de la forma anteriormente descrita.         
+
+[Enlace al vídeo de explicación de las reglas del juego y partida jugada por el grupo](https://www.youtube.com/watch?v=ZcoIduJaJIo)
 
 ## Tipos de Usuarios / Roles
 
@@ -484,37 +563,31 @@ _Restricción: El tablero se prepara con 7 discos de Petri colocados en el área
 
 ---
 
-### R4 – Recursos iniciales
-
-_Restricción: Cada jugador recibe al inicio 20 bacterias y 4 sarcinas._
-
----
-
-### R5 – Posición inicial
+### R4 – Posición inicial
 
 _Restricción: Cada jugador comienza con una bacteria en su disco de salida (definido por color)._
 
 ---
 
-### R6 – Marcador de turnos
+### R5 – Marcador de turnos
 
 _Restricción: El marcador de turnos se coloca en la casilla inicial y avanza según la progresión de fases._
 
 ---
 
-### R7 – Contador de contaminación
+### R6 – Contador de contaminación
 
 _Restricción: El contador de contaminación estará a cero al inicio de la partida para ambos jugadores._
 
 ---
 
-### R8 – Duración de la partida
+### R7 – Duración de la partida
 
 _Restricción: La partida se desarrolla en 4 rondas completas._
 
 ---
 
-### R9 – Fases del juego
+### R8 – Fases del juego
 
 _Restricción: El juego se divide en tres fases: propagación, fisión binaria y contaminación._
 
@@ -522,212 +595,221 @@ _Ej:_ En la segunda fase cada jugador añade una bacteria por cada disco donde t
 
 ---
 
-### R10 – Control de color
+### R9 – Control de color
 
 _Restricción: Cada jugador controla un color de bacterias, sin roles diferenciados._
 
 ---
 
-### R11 – Acciones del jugador
+### R10 – Acciones del jugador
 
 _Restricción: Durante su turno el jugador puede colocar, mover bacterias o formar sarcinas._
 
 ---
 
-### R12 – Unidades indivisibles
+### R11 – Unidades indivisibles
 
 _Restricción: Las sarcinas son unidades indivisibles y afectan la dominación de discos._
 
 ---
 
-### R13 – Inicio del turno
+### R12 – Inicio del turno
 
 _Restricción: Se verifica que el jugador tenga bacterias disponibles._
 
 ---
 
-### R14 – Acción principal
+### R13 – Acción principal
 
 _Restricción: El jugador realiza su jugada colocando o moviendo bacterias._
 
 ---
 
-### R15 – Control de discos
+### R14 – Control de discos
 
 _Restricción: Si un disco está completamente cubierto se marca como dominado._
 
 ---
 
-### R16 – Contaminación
+### R15 – Contaminación
 
 _Restricción: Se actualizan los valores de contaminación de ambos jugadores._
 
 ---
 
-### R17 – Final de turno
+### R16 – Final de turno
 
 _Restricción: Se pasa el turno al oponente._
 
 ---
 
-### R18 – Condiciones de victoria
+### R17 – Condiciones de victoria
 
 _Restricción: El juego puede finalizar por dominación, contaminación o agotamiento._
 
 ---
 
-### R19 – Chat en tiempo real
+### R18 – Chat en tiempo real
 
 _Restricción: Los jugadores deben tener acceso a un chat de equipo en tiempo real._
 
 ---
 
-### R20 – Orden de turnos
+### R19 – Orden de turnos
 
 _Restricción: El sistema gestiona automáticamente el orden de turnos._
 
 ---
 
-### R21 – Validación de movimientos
+### R20 – Validación de movimientos
 
 _Restricción: La aplicación valida todos los movimientos antes de aplicarlos._
 
 ---
 
-### R22 – Sincronización de tablero
+### R21 – Sincronización de tablero
 
 _Restricción: El tablero se sincroniza en tiempo real entre los jugadores._
 
 ---
 
-### R23 – Información visual
+### R22 – Información visual
 
 _Restricción: La interfaz debe mostrar tablero, dominación, contaminación y reservas._
 
 ---
 
-### R24 – Controles del jugador
+### R23 – Controles del jugador
 
 _Restricción: Los jugadores disponen de botones para seleccionar, colocar, mover y confirmar._
 
 ---
 
-### R25 – Retroalimentación visual y sonora
+### R24 – Retroalimentación visual y sonora
 
 _Restricción: El sistema debe ofrecer feedback visual y sonoro en eventos importantes._
 
 ---
 
-### R26 – Exclusividad de turno
+### R25 – Exclusividad de turno
 
 _Restricción: Solo el jugador activo puede mover durante su turno._
 
 ---
 
-### R27 – Jugadas inválidas
+### R26 – Jugadas inválidas
 
 _Restricción: Los intentos de jugadas inválidas deben bloquearse._
 
 ---
 
-### R28 – Registro de jugadas
+### R27 – Registro de jugadas
 
 _Restricción: Se debe registrar el historial de jugadas para detectar errores o trampas._
 
 ---
 
-### R29 – Autenticación obligatoria
+### R28 – Autenticación obligatoria
 
 _Restricción: Un usuario sin cuenta no puede acceder al juego; iniciar sesión es obligatorio._
 
 ---
 
-### R30 – Integridad de la partida
+### R29 – Integridad de la partida
 
 _Restricción: Las partidas en curso no pueden modificarse por jugadores no participantes._
 
 ---
 
-### R31 – Gestión de perfiles
+### R30 – Gestión de perfiles
 
 _Restricción: Los jugadores solo pueden editar o eliminar su propio perfil, salvo administradores._
 
 ---
 
-### R32 – Creación de partidas
+### R31 – Creación de partidas
 
 _Restricción: El sistema permite crear partidas públicas o privadas._
 
 ---
 
-### R33 – Autenticación para unirse
+### R32 – Autenticación para unirse
 
 _Restricción: Para unirse a una partida, el jugador debe estar autenticado._
 
 ---
 
-### R34 – Registro de partidas
+### R33 – Registro de partidas
 
 _Restricción: El sistema mantiene registro de partidas finalizadas y en curso._
 
 ---
 
-### R35 – Visibilidad de partidas en curso
+### R34 – Visibilidad de partidas en curso
 
 _Restricción: Las partidas en curso no aparecen en el listado público para no participantes._
 
 ---
 
-### R36 – Invitaciones activas
+### R35 – Invitaciones activas
 
 _Restricción: Un jugador solo puede enviar una invitación activa por amigo a la vez._
 
 ---
 
-### R37 – Expiración de invitaciones
+### R36 – Expiración de invitaciones
 
 _Restricción: Una invitación expira tras un minuto si no se acepta._
 
 ---
 
-### R38 – Espectadores
+### R37 – Espectadores
 
 _Restricción: Solo pueden espectar los amigos de todos los participantes de la partida._
 
 ---
 
-### R39 – Estado “en línea”
+### R38 – Estado “en línea”
 
 _Restricción: Un jugador con sesión abierta aparece como “en línea”._
 
 ---
 
-### R40 – Estado “desconectado”
+### R39 – Estado “desconectado”
 
 _Restricción: Un jugador sin sesión activa aparece como “desconectado”._
 
 ---
 
-### R41 – Actualización de estado
+### R40 – Actualización de estado
 
 _Restricción: El estado de conexión se actualiza en tiempo real y afecta a las invitaciones._
 
-### R42 – Gestión de logros
+---
+
+### R41 – Gestión de logros
 
 _Restricción: Solo los administradores podrán eliminar, editar o crear logros._
 
 ---
 
-### R43 – Gestión de jugadores
+### R42 – Gestión de jugadores
 
 _Restricción: Solo los administradores podrán ver, modificar o eliminar jugadores._
 
 ---
 
-### R44 – Control de partidas activas
+### R43 – Control de partidas activas
 
 _Restricción: Solo los administradores podrán pausar o eliminar una partida que esté en curso._
 
+---
+
+### R44 – Personalizar normas de partida
+
+_Restricción: Solo los creadores de una partida pueden personalizar sus normas._
+
+=======
 ## Orden para abordar en el desarrollo
 Para este proyecto vamos a seguir el siguiente orden de desarrollo e integración, en orden natural:
 ### 1-Registrar jugador

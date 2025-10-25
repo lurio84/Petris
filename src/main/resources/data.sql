@@ -22,4 +22,4 @@ INSERT INTO appusers(id,username,password,authority) VALUES (17,'LCY2956','$2a$1
 INSERT INTO appusers(id,username,password,authority) VALUES (18,'HGK2646','$2a$10$DaS6KIEfF5CRTFrxIoGc7emY3BpZZ0.fVjwA3NiJ.BjpGNmocaS3e',2);
 INSERT INTO appusers(id,username,password,authority) VALUES (19,'XDW2012','$2a$10$DaS6KIEfF5CRTFrxIoGc7emY3BpZZ0.fVjwA3NiJ.BjpGNmocaS3e',2);
 
-INSERT INTO achievement (id,name,description,badge_image,threshold,metric) VALUES (1,'name1','descripcion1','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',10,'GAMES_PLAYED');
+INSERT INTO achievements (id,name,description,badge_image,threshold,metric) VALUES (1,'name1','descripcion1','example',10,'GAMES_PLAYED');

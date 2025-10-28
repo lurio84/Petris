@@ -6,7 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +19,12 @@ import lombok.Setter;
 public class User extends BaseEntity {
 
 	@Column(unique = true)
+	@NotBlank
+	@Size(min=3 ,max = 30, message = "Username must have between 3-30 characters") 
 	String username;
-
+	
+	@NotBlank
+	@Size(min=6 ,max = 60, message = "Username must have between 6-60 characters") 
 	String password;
 
 	@NotNull

@@ -78,6 +78,16 @@ public class PlayerStatistic extends BaseEntity {
     @Column(nullable = false)
     private Integer maxBacteryPlayedAsGreen = 0;
 
+    @NotNull(message = "Max Bactery played as green can't be null")
+    @PositiveOrZero(message = "Max Bactery played as green must be zero or positive")
+    @Column(nullable = false)
+    private Integer maxBacteryPlayedAsPurple = 0;
+
+    @NotNull(message = "Max Sarcine played as purple can't be null")
+    @PositiveOrZero(message = "Max Sarcine played as purple must be zero or positive")
+    @Column(nullable = false)
+    private Integer maxSarcinePlayedAsGreen = 0;
+
     @NotNull(message = "Max Sarcine played as purple can't be null")
     @PositiveOrZero(message = "Max Sarcine played as purple must be zero or positive")
     @Column(nullable = false)

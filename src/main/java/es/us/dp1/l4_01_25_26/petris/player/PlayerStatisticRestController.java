@@ -50,10 +50,10 @@ public class PlayerStatisticRestController {
     }
 
     @PostMapping
-    public ResponseEntity<PlayerStatistic> createPlayerStatistic(@RequestBody @Valid Achievement newAchievement, BindingResult br){
+    public ResponseEntity<PlayerStatistic> createPlayerStatistic(@RequestBody @Valid PlayerStatistic newps, BindingResult br){
         PlayerStatistic result=null;
         if(!br.hasErrors())
-            result=playerStatisticService.savePlayerStatistic(new PlayerStatistic());
+            result=playerStatisticService.savePlayerStatistic(newps);
         else
             throw new BadRequestException(br.getAllErrors());
         return new ResponseEntity<>(result,HttpStatus.CREATED);
@@ -62,22 +62,22 @@ public class PlayerStatisticRestController {
 
     @PutMapping("/{id}")
     public ResponseEntity<PlayerStatistic> updatePlayerStatistic(@RequestBody @Valid PlayerStatistic new_ps, BindingResult br, @PathVariable("id") Integer id){
-        PlayerStatistic playerStatisticToUpdate=this.findPlayerStatistic(id).getBody();
-        if(br.hasErrors())
+        PlayerStatistic playerStatisticToUpdate = this.findPlayerStatistic(id).getBody();
+        if (br.hasErrors())
             throw new BadRequestException(br.getAllErrors());
-        else if (new_ps.getId()==null || !new_ps.getId().equals(id))
+        else if (new_ps.getId() == null || !new_ps.getId().equals(id))
             throw new BadRequestException("PlayerStatistic id and resource URL id do not match!");
         else {
-            BeanUtils.copyProperties(id, playerStatisticToUpdate, "id");
-            playerStatisticService.savePlayerStatistic(playerStatisticToUpdate);
+            BeanUtils.copyProperties(new_ps, playerStatisticToUpdate, "id");
+            PlayerStatistic saved = playerStatisticService.updatePlayerStatistic(playerStatisticToUpdate, id);
+            return new ResponseEntity<>(saved, HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePlayerStatistic(@PathVariable("id") Integer id){
         findPlayerStatistic(id);
-        playerStatisticService.deleteById(id);
+        playerStatisticService.deletePlayerStatisticById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

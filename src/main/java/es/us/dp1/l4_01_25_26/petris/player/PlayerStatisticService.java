@@ -56,9 +56,4 @@ public class PlayerStatisticService {
     }
 
 
-    @Transactional
-    public void deleteById(Integer id) {
-        playerStatisticRepository.deleteById(id);
-    }
-
 }

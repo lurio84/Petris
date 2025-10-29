@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +38,7 @@ public class PlayerStatisticRestController {
 
     @GetMapping
     public ResponseEntity<List<PlayerStatistic>> findAll() {
-        return new ResponseEntity<>((List<PlayerStatistic>) playerStatisticService.getPlayerStatistics(), HttpStatus.OK);
+        return new ResponseEntity<>((List<PlayerStatistic>) playerStatisticService.getAllPlayerStatistics(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -73,4 +74,10 @@ public class PlayerStatisticRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePlayerStatistic(@PathVariable("id") Integer id){
+        findPlayerStatistic(id);
+        playerStatisticService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

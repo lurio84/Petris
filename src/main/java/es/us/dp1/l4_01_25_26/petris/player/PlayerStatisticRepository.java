@@ -10,6 +10,4 @@ public interface PlayerStatisticRepository extends CrudRepository<PlayerStatisti
     List<PlayerStatistic> findAll();
     
     public Optional<PlayerStatistic> findById(int id);
-
-    public PlayerStatistic save(PlayerStatistic ps);
 }

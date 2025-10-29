@@ -1,6 +1,7 @@
 package es.us.dp1.l4_01_25_26.petris.player;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class PlayerStatisticService {
 
 
     @Transactional(readOnly = true)
-    public List<PlayerStatistic> getPlayerStatistics() {
+    public List<PlayerStatistic> getAllPlayerStatistics() {
         return playerStatisticRepository.findAll(); 
     }
 
@@ -31,7 +32,8 @@ public class PlayerStatisticService {
 
     @Transactional(readOnly = true)
     public PlayerStatistic getById(Integer id) {
-        return playerStatisticRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("PlayerStatistic", "id", id));
+        Optional<PlayerStatistic> stat = playerStatisticRepository.findById(id);
+        return stat.isPresent() ? stat.get() : null;
     }
 
     @Transactional
@@ -50,6 +52,12 @@ public class PlayerStatisticService {
 
     @Transactional
     public void deletePlayerStatisticById(Integer id){
+        playerStatisticRepository.deleteById(id);
+    }
+
+
+    @Transactional
+    public void deleteById(Integer id) {
         playerStatisticRepository.deleteById(id);
     }
 

@@ -61,6 +61,7 @@ public class PlayerStatistic extends BaseEntity {
 
     @NotNull(message = "Favourite team can't be null. It has to be Green or Purple")
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Team favouriteTeam;
 
     @NotNull(message = "Victories played as green can't be null")
@@ -102,5 +103,29 @@ public class PlayerStatistic extends BaseEntity {
     @PositiveOrZero(message = "Max turns played as purple must be zero or positive")
     @Column(nullable = false)
     private Integer maxTurnsPlayedAsPurple = 0;
+
+    public static PlayerStatistic empty() {
+        PlayerStatistic ps = new PlayerStatistic();
+        ps.setFriends(0);
+        ps.setGamesAsGreen(0);
+        ps.setGamesAsPurple(0);
+        ps.setGamesPlayed(0);
+        ps.setGamesWon(0);
+        ps.setVictoriesAsGreen(0);
+        ps.setVictoriesAsPurple(0);
+        ps.setMaxBacteryPlayedAsGreen(0);
+        ps.setMaxBacteryPlayedAsPurple(0);
+        ps.setMaxSarcinePlayedAsGreen(0);
+        ps.setMaxSarcinePlayedAsPurple(0);
+        ps.setMaxTurnsPlayedAsGreen(0);
+        ps.setMaxTurnsPlayedAsPurple(0);
+        ps.setFavouriteTeam(Team.GREEN);
+        ps.setFirstConnection(LocalDateTime.now());
+        ps.setLastConnection(LocalDateTime.now());
+        ps.setFirstGamePlayed(LocalDateTime.now());
+        ps.setLastGamePlayed(LocalDateTime.now());
+
+        return ps;
+    }
 
 }

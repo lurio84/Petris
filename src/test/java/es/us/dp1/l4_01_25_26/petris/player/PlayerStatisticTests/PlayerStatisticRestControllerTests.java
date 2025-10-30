@@ -1,4 +1,4 @@
-package es.us.dp1.l4_01_25_26.petris.player;
+package es.us.dp1.l4_01_25_26.petris.player.PlayerStatisticTests;
 
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
@@ -27,6 +27,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import es.us.dp1.l4_01_25_26.petris.configuration.SecurityConfiguration;
+import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.PlayerStatistic;
+import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.PlayerStatisticRestController;
+import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.PlayerStatisticService;
+import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.Team;
 import lombok.With;
 
 @WebMvcTest(value = PlayerStatisticRestController.class,

@@ -1,4 +1,4 @@
-package es.us.dp1.l4_01_25_26.petris.player;
+package es.us.dp1.l4_01_25_26.petris.player.PlayerStatisticTests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -10,9 +10,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic;
-import es.us.dp1.l4_01_25_26.petris.player.PlayerStatisticService;
-
+import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.PlayerStatistic;
+import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.PlayerStatisticService;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 

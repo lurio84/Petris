@@ -1,4 +1,4 @@
-package es.us.dp1.l4_01_25_26.petris.player;
+package es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

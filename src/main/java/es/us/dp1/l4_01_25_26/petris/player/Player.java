@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import es.us.dp1.l4_01_25_26.petris.model.Person;
+import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.PlayerStatistic;
 import es.us.dp1.l4_01_25_26.petris.statistic.Achievement;
 import es.us.dp1.l4_01_25_26.petris.user.User;
 import jakarta.persistence.CascadeType;

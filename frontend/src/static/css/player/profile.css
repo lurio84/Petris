@@ -16,7 +16,7 @@
 }
 
 .smaller-user-page-container {
-
+    color:#704ABA;
     height: 100%;
     width: 70%;
     padding: 80px;
@@ -30,8 +30,31 @@
 
 /*######## PERFIL #########*/
 
+/* Profile info description */
 
-/* Player statistics */
+.profileInfo {
+    padding: 16px;
+    width: 100%;
+    height: 130px;
+    color:#597C39;
+    background-color: #FDFEFC;
+    border: #597C39;
+    border-radius: 20px;
+}
+
+.profile-avatar img {
+    width: 80%;
+    height: 40%;
+    border: 6px solid #ABCD61;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 16px;
+
+}
+/* Player statistics and recent achievements */
 
 .profile-small-container {
     font-size: 20px;

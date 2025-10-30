@@ -42,7 +42,7 @@ export default function ProfileView() {
     
     const mockProfile = {
         id: id,
-        avatar: imgnotfound,
+        avatar: null,
         profileInfo: "Esta es mi descripción falsa de perfil falso!",
         friends: [],
         achievements: [],
@@ -79,6 +79,7 @@ export default function ProfileView() {
         );
     }
 
+    //Ahora mismo son aleatorios, ya que no se ha creado la entidad player.
     function recentAchievementList() {
         const achievementCapsules =
         mockPlayerAchievements.map((a) => {
@@ -106,19 +107,34 @@ export default function ProfileView() {
     }
 
 
+
+
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
-                <div>
-
-                </div>
                 <table style={{width:'100%'}}>
+                    <td className="profile-avatar">
+                        <img src={mockProfile.avatar? mockProfile.avatar : imgnotfound} alt={mockProfile.user.name}  />
+                        
+                    </td>
+                    <td style={{ width: '80%',verticalAlign:'top' }}>
+                        <h2>{mockProfile.user.name}</h2>
+                        <div class="profileInfo">
+                            {mockProfile.profileInfo}
+                        </div>
+                    </td>
+                </table>
+                <table style={{width:'100%', marginTop: '20px'}}>
                     <tbody>
-                            <td>
-                                {recentAchievementList()} 
-                                <a href={`/achievements/${id}`}><center>Haz click aqui para ver el resto de logros de {mockProfile.user.name}</center></a>
+                            <td> 
+                                <center><h4>Últimos logros de {mockProfile.user.name}</h4></center>
+                                {recentAchievementList()}
+
+                                <div style={{marginTop: '10px'}}><a href={`/achievements/${id}`} ><center>Haz click aqui para ver el resto de logros de {mockProfile.user.name}</center></a></div>
+                                
                             </td>
                             <td>
+                                <center><h4>Estadísticas de {mockProfile.user.name}</h4></center>
                                 {statsList()}
                                 {editButton()}
                             </td>

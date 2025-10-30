@@ -30,12 +30,16 @@ export default function ProfileView() {
         setMessage,
         setVisible
     );
+
+
     
+    // Aun no está terminada la entidad Player
+
     const playerUser = {
         id: id,
-        name: "mockUser"
+        name: "mockPlayer"
     }
-    // Aun no está terminada la entidad Player
+    
     const mockProfile = {
         id: id,
         avatar: imgnotfound,
@@ -46,10 +50,20 @@ export default function ProfileView() {
         user: playerUser
     }
 
+    const [achievements, setAchievements] = useFetchState(
+            [],
+            `/api/v1/achievements`,
+            jwt
+        );
+    
+        const logrosAleatorios = [2,3,5,1,4]
+        const mockPlayerAchievements = achievements.filter(achievement => logrosAleatorios.includes(achievement.id));
+    
+
     function statsList() {
         const stats = mockProfile.playerstatistics;
         return(
-        <div className="player-statistics-container">
+        <div className="profile-small-container">
             <p>
                 Nº de amigos: {stats.friends}<br />
                 Partidas jugadas: {stats.gamesPlayed}<br />
@@ -66,18 +80,49 @@ export default function ProfileView() {
     }
 
     function recentAchievementList() {
-        
+        const achievementCapsules =
+        mockPlayerAchievements.map((a) => {
+            return (
+                <div key={a.id} className="achievement-badge-obtained">
+                    <div className="achievement-image-obtained">
+                        <img src={a.badgeImage ? a.badgeImage : imgnotfound} alt={a.name} className="achievement-image-obtained" />
+                    </div>
+                    <div className="achievement-content-obtained">
+                        <h4>{a.name}</h4>
+                        <p>{a.description}</p>
+                    </div>
+                </div>
+            );
+        });
+        return (
+            <div className="profile-small-container">
+                {achievementCapsules}
+            </div>
+        )
+    }
+
+    function editButton() {
+        //TODO
     }
 
 
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
-                <div></div>
-                <table>
+                <div>
+
+                </div>
+                <table style={{width:'100%'}}>
                     <tbody>
-                            <td>{statsList()} <a href={`/achievements/${id}`}>Haz click aqui para ver el resto de logros de {mockProfile.user.name}</a></td>
-                            <td>{statsList()}</td>
+                            <td>
+                                {recentAchievementList()} 
+                                <a href={`/achievements/${id}`}><center>Haz click aqui para ver el resto de logros de {mockProfile.user.name}</center></a>
+                            </td>
+                            <td>
+                                {statsList()}
+                                {editButton()}
+                            </td>
+
                     </tbody>
                 </table>
                 

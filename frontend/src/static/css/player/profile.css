@@ -18,7 +18,7 @@
 .smaller-user-page-container {
 
     height: 100%;
-    width: 60%;
+    width: 70%;
     padding: 80px;
     display: flex;
     flex-direction: column;
@@ -28,24 +28,48 @@
 
 }
 
-/* Página de perfil */
+/*######## PERFIL #########*/
 
 
 /* Player statistics */
 
-
-.player-statistics-container {
+.profile-small-container {
     font-size: 20px;
     color: #704ABA;
-    display:flex;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 0 auto;
     width: 80%;
     border-radius: 20px;
-    height: 50%;
-    padding: 20px;
+    height: 400px;
+    max-height: 50%;
+    padding: 30px;
     background-color: #FDFEFC;
     border: solid 6px #F0BFFA;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: 10px;
+    scrollbar-color: #CA78F0 #F0BFFA;
+}
+
+
+.profile-small-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.profile-small-container::-webkit-scrollbar-track {
+    background: #F0BFFA;
+    border-radius: 10px;
+}
+
+.profile-small-container::-webkit-scrollbar-thumb {
+    background: #CA78F0;
+    border-radius: 10px;
+}
+
+.profile-small-container::-webkit-scrollbar-thumb:hover {
+    background: #b366d4;
 }
 
 /*######## User achievement page #########*/

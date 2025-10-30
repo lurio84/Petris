@@ -89,7 +89,7 @@ public class PlayerStatisticServiceTests {
 
     @Test
     public void shouldDeletePlayerStatistic() {
-        playerStatisticService.deleteById(1);
+        playerStatisticService.deletePlayerStatisticById(1);
         PlayerStatistic ps = playerStatisticService.getById(1);
         assertThat(ps).isNull();
     }

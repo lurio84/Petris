@@ -21,29 +21,61 @@ export default function AchievementList() {
         jwt
     );
 
+    const logrosAleatorios = [2,3,5]
+    const mockPlayerAchievements = achievements.filter(achievement => logrosAleatorios.includes(achievement.id));
+
     const achievementList =
         achievements.map((a) => {
+            if (mockPlayerAchievements.includes(a)) {
+                return (
+                <div key={a.id} className="achievement-badge-obtained">
+                    <div className="achievement-image-obtained">
+                        <img src={a.badgeImage ? a.badgeImage : imgnotfound} alt={a.name} className="achievement-image-obtained" />
+                    </div>
+                    <div className="achievement-content-obtained">
+                        <h4>{a.name}</h4>
+                        <p>{a.description}</p>
+                    </div>
+                </div>
+            );
+            }
+            
             return (
                 <div key={a.id} className="achievement-badge">
                     <div className="achievement-image">
                         <img src={a.badgeImage ? a.badgeImage : imgnotfound} alt={a.name} className="achievement-image" />
                     </div>
                     <div className="achievement-content">
-                        <h3>{a.name}</h3>
+                        <h4>{a.name}</h4>
                         <p>{a.description}</p>
                     </div>
                 </div>
             );
         });
 
-
+    // De momento con una lista falsa, player esta por implementar
+    const playerAchievementList =
+        mockPlayerAchievements.map((a) => {
+            return (
+                <div key={a.id} className="achievement-badge-obtained">
+                    <div className="achievement-image-obtained">
+                        <img src={a.badgeImage ? a.badgeImage : imgnotfound} alt={a.name} className="achievement-image-obtained" />
+                    </div>
+                    <div className="achievement-content-obtained">
+                        <h4>{a.name}</h4>
+                        <p>{a.description}</p>
+                    </div>
+                </div>
+            );
+        });
+    
     return (
             <div className="user-page-container">
                 <div className="smaller-user-page-container">
                     <h1 style={{color:'#704ABA'}}>Logros de mockPlayer:</h1>
                     <div className="all-achievements">
                         <div className="achievement-grid">
-                            {achievementList}
+                            {playerAchievementList}
                         </div>
                     </div>
                     <h1 style={{color:'#704ABA'}}>Todos los logros:</h1>

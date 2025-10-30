@@ -46,4 +46,9 @@ public class GameStatistics extends BaseEntity {
     @NotNull
     private Integer purplePlayerSarcines = 0;
 
+/* 
+    @OneToOne(optional = false)
+    @JoinColumn(name = "game_id", nullable = false, unique = true)
+    private Game game;
+*/
 }

@@ -24,8 +24,38 @@ INSERT INTO appusers(id,username,password,authority) VALUES (17,'LCY2956','$2a$1
 INSERT INTO appusers(id,username,password,authority) VALUES (18,'HGK2646','$2a$10$DaS6KIEfF5CRTFrxIoGc7emY3BpZZ0.fVjwA3NiJ.BjpGNmocaS3e',2);
 INSERT INTO appusers(id,username,password,authority) VALUES (19,'XDW2012','$2a$10$DaS6KIEfF5CRTFrxIoGc7emY3BpZZ0.fVjwA3NiJ.BjpGNmocaS3e',2);
 
-INSERT INTO achievement (id,name,description,badge_image,threshold,metric) VALUES (1,'name1','descripcion1','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',10,'GAMES_PLAYED');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (1,'Principiante','Juega tu primera partida','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',1,'GAMES_PLAYED');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (2,'Aprobado','Gana tu primera partida','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',1,'VICTORIES');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (3,'Graduado','Gana 10 partidas','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',10,'VICTORIES');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (4,'Experimentado','Juega 20 partidas','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',20,'GAMES_PLAYED');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (5,'Doctor','Gana 40 partidas','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',10,'VICTORIES');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (6,'Verde Novato','Juega 5 partidas como equipo verde','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',5,'GAMES_AS_GREEN');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (7,'Púrpura Novato','Juega 5 partidas como equipo púrpura','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',5,'GAMES_AS_PURPLE');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (8,'Verde Experto','Juega 25 partidas como equipo verde','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',25,'GAMES_AS_GREEN');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (9,'Púrpura Experto','Juega 25 partidas como equipo púrpura','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',25,'GAMES_AS_PURPLE');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (10,'Victoria Verde','Gana tu primera partida como equipo verde','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',1,'VICTORIES_AS_GREEN');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (11,'Victoria Púrpura','Gana tu primera partida como equipo púrpura','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',1,'VICTORIES_AS_PURPLE');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (12,'Bacteria Pro','Coloca 5 bacterias en una partida','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',5,'MAX_BACTERY_PLAYED');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (13,'Sarcina Pro','Coloca 3 sarcinas en una partida','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',3,'MAX_SARCINE_PLAYED');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (14,'Resistencia','Completa una partida de 30 turnos','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',30,'MAX_TURNS_PLAYED');
+INSERT INTO achievement (id,name,description,badge_image,threshold,metric) 
+VALUES (15,'Maratonista','Completa una partida de 60 turnos','https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg',60,'MAX_TURNS_PLAYED');
 
+-- Estadisticas de jugadores base.
 INSERT INTO player_statistics(
   id,
   friends,
@@ -67,7 +97,7 @@ INSERT INTO player_statistics(
   40,
   38
 );
-/*
+
 INSERT INTO player_statistics(
   id,
   friends,
@@ -151,4 +181,3 @@ INSERT INTO player_statistics(
   36,
   34
 );
-*/

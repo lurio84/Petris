@@ -16,6 +16,8 @@ import SwaggerDocs from "./public/swagger";
 import DeveloperList from "./developers";
 import AchievementList from "./achievements/achievementList";
 import AchievementEdit from "./achievements/achievementEdit";
+import PlayerAchievementList from "./achievements/playerAchievement/playerAchievementList";
+
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -51,13 +53,15 @@ function App() {
         <>
           <Route path="/users" exact={true} element={<PrivateRoute><UserListAdmin /></PrivateRoute>} />
           <Route path="/users/:username" exact={true} element={<PrivateRoute><UserEditAdmin /></PrivateRoute>} />
+          <Route path="/achievements" exact={true} element={<PrivateRoute><AchievementList/></PrivateRoute>} />
+          <Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />
         </>)
     }
     if (role === "PLAYER") {
       ownerRoutes = (
         <>
-          <Route path="/achievements" exact={true} element={<PrivateRoute><AchievementList/></PrivateRoute>} />
-          <Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />
+          <Route path="/achievements" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
+          {/*<Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />*/}
         </>)
     }
   })

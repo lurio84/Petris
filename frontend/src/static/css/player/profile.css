@@ -1,5 +1,5 @@
 
-/*######## Página de perfil y achievements #########*/
+/*######## General #########*/
 
 .user-page-container {
   position: absolute;
@@ -25,6 +25,27 @@
     align-items: center;
     background: linear-gradient(180deg, #F0F7C3 0%, #F0F7C3 40%, #D7E88A 100%);;
 }
+
+/* Página de perfil */
+
+
+/* Player statistics */
+
+
+.player-statistics-container {
+    font-size: 20px;
+    color: #704ABA;
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 20px;
+    height: 50%;
+    padding: 20px;
+    background-color: #FDFEFC;
+    border: solid 6px #F0BFFA;
+}
+
 /*######## User achievement page #########*/
 
 .achievement-grid {
@@ -32,7 +53,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
-    height: 600px;       
+    height: 100%;
     overflow-y: auto;   
     scrollbar-width: 10px; 
     scrollbar-color: #ABCD61 #F0F7C3; 
@@ -40,10 +61,12 @@
 }
 
 .all-achievements {
+    margin: 15px;
+    height: 45%;
     padding: 10px;
     background-color: #FDFEFC;
     border: solid 6px #F0BFFA;
-    border-radius: 18px;
+    border-radius: 20px;
 }
 
 .achievement-grid::-webkit-scrollbar {
@@ -69,7 +92,7 @@
   align-items: center;
   background-color: #F0F7C3;
   border: 6px dashed #ABCD61;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 8px;
   margin: 12px;
   max-width: 400px;
@@ -80,7 +103,7 @@
   width: 80px;
   height: 80px;
   border: 6px solid #ABCD61;
-  border-radius: 18px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;

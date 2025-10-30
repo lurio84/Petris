@@ -1,8 +1,4 @@
-import {
-    Table, Button
-} from "reactstrap";
-
-import "./../../static/css/player/perfil.css"
+import "./../../static/css/player/profile.css"
 import { Link } from "react-router-dom";
 import tokenService from "./../../services/token.service";
 import useFetchState from "./../../util/useFetchState";
@@ -44,7 +40,13 @@ export default function AchievementList() {
     return (
             <div className="user-page-container">
                 <div className="smaller-user-page-container">
-                    <h1>Todos los logros</h1>
+                    <h1 style={{color:'#704ABA'}}>Logros de mockPlayer:</h1>
+                    <div className="all-achievements">
+                        <div className="achievement-grid">
+                            {achievementList}
+                        </div>
+                    </div>
+                    <h1 style={{color:'#704ABA'}}>Todos los logros:</h1>
                     <div className="all-achievements">
                         <div className="achievement-grid">
                             {achievementList}

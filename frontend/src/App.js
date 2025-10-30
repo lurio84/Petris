@@ -17,7 +17,7 @@ import DeveloperList from "./developers";
 import AchievementList from "./achievements/achievementList";
 import AchievementEdit from "./achievements/achievementEdit";
 import PlayerAchievementList from "./achievements/playerAchievement/playerAchievementList";
-
+import ProfileView from "./player/profileView"
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -61,6 +61,7 @@ function App() {
       ownerRoutes = (
         <>
           <Route path="/achievements" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
+          <Route path="/profile/:profileId" exact={true} element={<PrivateRoute><ProfileView/></PrivateRoute>} />
           {/*<Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />*/}
         </>)
     }

@@ -32,6 +32,7 @@ public class GameStatisticsService {
         return repository.save(stats);
     }
 
+    @Transactional
     public Optional<GameStatistics> update(Integer id, GameStatistics data) {
         return repository.findById(id).map(existing -> {
             existing.setTurnsPlayed(data.getTurnsPlayed());

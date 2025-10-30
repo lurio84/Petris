@@ -60,7 +60,7 @@ function App() {
     if (role === "PLAYER") {
       ownerRoutes = (
         <>
-          <Route path="/achievements" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
+          <Route path="/achievements/:profileId" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
           <Route path="/profile/:profileId" exact={true} element={<PrivateRoute><ProfileView/></PrivateRoute>} />
           {/*<Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />*/}
         </>)

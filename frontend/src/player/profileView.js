@@ -31,6 +31,10 @@ export default function ProfileView() {
         setVisible
     );
     
+    const playerUser = {
+        id: id,
+        name: "mockUser"
+    }
     // Aun no está terminada la entidad Player
     const mockProfile = {
         id: id,
@@ -38,7 +42,8 @@ export default function ProfileView() {
         profileInfo: "Esta es mi descripción falsa de perfil falso!",
         friends: [],
         achievements: [],
-        playerstatistics: playerStatistics
+        playerstatistics: playerStatistics,
+        user: playerUser
     }
 
     function statsList() {
@@ -61,15 +66,17 @@ export default function ProfileView() {
     }
 
     function recentAchievementList() {
-        //TODO
+        
     }
+
 
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
+                <div></div>
                 <table>
                     <tbody>
-                            <td>{statsList()}</td>
+                            <td>{statsList()} <a href={`/achievements/${id}`}>Haz click aqui para ver el resto de logros de {mockProfile.user.name}</a></td>
                             <td>{statsList()}</td>
                     </tbody>
                 </table>

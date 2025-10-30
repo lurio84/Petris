@@ -1,14 +1,17 @@
 package es.us.dp1.l4_01_25_26.petris.configuration;
 
 //#region Imports
-import static org.springframework.security.config.Customizer.withDefaults;
+import java.util.List;
+
 import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,14 +21,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-//############CORS############
-import java.util.List;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-//############CORS############
 
 import es.us.dp1.l4_01_25_26.petris.configuration.jwt.AuthEntryPointJwt;
 import es.us.dp1.l4_01_25_26.petris.configuration.jwt.AuthTokenFilter;
@@ -94,6 +92,8 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, "/api/v1/achievements/**").hasAuthority(PLAYER)
                         .requestMatchers(HttpMethod.PUT, "/api/v1/achievements/**").hasAuthority(PLAYER)
                         .requestMatchers(HttpMethod.DELETE, "/api/v1/achievements/**").hasAuthority(PLAYER)
+
+                        .requestMatchers("/api/v1/statistics").permitAll()
 
                         // El resto denegado
                         .anyRequest().denyAll())

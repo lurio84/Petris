@@ -1,16 +1,31 @@
 # Documento de diseño del sistema
 **Asignatura:** Diseño y Pruebas (Grado en Ingeniería del Software, Universidad de Sevilla)  
-**Curso académico:** <!-- p.ej., 2025/2026 -->  
-**Grupo/Equipo:** <!-- p.ej., L4-03 Equipo 33 -->  
-**Nombre del proyecto:** <!-- p. ej. Petris -->  
-**Repositorio:** <!-- URL del repo -->  
-**Integrantes (máx. 6):** <!-- Nombre Apellidos (US-Id / correo @us.es) -->
 
-_Esta es una plantilla que sirve como guía para realizar este entregable. Por favor, mantén las mismas secciones y los contenidos que se indican para poder hacer su revisión más ágil._ 
+**Curso académico:** 2025/2026 
+
+**Grupo/Equipo:** L4-01 
+
+**Nombre del proyecto:** Petris 
+
+**Repositorio:** https://github.com/gii-is-DP1/dp1-2025-2026-l4-1
+
+**Integrantes (máx. 6):**
+Jesús Cárdenas Conejo (jescarcon / jescarcon@alum.us.es)
+
+Guillermo Ciria González (NQP9307 / guicirgon@alum.us.es, gciria@us.es)
+
+Jaime González de Herrera Soriano (JMQ0481 / jaigonsor@us.es)
+
+Conor López Chivite (LCY2956 / conlopchi@alum.us.es)
+
+Lucas Ronquillo Bernáldez (HGK2646 / lucronber@alum.us.es)
+
+Roberto Serrano Villalba (XDW2012 / robservil@alum.us.es)
+
 
 ## Introducción
 
-_En esta sección debes describir de manera general cual es la funcionalidad del proyecto a rasgos generales. ¿Qué valor puede aportar? ¿Qué objetivos pretendemos alcanzar con su implementación? ¿Cuántos jugadores pueden intervenir en una partida como máximo y como mínimo? ¿Cómo se desarrolla normalmente una partida?¿Cuánto suelen durar?¿Cuando termina la partida?¿Cuantos puntos gana cada jugador o cual es el criterio para elegir al vencedor?_
+<!--_En esta sección debes describir de manera general cual es la funcionalidad del proyecto a rasgos generales. ¿Qué valor puede aportar? ¿Qué objetivos pretendemos alcanzar con su implementación? ¿Cuántos jugadores pueden intervenir en una partida como máximo y como mínimo? ¿Cómo se desarrolla normalmente una partida?¿Cuánto suelen durar?¿Cuando termina la partida?¿Cuantos puntos gana cada jugador o cual es el criterio para elegir al vencedor?_-->
 
 [Enlace al vídeo de explicación de las reglas del juego / partida jugada por el grupo](http://youtube.com)
 
@@ -18,53 +33,22 @@ _En esta sección debes describir de manera general cual es la funcionalidad del
 
 ### Diagrama de Dominio/Diseño
 
-_En esta sección debe proporcionar un diagrama UML de clases que describa el modelo de dominio, recuerda que debe estar basado en el diagrama conceptual del documento de análisis de requisitos del sistema pero que debe:_
-•	_Especificar la direccionalidad de las relaciones (a no ser que sean bidireccionales)_
-•	_Especificar la cardinalidad de las relaciones_
-•	_Especificar el tipo de los atributos_
-•	_Especificar las restricciones simples aplicadas a cada atributo de cada clase de domino_
-•	_Incluir las clases específicas de la tecnología usada, como por ejemplo BaseEntity, NamedEntity, etc._
-•	_Incluir los validadores específicos creados para las distintas clases de dominio (indicando en su caso una relación de uso con el estereotipo <<validates>>._
 
-_Un ejemplo de diagrama para los ejercicios planteados en los boletines de laboratorio sería (hemos omitido las generalizaciones hacia BaseEntity para simplificar el diagrama):_
-
-
-_Ej:_
-
-```mermaid
-classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : age
-    Animal : gender
-    class Duck{
-        beakColor        
-    }
-    class Fish{
-       sizeInFeet
-    }
-    class Zebra{
-        is_wild
-        
-    }
-```
-_En este caso hemos vuelto a usar mermaid para crear el diagrama de dominio/diseño, pero recuerda que puedes usar cualquier otra herramienta que consideres oportuno para crear tus diagramas e inclurlos en este document como imagen tal y como se explica en [este tutorial](https://www.baeldung.com/ops/github-readme-insert-image)_
+![FINAL-UML-PETRIS](https://github.com/user-attachments/assets/cc5c89e6-b25c-49dc-8ad2-f6b2599003f1)
 
 ### Diagrama de Capas (incluyendo Controladores, Servicios y Repositorios)
-_En esta sección debe proporcionar un diagrama UML de clases que describa el conjunto de controladores, servicios, y repositorios implementados, incluya la división en capas del sistema como paquetes horizontales tal y como se muestra en el siguiente ejemplo:_
+<!--_En esta sección debe proporcionar un diagrama UML de clases que describa el conjunto de controladores, servicios, y repositorios implementados, incluya la división en capas del sistema como paquetes horizontales tal y como se muestra en el siguiente ejemplo:_-->
 
-![your-UML-diagram-name](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gii-is-DP1/group-project-seed/main/docs/diagrams/LayersUMLPackageDiagram.iuml)
+<img width="1111" height="761" alt="DiagramaDominio" src="https://github.com/user-attachments/assets/48c2c2d7-a976-478d-904f-5c9157f4c4aa" />
 
-*Nota importante para el alumno*: A la hora de entregar el proyecto, debes modificar la url para que esté asociada al respositorio concreto de tu proyecto. Date cuenta de que ahora mismo apunta al repositorio _gii-is-DP1/group-project-seed_.
+
+<!--*Nota importante para el alumno*: A la hora de entregar el proyecto, debes modificar la url para que esté asociada al respositorio concreto de tu proyecto. Date cuenta de que ahora mismo apunta al repositorio _gii-is-DP1/group-project-seed_.
 
 
 _El diagrama debe especificar además las relaciones de uso entre controladores y servicios, entre servicios y servicios, y entre servicios y repositorios._
 _Tal y como se muestra en el diagrama de ejemplo, para el caso de los repositorios se deben especificar las consultas personalizadas creadas (usando la signatura de su método asociado)._
 
-_En este caso, como mermaid no soporta la definición de paquetes, hemos usado una [herramienta muy similar llamada plantUML}(https://www.plantuml.com/). Esta otra herramienta tiene un formulario para visualizar los diagramas previamente disponible en [https://www.plantuml.com/plantuml/uml/}(https://www.plantuml.com/plantuml/uml/). Lo que hemos hecho es preparar el diagrama en ese formulario, y una vez teníamos el diagrama lista, grabarlo en un fichero aparte dentro del propio repositorio, y enlazarlo con el formulario para que éste nos genera la imagen del diagrama usando una funcionalizad que nos permite especificar el código del diagrama a partir de una url. Por ejemplo, si accedes a esta url verás el editor con el código cargado a partir del fichero del repositorio original: [http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gii-is-DP1/group-project-seed/main/docs/diagrams/LayersUMLPackageDiagram.iuml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gii-is-DP1/group-project-seed/main/docs/diagrams/LayersUMLPackageDiagram.iuml)._
+_En este caso, como mermaid no soporta la definición de paquetes, hemos usado una [herramienta muy similar llamada plantUML}(https://www.plantuml.com/). Esta otra herramienta tiene un formulario para visualizar los diagramas previamente disponible en [https://www.plantuml.com/plantuml/uml/}(https://www.plantuml.com/plantuml/uml/). Lo que hemos hecho es preparar el diagrama en ese formulario, y una vez teníamos el diagrama lista, grabarlo en un fichero aparte dentro del propio repositorio, y enlazarlo con el formulario para que éste nos genera la imagen del diagrama usando una funcionalizad que nos permite especificar el código del diagrama a partir de una url. Por ejemplo, si accedes a esta url verás el editor con el código cargado a partir del fichero del repositorio original: [http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gii-is-DP1/group-project-seed/main/docs/diagrams/LayersUMLPackageDiagram.iuml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gii-is-DP1/group-project-seed/main/docs/diagrams/LayersUMLPackageDiagram.iuml)._-->
 
 ## Descomposición del mockups del tablero de juego en componentes
 

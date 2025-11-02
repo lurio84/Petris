@@ -133,9 +133,15 @@ export default function AchievementEditAdmin() {
                             className="custom-input"
                         >
                             <option value="">None</option>
+                            <option value="GAMES_WON">GAMES_WON</option>
                             <option value="GAMES_PLAYED">GAMES_PLAYED</option>
-                            <option value="VICTORIES">VICTORIES</option>
-                            <option value="TOTAL_PLAY_TIME">TOTAL_PLAY_TIME</option>
+                            <option value="VICTORIES_AS_GREEN">VICTORIES_AS_GREEN</option>
+                            <option value="VICTORIES_AS_PURPLE">VICTORIES_AS_PURPLE</option>
+                            <option value="GAMES_AS_GREEN">GAMES_AS_GREEN</option>
+                            <option value="GAMES_AS_PURPLE">GAMES_AS_PURPLE</option>
+                            <option value="MAX_BACTERY_PLAYED">MAX_BACTERY_PLAYED</option>
+                            <option value="MAX_SARCINE_PLAYED">MAX_SARCINE_PLAYED</option>
+                            <option value="MAX_TURNS_PLAYED">MAX_TURNS_PLAYED</option>
                         </Input>
                     </div>
                     <div className="custom-form-input">

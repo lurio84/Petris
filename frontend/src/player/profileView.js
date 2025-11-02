@@ -1,20 +1,16 @@
-/*Pantalla creada para probar PlayerStatistics, pero será la vista de un
-perfil de un usuario*/
 
-import {Table} from "reactstrap";
-import { Link } from "react-router-dom";
 import tokenService from "../services/token.service";
 import "../static/css/player/profile.css";
 import getErrorModal from "../util/getErrorModal";
 import useFetchState from "../util/useFetchState";
 import getIdFromUrl from "../util/getIdFromUrl";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
-
 export default function ProfileView() {
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
@@ -22,7 +18,9 @@ export default function ProfileView() {
     const modal = getErrorModal(setVisible, visible, message);
     const id = getIdFromUrl(2);
     const loggedUserId = tokenService.getUser().id;
-    
+    const navigate = useNavigate();
+
+
     const [player, setPlayer] = useFetchState(
         [],
         `/api/v1/player/${id}`,
@@ -31,9 +29,19 @@ export default function ProfileView() {
         setVisible
     );
 
-    
+    if (!player || !player.user) {
+        return (
+            <div className="user-page-container">
+                <h2>Player not found</h2>
+            </div>
+        );
+    }
+
+    const playerUser = player.user;
     const playerAchievements = player.achievements;
 
+    console.log(player);
+    
     function statsList() {
         if (!player.stats) {
             return <p>Loading statistics...</p>;
@@ -79,15 +87,14 @@ export default function ProfileView() {
     }
 
     function editButton() {
-        //TODO
-    }
+        if (loggedUserId === playerUser.id) {
+            return (
+                <div style={{ marginTop: '10px' }}>
+                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${playerUser.id}`)}>Editar perfil</button>
 
-    if (!player || !player.user) {
-        return (
-            <div className="user-page-container">
-                <h2>Loading...</h2>
-            </div>
-        );
+                </div>
+            );
+        }
     }
 
 
@@ -96,11 +103,11 @@ export default function ProfileView() {
             <div className="smaller-user-page-container">
                 <table style={{width:'100%'}}>
                     <td className="profile-avatar">
-                        <img src={player.avatar ? player.avatar : imgnotfound} alt={player.user.name}  />
+                        <img src={player.avatar ? player.avatar : imgnotfound} alt={playerUser.username}  />
                         
                     </td>
-                    <td style={{ width: '80%',verticalAlign:'top' }}>
-                        <h2>{player.user.name}</h2>
+                    <td style={{ width: '80%', height:'80%',verticalAlign:'top' }}>
+                        <h2>{playerUser.username}</h2>
                         <div class="profileInfo">
                             {player.profileInfo}
                         </div>
@@ -109,12 +116,12 @@ export default function ProfileView() {
                 <table style={{width:'100%', marginTop: '20px'}}>
                     <tbody>
                             <td> 
-                                <center><h4>Últimos logros de {player.user.name}</h4></center>
+                                <center><h4>Últimos logros de {playerUser.username}</h4></center>
                                 {recentAchievementList()}
-                                <div style={{marginTop: '10px'}}><a href={`/achievements/${id}`} ><center>Haz click aqui para ver el resto de logros de {player.user.name}</center></a></div>
+                                <div style={{marginTop: '10px'}}><a href={`/achievements/${id}`} ><center>Haz click aqui para ver el resto de logros de {playerUser.username}</center></a></div>
                             </td>
                             <td>
-                                <center><h4>Estadísticas de {player.user.name}</h4></center>
+                                <center><h4>Estadísticas de {playerUser.username}</h4></center>
                                 {statsList()}
                                 {editButton()}
                             </td>

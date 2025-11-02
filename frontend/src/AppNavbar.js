@@ -9,7 +9,7 @@ function AppNavbar() {
     const [username, setUsername] = useState("");
     const jwt = tokenService.getLocalAccessToken();
     const [collapsed, setCollapsed] = useState(true);
-    const loggedUserId = tokenService.getUser().id;
+    const loggedUserId = tokenService.getUser() == null ? "" : tokenService.getUser().id;
 
     const toggleNavbar = () => setCollapsed(!collapsed);
 

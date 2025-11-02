@@ -1,8 +1,6 @@
 package es.us.dp1.l4_01_25_26.petris.statistic;
 
 public enum Metric {
-    FIRST_GAME_PLAYED,
-    LAST_GAME_PLAYED,
     GAMES_PLAYED,
     GAMES_WON,
     GAMES_AS_RED,
@@ -11,6 +9,5 @@ public enum Metric {
     VICTORIES_AS_BLUE,
     MAX_BACTERY_PLAYED,
     MAX_SARCINE_PLAYED,
-    FAVOURITE_TEAM,
     MAX_TURNS_PLAYED
 }

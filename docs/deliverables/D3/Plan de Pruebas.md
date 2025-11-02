@@ -4,7 +4,7 @@
 
 **Curso académico:** 2025/2026  
 
-**Grupo/Equipo:** L4-1  
+**Grupo/Equipo:** L4-01  
 
 **Nombre del proyecto:** Petris
 

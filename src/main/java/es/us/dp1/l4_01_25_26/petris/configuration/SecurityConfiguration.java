@@ -93,10 +93,10 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.DELETE, "api/v1/players/**").permitAll()
 
                         // PLAYER STATISTICS
-                        .requestMatchers(HttpMethod.GET, "api/v1/playerstatistics/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "api/v1/playerstatistics/**").permitAll()
-                        .requestMatchers(HttpMethod.PUT, "api/v1/playerstatistics/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "api/v1/playerstatistics/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "api/v1/player-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/v1/player-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "api/v1/player-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/player-statistics/**").permitAll()
 
                         // GAMES
                         .requestMatchers(HttpMethod.GET, "api/v1/games/**").permitAll()

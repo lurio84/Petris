@@ -110,29 +110,6 @@ public class PlayerStatistic extends BaseEntity {
     @JoinColumn(name = "player_id", referencedColumnName = "id", nullable = false)
     @OneToOne(cascade = CascadeType.ALL)
     private Player player;
-    
-    // public static PlayerStatistic empty() {
-    //     PlayerStatistic ps = new PlayerStatistic();
-    //     ps.setFriends(0);
-    //     ps.setGamesAsGreen(0);
-    //     ps.setGamesAsPurple(0);
-    //     ps.setGamesPlayed(0);
-    //     ps.setGamesWon(0);
-    //     ps.setVictoriesAsGreen(0);
-    //     ps.setVictoriesAsPurple(0);
-    //     ps.setMaxBacteryPlayedAsGreen(0);
-    //     ps.setMaxBacteryPlayedAsPurple(0);
-    //     ps.setMaxSarcinePlayedAsGreen(0);
-    //     ps.setMaxSarcinePlayedAsPurple(0);
-    //     ps.setMaxTurnsPlayedAsGreen(0);
-    //     ps.setMaxTurnsPlayedAsPurple(0);
-    //     ps.setFavouriteTeam(Team.GREEN);
-    //     ps.setFirstConnection(LocalDateTime.now());
-    //     ps.setLastConnection(LocalDateTime.now());
-    //     ps.setFirstGamePlayed(LocalDateTime.now());
-    //     ps.setLastGamePlayed(LocalDateTime.now());
-
-    //     return ps;
-    // }
+ 
 
 }

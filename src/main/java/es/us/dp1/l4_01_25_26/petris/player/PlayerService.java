@@ -134,7 +134,7 @@ public class PlayerService {
         }
         playerToUpdate.setAchievements(achievements);
 
-        // Guardar y devolver DTO
+    
         Player saved = playerRepository.save(playerToUpdate);
         return new PlayerDTO(saved);
     }

@@ -2,7 +2,7 @@ package es.us.dp1.l4_01_25_26.petris.player.dto;
 
 import java.util.List;
 
-import es.us.dp1.l4_01_25_26.petris.authorities.Authorities;
+import es.us.dp1.l4_01_25_26.petris.user.authorities.Authorities;
 import lombok.Getter;
 import lombok.Setter;
 

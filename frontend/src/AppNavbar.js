@@ -32,9 +32,6 @@ function AppNavbar() {
             adminLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/users">Users</NavLink>
-                    </NavItem>
-                    <NavItem>
                         <NavLink style={{ color: "white" }} tag={Link} to="/controlPanel">Control Panel</NavLink>
                     </NavItem>
                 </>

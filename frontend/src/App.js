@@ -52,8 +52,8 @@ function App() {
     if (role === "ADMIN") {
       adminRoutes = (
         <>
-          <Route path="/users" exact={true} element={<PrivateRoute><UserListAdmin /></PrivateRoute>} />
-          <Route path="/users/:username" exact={true} element={<PrivateRoute><UserEditAdmin /></PrivateRoute>} />
+          <Route path="/controlPanel/users" exact={true} element={<PrivateRoute><UserListAdmin /></PrivateRoute>} />
+          <Route path="/controlPanel/users/:username" exact={true} element={<PrivateRoute><UserEditAdmin /></PrivateRoute>} />
           <Route path="/controlPanel" exact={true} element={<PrivateRoute><ControlPanel/></PrivateRoute>} />
           <Route path="/controlPanel/achievements" exact={true} element={<PrivateRoute><AchievementListAdmin/></PrivateRoute>} />
           <Route path="/controlPanel/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEditAdmin/></PrivateRoute>} />

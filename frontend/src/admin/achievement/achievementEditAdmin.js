@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 const jwt = tokenService.getLocalAccessToken();
 
 export default function AchievementEditAdmin() {
-    const id = getIdFromUrl(2);
+    const id = getIdFromUrl(3);
     const emptyAchievement = {
         id: id === "new" ? null : id,
         name: "",
@@ -49,14 +49,14 @@ export default function AchievementEditAdmin() {
             .then((response) => response.text())
             .then((data) => {
                 if (data === "")
-                    navigate("/achievements");
+                    navigate("/controlPanel/achievements");
                 else {
                     let json = JSON.parse(data);
                     if (json.message) {
                         setMessage(JSON.parse(data).message);
                         setVisible(true);
                     } else
-                        navigate("/achievements");
+                        navigate("/controlPanel/achievements");
                 }
             })
             .catch((message) => alert(message));
@@ -155,7 +155,7 @@ export default function AchievementEditAdmin() {
                     <div className="custom-button-row">
                         <button className="auth-button">Save</button>
                         <Link
-                            to={`/achievements`}
+                            to={`/controlPanel/achievements`}
                             className="auth-button"
                             style={{ textDecoration: "none" }}
                         >

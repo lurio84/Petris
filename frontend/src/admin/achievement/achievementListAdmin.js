@@ -36,7 +36,7 @@ export default function AchievementListAdmin() {
                     <td className="text-center">
                         <Button outline color="warning" >
                             <Link
-                                to={`/achievements/` + a.id} className="btn sm"
+                                to={`/controlPanel/achievements/` + a.id} className="btn sm"
                                 style={{ textDecoration: "none" }}>Edit</Link>
                         </Button>
                         <Button outline color="danger"
@@ -76,7 +76,7 @@ export default function AchievementListAdmin() {
                     </Table>
                     <Button outline color="success" >
                         <Link
-                            to={`/achievements/new`} className="btn sm"
+                            to={`/controlPanel/achievements/new`} className="btn sm"
                             style={{ textDecoration: "none" }}>Create achievement</Link>
                     </Button>
                 </div>

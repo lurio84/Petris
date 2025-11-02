@@ -1,3 +1,5 @@
+import "./../static/css/admin/adminPage.css"
+
 import { useState } from "react";
 import getErrorModal from "../util/getErrorModal";
 import getIdFromUrl from "../util/getIdFromUrl";
@@ -16,8 +18,15 @@ export default function ControlPanel() {
     
     
     return (
-        <div className="auth-page-container">
+        <div className="admin-page-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <h2>Admin Control Panel</h2>
+            <button className="control-panel-button" style={{ margin: '10px' }} onClick={() => navigate("/controlPanel/achievements")}>
+                Achievements
+            </button>
+            <button className="control-panel-button" style={{ margin: '10px' }} onClick={() => navigate("/controlPanel/users")}>
+                Users
+            </button>   
+            {modal}
         </div>
     );
 }

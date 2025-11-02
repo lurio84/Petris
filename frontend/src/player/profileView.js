@@ -9,7 +9,7 @@ import getErrorModal from "../util/getErrorModal";
 import useFetchState from "../util/useFetchState";
 import getIdFromUrl from "../util/getIdFromUrl";
 import { useState } from "react";
-
+import jwt_decode from "jwt-decode";
 
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
@@ -21,8 +21,9 @@ export default function ProfileView() {
     const [alerts, setAlerts] = useState([]);
     const modal = getErrorModal(setVisible, visible, message);
     const id = getIdFromUrl(2);
-
+    const loggedUserId = tokenService.getUser().id;
     
+
     const [playerStatistics, setPlayerStatistics] = useFetchState(
         [],
         `/api/v1/playerstatistics/${id}`,
@@ -107,8 +108,6 @@ export default function ProfileView() {
     }
 
 
-
-
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
@@ -141,7 +140,6 @@ export default function ProfileView() {
 
                     </tbody>
                 </table>
-                
             </div>
         </div>
     );

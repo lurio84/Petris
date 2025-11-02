@@ -2,16 +2,16 @@ import {
     Table, Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import tokenService from "../services/token.service";
-import useFetchState from "../util/useFetchState";
-import deleteFromList from "./../util/deleteFromList";
+import tokenService from "../../services/token.service";
+import useFetchState from "../../util/useFetchState";
+import deleteFromList from "../../util/deleteFromList";
 import { useState } from "react";
-import getErrorModal from "./../util/getErrorModal";
+import getErrorModal from "../../util/getErrorModal";
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
 
-export default function AchievementList() {
+export default function AchievementListAdmin() {
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
     const [alerts, setAlerts] = useState([]);
@@ -36,7 +36,7 @@ export default function AchievementList() {
                     <td className="text-center">
                         <Button outline color="warning" >
                             <Link
-                                to={`/achievements/` + a.id} className="btn sm"
+                                to={`/controlPanel/achievements/` + a.id} className="btn sm"
                                 style={{ textDecoration: "none" }}>Edit</Link>
                         </Button>
                         <Button outline color="danger"
@@ -76,7 +76,7 @@ export default function AchievementList() {
                     </Table>
                     <Button outline color="success" >
                         <Link
-                            to={`/achievements/new`} className="btn sm"
+                            to={`/controlPanel/achievements/new`} className="btn sm"
                             style={{ textDecoration: "none" }}>Create achievement</Link>
                     </Button>
                 </div>

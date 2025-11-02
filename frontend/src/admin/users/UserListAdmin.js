@@ -33,7 +33,7 @@ export default function UserListAdmin() {
               color="primary"
               aria-label={"edit-" + user.id}
               tag={Link}
-              to={"/users/" + user.id}
+              to={"/controlPanel/users/" + user.id}
             >
               Edit
             </Button>
@@ -66,7 +66,7 @@ export default function UserListAdmin() {
       <h1 className="text-center">Users</h1>
       {alerts.map((a) => a.alert)}
       {modal}
-      <Button color="success" tag={Link} to="/users/new">
+      <Button color="success" tag={Link} to="/controlPanel/users/new">
         Add User
       </Button>
       <div>
@@ -80,6 +80,9 @@ export default function UserListAdmin() {
           </thead>
           <tbody>{userList}</tbody>
         </Table>
+        <Button color="success" tag={Link} to="/controlPanel">
+        Back to Control Panel
+      </Button>
       </div>
     </div>
   );

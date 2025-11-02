@@ -9,6 +9,7 @@ function AppNavbar() {
     const [username, setUsername] = useState("");
     const jwt = tokenService.getLocalAccessToken();
     const [collapsed, setCollapsed] = useState(true);
+    const loggedUserId = tokenService.getUser() == null ? "" : tokenService.getUser().id;
 
     const toggleNavbar = () => setCollapsed(!collapsed);
 
@@ -31,7 +32,7 @@ function AppNavbar() {
             adminLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/users">Users</NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/controlPanel">Control Panel</NavLink>
                     </NavItem>
                 </>
             )
@@ -40,7 +41,7 @@ function AppNavbar() {
             playerLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/achievements">Achievements</NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to={`/achievements/${loggedUserId}`}>Achievements</NavLink>
                     </NavItem>
                 </>
             )
@@ -52,9 +53,6 @@ function AppNavbar() {
             <>
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="register" tag={Link} to="/register">Register</NavLink>
@@ -81,9 +79,8 @@ function AppNavbar() {
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
+                    <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/profile/${loggedUserId}`}>{username}</NavLink>
                 </NavItem>
-                <NavbarText style={{ color: "white" }} className="justify-content-end">{username}</NavbarText>
                 <NavItem className="d-flex">
                     <NavLink style={{ color: "white" }} id="logout" tag={Link} to="/logout">Logout</NavLink>
                 </NavItem>

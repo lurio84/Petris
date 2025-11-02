@@ -26,7 +26,7 @@ public class Achievement extends NamedEntity {
     private String description;
 
     @NotBlank(message = "Badge image can't be blank")
-    @Size(min = 5, max = 50, message = "Badge image must be between 5 and 50 characters")
+    //@Size(min = 5, max = 50, message = "Badge image must be between 5 and 50 characters")
     @Column(nullable = false, length = 50)
     private String badgeImage;
 

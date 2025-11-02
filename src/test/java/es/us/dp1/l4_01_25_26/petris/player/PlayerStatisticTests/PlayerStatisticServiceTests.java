@@ -35,9 +35,9 @@ public class PlayerStatisticServiceTests {
 
     @Test
     public void shouldGetPlayerStatisticById() {
-            PlayerStatistic stat = playerStatisticService.getById(1); 
+            PlayerStatistic stat = playerStatisticService.getById(5); 
             assertThat(stat).isNotNull();
-            assertThat(stat.getId()).isEqualTo(1);
+            assertThat(stat.getId()).isEqualTo(5);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class PlayerStatisticServiceTests {
 
     @Test
     public void shouldUpdatePlayerStatistic() {
-        PlayerStatistic ps = playerStatisticService.getById(1);
+        PlayerStatistic ps = playerStatisticService.getById(5);
         assertThat(ps).isNotNull();
         ps.setFriends(ps.getFriends() + 1);
         PlayerStatistic updatedPs = playerStatisticService.savePlayerStatistic(ps);
@@ -80,7 +80,7 @@ public class PlayerStatisticServiceTests {
 
     @Test
     public void shouldNotUpdatePlayerStatisticBadRequest() {
-        PlayerStatistic ps = playerStatisticService.getById(1);
+        PlayerStatistic ps = playerStatisticService.getById(5);
         assertThat(ps).isNotNull();
         ps.setFriends(-5); // Invalid value
         assertThatThrownBy(() -> playerStatisticService.savePlayerStatistic(ps));
@@ -88,8 +88,8 @@ public class PlayerStatisticServiceTests {
 
     @Test
     public void shouldDeletePlayerStatistic() {
-        playerStatisticService.deletePlayerStatisticById(1);
-        PlayerStatistic ps = playerStatisticService.getById(1);
+        playerStatisticService.deletePlayerStatisticById(4);
+        PlayerStatistic ps = playerStatisticService.getById(4);
         assertThat(ps).isNull();
     }
 }

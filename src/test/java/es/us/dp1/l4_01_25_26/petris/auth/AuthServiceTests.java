@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import es.us.dp1.l4_01_25_26.petris.auth.AuthService;
 import es.us.dp1.l4_01_25_26.petris.auth.payload.request.SignupRequest;
-import es.us.dp1.l4_01_25_26.petris.user.AuthoritiesService;
+import es.us.dp1.l4_01_25_26.petris.authorities.AuthoritiesService;
 import es.us.dp1.l4_01_25_26.petris.user.User;
 import es.us.dp1.l4_01_25_26.petris.user.UserService;
 import io.qameta.allure.Epic;

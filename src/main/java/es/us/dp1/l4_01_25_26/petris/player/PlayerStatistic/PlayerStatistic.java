@@ -9,13 +9,14 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.Check;
 
+import es.us.dp1.l4_01_25_26.petris.game.utils.Team;
 import es.us.dp1.l4_01_25_26.petris.model.BaseEntity;
+import es.us.dp1.l4_01_25_26.petris.player.Player;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "player_statistics")
-//@Check(constraints = "friends >= 0 AND friends <= 150 AND gamesPlayed >= 0 AND gamesWon >= 0 AND gamesAsGreen >= 0 AND gamesAsPurple >= 0 AND victoriesAsGreen >= 0 AND victoriesAsPurple >= 0 AND maxBacteryPlayedAsGreen >= 0 AND maxSarcinePlayedAsPurple >= 0 AND maxTurnsPlayedAsGreen >= 0 AND maxTurnsPlayedAsPurple >= 0") // No compatible con h2 :'( 
 public class PlayerStatistic extends BaseEntity {
 
     @PositiveOrZero(message = "Friends number must be zero or positive")
@@ -25,19 +26,19 @@ public class PlayerStatistic extends BaseEntity {
 
     @NotNull(message = "First connection date can't be null")
     @Column(nullable = false)
-    private LocalDateTime firstConnection;
+    private LocalDateTime firstConnection = LocalDateTime.now();;
 
     @NotNull(message = "Last connection date can't be null")
     @Column(nullable = false)
-    private LocalDateTime lastConnection;
+    private LocalDateTime lastConnection = LocalDateTime.now();;
 
     @NotNull(message = "First game played date can't be null")
     @Column(nullable = false)
-    private LocalDateTime firstGamePlayed;
+    private LocalDateTime firstGamePlayed = LocalDateTime.now();;
 
     @NotNull(message = "Last game played date can't be null")
     @Column(nullable = false)
-    private LocalDateTime lastGamePlayed;
+    private LocalDateTime lastGamePlayed = LocalDateTime.now();;
 
     @NotNull(message = "Games played can't be null")
     @PositiveOrZero(message = "Games played must be zero or positive")
@@ -62,11 +63,11 @@ public class PlayerStatistic extends BaseEntity {
     @NotNull(message = "Favourite team can't be null. It has to be Green or Purple")
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Team favouriteTeam;
+    private Team favouriteTeam=Team.GREEN;
 
-    @NotNull(message = "Victories played as green can't be null")
-    @PositiveOrZero(message = "Victories played as green must be zero or positive")
-    @Column(nullable = false)
+    @NotNull(message="Victories played as green can't be null")
+    @PositiveOrZero(message="Victories played as green must be zero or positive")
+    @Column(nullable=false)
     private Integer victoriesAsGreen = 0;
 
     @NotNull(message = "Victories played as purple can't be null")
@@ -104,28 +105,34 @@ public class PlayerStatistic extends BaseEntity {
     @Column(nullable = false)
     private Integer maxTurnsPlayedAsPurple = 0;
 
-    public static PlayerStatistic empty() {
-        PlayerStatistic ps = new PlayerStatistic();
-        ps.setFriends(0);
-        ps.setGamesAsGreen(0);
-        ps.setGamesAsPurple(0);
-        ps.setGamesPlayed(0);
-        ps.setGamesWon(0);
-        ps.setVictoriesAsGreen(0);
-        ps.setVictoriesAsPurple(0);
-        ps.setMaxBacteryPlayedAsGreen(0);
-        ps.setMaxBacteryPlayedAsPurple(0);
-        ps.setMaxSarcinePlayedAsGreen(0);
-        ps.setMaxSarcinePlayedAsPurple(0);
-        ps.setMaxTurnsPlayedAsGreen(0);
-        ps.setMaxTurnsPlayedAsPurple(0);
-        ps.setFavouriteTeam(Team.GREEN);
-        ps.setFirstConnection(LocalDateTime.now());
-        ps.setLastConnection(LocalDateTime.now());
-        ps.setFirstGamePlayed(LocalDateTime.now());
-        ps.setLastGamePlayed(LocalDateTime.now());
+    
+    @NotNull(message = "Player asociated can't be null")
+    @JoinColumn(name = "player_id", referencedColumnName = "id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    private Player player;
+    
+    // public static PlayerStatistic empty() {
+    //     PlayerStatistic ps = new PlayerStatistic();
+    //     ps.setFriends(0);
+    //     ps.setGamesAsGreen(0);
+    //     ps.setGamesAsPurple(0);
+    //     ps.setGamesPlayed(0);
+    //     ps.setGamesWon(0);
+    //     ps.setVictoriesAsGreen(0);
+    //     ps.setVictoriesAsPurple(0);
+    //     ps.setMaxBacteryPlayedAsGreen(0);
+    //     ps.setMaxBacteryPlayedAsPurple(0);
+    //     ps.setMaxSarcinePlayedAsGreen(0);
+    //     ps.setMaxSarcinePlayedAsPurple(0);
+    //     ps.setMaxTurnsPlayedAsGreen(0);
+    //     ps.setMaxTurnsPlayedAsPurple(0);
+    //     ps.setFavouriteTeam(Team.GREEN);
+    //     ps.setFirstConnection(LocalDateTime.now());
+    //     ps.setLastConnection(LocalDateTime.now());
+    //     ps.setFirstGamePlayed(LocalDateTime.now());
+    //     ps.setLastGamePlayed(LocalDateTime.now());
 
-        return ps;
-    }
+    //     return ps;
+    // }
 
 }

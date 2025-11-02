@@ -42,13 +42,23 @@ INSERT INTO achievements (id,name,description,badge_image,threshold,metric) VALU
  (14,'Resistencia','Completa una partida de 30 turnos','imagen1',30,'MAX_TURNS_PLAYED'),
  (15,'Maratonista','Completa una partida de 60 turnos','imagen1',60,'MAX_TURNS_PLAYED');
 
--- Estadísticas de jugadores base
+INSERT INTO players (id,first_name,last_name,avatar,profile_info,is_online,user_id) VALUES
+(1, 'nombre1', 'apellido1', 'avatar1', 'info1', false, 4),
+(2, 'nombre2', 'apellido2', 'avatar2', 'info2',false, 5);
+
 INSERT INTO player_statistics(
   id, friends, first_connection, last_connection, first_game_played, last_game_played,
   games_played, games_won, games_as_green, games_as_purple, favourite_team,
   victories_as_green, victories_as_purple, max_bactery_played_as_green, max_bactery_played_as_purple,
-  max_sarcine_played_as_green, max_sarcine_played_as_purple, max_turns_played_as_green, max_turns_played_as_purple
+  max_sarcine_played_as_green, max_sarcine_played_as_purple, max_turns_played_as_green, max_turns_played_as_purple, player_id
 ) VALUES 
-(1, 10, '2025-01-10 09:15:00', '2025-06-05 18:30:00', '2025-02-01 14:00:00', '2025-06-04 20:45:00', 20, 8, 12, 8, 'GREEN', 5, 3, 4, 5, 2, 3, 40, 38),
-(2, 3, '2024-11-20 11:00:00', '2025-05-01 16:10:00', '2024-12-05 13:25:00', '2025-04-30 19:00:00', 7, 2, 2, 5, 'PURPLE', 0, 2, 1, 2, 0, 1, 22, 25),
-(3, 0, '2025-03-03 08:00:00', '2025-07-01 21:20:00', '2025-03-10 10:10:00', '2025-06-30 22:00:00', 15, 7, 9, 6, 'GREEN', 4, 3, 3, 4, 1, 2, 36, 34);
+(1, 0, '2025-01-01 00:00:00', '2025-01-01 00:00:00', '2025-01-01 00:00:00', '2025-01-01 00:00:00',  0, 0, 0, 0, 'GREEN', 0, 0, 0, 0, 0, 0, 0, 0, 1),
+(2, 0, '2025-01-01 00:00:00', '2025-01-01 00:00:00', '2025-01-01 00:00:00', '2025-01-01 00:00:00',  0, 0, 0, 0, 'PURPLE', 0, 0, 0, 0, 0, 0, 0, 0, 2);
+
+INSERT INTO players_friends (player_id, friend_id) VALUES
+(1, 2),
+(2, 1);
+
+INSERT INTO players_achievements (player_id, achievements_id) VALUES
+(1, 1),
+(2, 1);

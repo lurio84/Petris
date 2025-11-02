@@ -1,4 +1,4 @@
-package es.us.dp1.l4_01_25_26.petris.statistic;
+package es.us.dp1.l4_01_25_26.petris.achievement;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class AchievementRestController {
 	public AchievementRestController(AchievementService achievementService) {
 		this.achievementService = achievementService;
 	}
-
+	//#region CRUD
     @GetMapping
 	public ResponseEntity<List<Achievement>> findAll() {
 		return new ResponseEntity<>((List<Achievement>) achievementService.getAchievements(), HttpStatus.OK);
@@ -78,4 +78,5 @@ public class AchievementRestController {
 		achievementService.deleteAchievementById(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
+	//#endregion
 }

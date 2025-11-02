@@ -34,6 +34,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.us.dp1.l4_01_25_26.petris.auth.payload.response.MessageResponse;
+import es.us.dp1.l4_01_25_26.petris.authorities.Authorities;
+import es.us.dp1.l4_01_25_26.petris.authorities.AuthoritiesService;
 import es.us.dp1.l4_01_25_26.petris.exceptions.AccessDeniedException;
 import es.us.dp1.l4_01_25_26.petris.util.RestPreconditions;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

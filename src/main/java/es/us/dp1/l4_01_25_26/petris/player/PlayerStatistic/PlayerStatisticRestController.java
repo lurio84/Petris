@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.us.dp1.l4_01_25_26.petris.exceptions.BadRequestException;
 import es.us.dp1.l4_01_25_26.petris.exceptions.ResourceNotFoundException;
-import es.us.dp1.l4_01_25_26.petris.statistic.Achievement;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

@@ -1,4 +1,4 @@
-package es.us.dp1.l4_01_25_26.petris.statistic;
+package es.us.dp1.l4_01_25_26.petris.game.GameStatistics;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
-@RequestMapping("/api/v1/statistics")
+@RequestMapping("/api/v1/game-statistics")
 public class GameStatisticsRestController {
 
     private final GameStatisticsService gameStatisticsService;

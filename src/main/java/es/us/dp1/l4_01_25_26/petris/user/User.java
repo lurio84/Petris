@@ -1,5 +1,6 @@
 package es.us.dp1.l4_01_25_26.petris.user;
 
+import es.us.dp1.l4_01_25_26.petris.authorities.Authorities;
 import es.us.dp1.l4_01_25_26.petris.model.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

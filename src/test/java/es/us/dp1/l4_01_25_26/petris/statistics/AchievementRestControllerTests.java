@@ -181,28 +181,28 @@
 //     // }
     
 //     // ROLES NO APLICAN 204!=403 ¿?
-//     // @Test // (FORBIDDEN) 403
-//     // @WithMockUser(username = "123" ,roles = {"123"})    
-//     // void shouldNotCreateAchievementForbidden() throws Exception {
+//     @Test // (FORBIDDEN) 403
+//     @WithMockUser(username = "123" ,roles = {"123"})    
+//     void shouldNotCreateAchievementForbidden() throws Exception {
        
-//     //     Achievement newAchievement = new Achievement();
-//     //     newAchievement.setId(2);
-//     //     newAchievement.setName("Win Streak");
-//     //     newAchievement.setDescription("Win your second match");
-//     //     newAchievement.setBadgeImage("https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg");
-//     //     newAchievement.setThreshold(2.0);
-//     //     newAchievement.setMetric(Metric.VICTORIES);
+//         Achievement newAchievement = new Achievement();
+//         newAchievement.setId(2);
+//         newAchievement.setName("Win Streak");
+//         newAchievement.setDescription("Win your second match");
+//         newAchievement.setBadgeImage("https://doctor-cv.com/wp-content/uploads/2020/08/gold-trophy-with-name-plate-winner-competition_68708-545-1.jpg");
+//         newAchievement.setThreshold(2.0);
+//         newAchievement.setMetric(Metric.VICTORIES);
 
-//     //     when(achievementService.saveAchievement(newAchievement)).thenReturn(newAchievement);
+//         when(achievementService.saveAchievement(newAchievement)).thenReturn(newAchievement);
 
-//     //     mockMvc.perform(
-//     //                 post(BASE_URL)
-//     //                     .with(csrf())
-//     //                     .contentType(MediaType.APPLICATION_JSON)
-//     //                     .content(objectMapper.writeValueAsString(newAchievement))
-//     //                 )
-//     //                 .andExpect(status().isForbidden());
-//     // }
+//         mockMvc.perform(
+//                     post(BASE_URL)
+//                         .with(csrf())
+//                         .contentType(MediaType.APPLICATION_JSON)
+//                         .content(objectMapper.writeValueAsString(newAchievement))
+//                     )
+//                     .andExpect(status().isForbidden());
+//     }
 
 //     @Test // (UNAUTHORIZED) 401
 //     void shouldNotCreateAchievementUnauthorized() throws Exception {

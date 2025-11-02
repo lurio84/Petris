@@ -10,8 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import es.us.dp1.l4_01_25_26.petris.auth.payload.request.SignupRequest;
-import es.us.dp1.l4_01_25_26.petris.user.Authorities;
-import es.us.dp1.l4_01_25_26.petris.user.AuthoritiesService;
+import es.us.dp1.l4_01_25_26.petris.authorities.Authorities;
+import es.us.dp1.l4_01_25_26.petris.authorities.AuthoritiesService;
 import es.us.dp1.l4_01_25_26.petris.user.User;
 import es.us.dp1.l4_01_25_26.petris.user.UserService;
 

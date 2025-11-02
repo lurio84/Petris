@@ -1,8 +1,4 @@
-package es.us.dp1.l4_01_25_26.petris.game;
-
-import java.util.ArrayList;
-
-import jakarta.persistence.ManyToMany;
+package es.us.dp1.l4_01_25_26.petris.game.utils;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 
@@ -13,15 +9,10 @@ public class TurnManager {
     private Integer turnCounter = 0;
 
     @NotNull(message = "Turn cannot be null")
-    private Team turn;
+    private Team team;
 
     @NotNull(message = "Turn type cannot be null")
-    private TurnType turnType;
-
-    //#################### OTHER RELATIONS ############################
-
-    // @ManyToMany(mappedBy = "turnManagers")
-    // private List<Game> games = new ArrayList<>();
+    private TurnType turnType=TurnType.CONTAMINATION;
 
     
 }

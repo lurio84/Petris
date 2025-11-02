@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, NavLink, NavItem, Nav, NavbarText, NavbarToggler, 
 import { Link } from 'react-router-dom';
 import tokenService from './services/token.service';
 import jwt_decode from "jwt-decode";
+import logo from './static/images/logo-petris.png';
 
 function AppNavbar() {
     const [roles, setRoles] = useState([]);
@@ -31,6 +32,7 @@ function AppNavbar() {
         if (role === "ADMIN") {
             adminLinks = (
                 <>
+
                     <NavItem>
                         <NavLink style={{ color: "white" }} tag={Link} to="/controlPanel">Control Panel</NavLink>
                     </NavItem>
@@ -65,6 +67,9 @@ function AppNavbar() {
     } else {
         userLinks = (
             <>
+                <NavbarBrand href="/dashboard">
+                    <img alt="logo" src={logo} style={{ height: 40 }} />
+                </NavbarBrand>
                 <NavItem>
                     <NavLink style={{ color: "white" }} tag={Link} to="/dashboard">Dashboard</NavLink>
                 </NavItem>
@@ -75,6 +80,7 @@ function AppNavbar() {
         )
         userLogout = (
             <>
+                
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
                 </NavItem>
@@ -92,9 +98,7 @@ function AppNavbar() {
     return (
         <div>
             <Navbar expand="md" dark color="dark">
-                <NavbarBrand href="/">
-                    <img alt="logo" src="/logo-petris.png" style={{ height: 40 }} />
-                </NavbarBrand>
+                
                 <NavbarToggler onClick={toggleNavbar} className="ms-2" />
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav className="me-auto mb-2 mb-lg-0" navbar>

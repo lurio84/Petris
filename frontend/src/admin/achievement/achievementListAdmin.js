@@ -29,7 +29,7 @@ export default function AchievementListAdmin() {
                     <td className="text-center">{a.name}</td>
                     <td className="text-center"> {a.description} </td>
                     <td className="text-center">
-                        <img src={a.badgeImage ? a.badgeImage : imgnotfound} alt={a.name} width="50px" />
+                        <img src={`${process.env.PUBLIC_URL}/achievement/${a.badgeImage}`} alt={a.name} width="50px" />
                     </td>
                     <td className="text-center"> {a.threshold} </td>
                     <td className="text-center"> {a.metric} </td>

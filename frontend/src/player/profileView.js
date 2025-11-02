@@ -1,4 +1,3 @@
-
 import tokenService from "../services/token.service";
 import "../static/css/player/profile.css";
 import getErrorModal from "../util/getErrorModal";
@@ -40,6 +39,7 @@ export default function ProfileView() {
     const playerUser = player.user;
     const playerAchievements = player.achievements;
 
+
     console.log(player);
     
     function statsList() {
@@ -70,7 +70,7 @@ export default function ProfileView() {
             return (
                 <div key={a.id} className="achievement-badge-obtained">
                     <div className="achievement-image-obtained">
-                        <img src={a.badgeImage ? a.badgeImage : imgnotfound} alt={a.name} className="achievement-image-obtained" />
+                        <img src={`${process.env.PUBLIC_URL}/achievement/${a.badgeImage}`} alt={a.name} className="achievement-image-obtained" />
                     </div>
                     <div className="achievement-content-obtained">
                         <h4>{a.name}</h4>
@@ -96,14 +96,14 @@ export default function ProfileView() {
             );
         }
     }
-
+   
 
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
                 <table style={{width:'100%'}}>
                     <td className="profile-avatar">
-                        <img src={player.avatar ? player.avatar : imgnotfound} alt={playerUser.username}  />
+                        <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username}  />
                         
                     </td>
                     <td style={{ width: '80%', height:'80%',verticalAlign:'top' }}>

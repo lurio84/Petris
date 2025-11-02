@@ -15,7 +15,7 @@ import es.us.dp1.l4_01_25_26.petris.player.PlayerStatistic.PlayerStatisticServic
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 
-@Feature("Achievements")
+@Feature("Statistics Management")
 @Owner("DP1_L4-1_Developers")
 @SpringBootTest
 @AutoConfigureTestDatabase

@@ -91,6 +91,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.DELETE, "/api/v1/achievements/**").hasAuthority(ADMIN)
 
                         // API restringida para usuarios autenticados
+                        .requestMatchers(HttpMethod.GET, "/api/v1/player/**").authenticated()
                         .requestMatchers(HttpMethod.GET, "/api/v1/achievements").authenticated()
                         .requestMatchers(HttpMethod.GET, "/api/v1/achievements/**").authenticated()
                         .requestMatchers(HttpMethod.GET, "api/v1/playerstatistics").authenticated()

@@ -16,17 +16,23 @@ import es.us.dp1.l4_01_25_26.petris.achievement.AchievementRepository;
 import es.us.dp1.l4_01_25_26.petris.player.dto.CreateEditPlayerDTO;
 import es.us.dp1.l4_01_25_26.petris.player.dto.PlayerDTO;
 import es.us.dp1.l4_01_25_26.petris.user.User;
+import es.us.dp1.l4_01_25_26.petris.user.authorities.Authorities;
+import es.us.dp1.l4_01_25_26.petris.user.authorities.AuthoritiesRepository;
 
 @Service
 public class PlayerService {
 
     private final PlayerRepository playerRepository;
     private final AchievementRepository achievementRepository;
+    private final AuthoritiesRepository authoritiesRepository;
 
     @Autowired
-    public PlayerService(PlayerRepository playerRepository, AchievementRepository achievementRepository) {
+    public PlayerService(PlayerRepository playerRepository, AchievementRepository achievementRepository,
+            AuthoritiesRepository authoritiesRepository) {
         this.playerRepository = playerRepository;
         this.achievementRepository = achievementRepository;
+        this.authoritiesRepository = authoritiesRepository;
+
     }
 
     @Transactional(readOnly = true)
@@ -63,7 +69,15 @@ public class PlayerService {
         User user = new User();
         user.setUsername(dto.getUsername());
         user.setPassword(dto.getPassword());
-        user.setAuthority(dto.getAuthority());
+
+        if (dto.getAuthority() == null) {
+            Authorities defaultAuthority = authoritiesRepository
+                    .findByName("PLAYER")
+                    .orElseThrow(() -> new RuntimeException("Default authority PLAYER not found"));
+            user.setAuthority(defaultAuthority);
+        } else {
+            user.setAuthority(dto.getAuthority());
+        }
         player.setUser(user);
 
         // Friends
@@ -128,13 +142,12 @@ public class PlayerService {
         if (dto.getAchievements() != null) {
             for (String name : dto.getAchievements()) {
                 Achievement ach = achievementRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Achievement " + name+ " not found."));
+                        .orElseThrow(() -> new RuntimeException("Achievement " + name + " not found."));
                 achievements.add(ach);
             }
         }
         playerToUpdate.setAchievements(achievements);
 
-    
         Player saved = playerRepository.save(playerToUpdate);
         return new PlayerDTO(saved);
     }

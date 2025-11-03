@@ -13,11 +13,11 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "authorities")
-public class Authorities extends BaseEntity{
-	
-	@Column(length = 30, unique = true) 
-	@NotBlank(message = "Authority can't be blank") 
-	@Size(max = 30, message = "Authority must have at most 30 characters") 
-	private String authority="PLAYER"; 
-	
+public class Authorities extends BaseEntity {
+
+	@Column(length = 30, unique = true)
+	@NotBlank(message = "Authority can't be blank")
+	@Size(max = 30, message = "Authority must have at most 30 characters")
+	private String authority = "PLAYER";
+
 }

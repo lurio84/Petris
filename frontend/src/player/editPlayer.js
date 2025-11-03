@@ -10,7 +10,7 @@ import jwt_decode from "jwt-decode";
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
-export default function EditProfile() {
+export default function EditPlayer() {
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
     const [alerts, setAlerts] = useState([]);
@@ -36,22 +36,10 @@ export default function EditProfile() {
     }
 
     const playerUser = player.user;
-
+    
 
     console.log(player);
 
-
-    const updateProfile = async () => {
-        try {
-            console.log(document.getElementById("username").value)
-            console.log(document.getElementById("profileInfo").value)
-            //await update(player.id, values)
-            //navigate(`/profile/${playerUser.id}`)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    
     function saveButton() {
         return (
             <div style={{ marginTop: '10px' }}>
@@ -59,7 +47,7 @@ export default function EditProfile() {
                     try {
                         console.log(document.getElementById("username").value)
                         console.log(document.getElementById("profileInfo").value)
-                        navigate(`/profile/${playerUser.id}`)
+                        navigate(`/player/${playerUser.id}`)
                     } catch (error) {
                         console.log(error)
                     }
@@ -86,7 +74,7 @@ export default function EditProfile() {
                     </td>
                     <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
                         <h4>Nombre de usuario:</h4>
-                        <input id="username" defaultValue={playerUser.username} required maxlength="20" size="20" />
+                        <input id="username" defaultValue={playerUser.username} required maxlength="60" size="20" />
                         <h4></h4>
                         <h4>Descripción:</h4>
                         <input id="profileInfo" defaultValue={player.profileInfo} required maxlength="500" size="35" />

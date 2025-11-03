@@ -50,7 +50,7 @@ function AppNavbar() {
             profileLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/profile/${loggedUserId}`}>{username}</NavLink>
+                        <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/player/${loggedUserId}`}>{username}</NavLink>
                     </NavItem>
                 </>
             )

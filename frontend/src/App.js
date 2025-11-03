@@ -19,7 +19,8 @@ import AchievementListAdmin from "./admin/achievement/achievementListAdmin";
 import AchievementEditAdmin from "./admin/achievement/achievementEditAdmin";
 import ControlPanel from "./admin/controlPanel";
 import PlayerAchievementList from "./achievements/playerAchievement/playerAchievementList";
-import ProfileView from "./player/profileView"
+import ProfileView from "./profile/profileView"
+import EditProfile from "./profile/editProfile"
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -66,6 +67,7 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="/achievements/:profileId" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
           <Route path="/profile/:profileId" exact={true} element={<PrivateRoute><ProfileView/></PrivateRoute>} />
+          <Route path="/profile/edit/:profileId" exact={true} element={<PrivateRoute><EditProfile/></PrivateRoute>} />
         </>)
     }
   })

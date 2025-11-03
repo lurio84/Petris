@@ -27,12 +27,12 @@ function AppNavbar() {
     let userLogout = <></>;
     let publicLinks = <></>;
     let playerLinks = <></>;
+    let profileLinks = <></>;
 
     roles.forEach((role) => {
         if (role === "ADMIN") {
             adminLinks = (
                 <>
-
                     <NavItem>
                         <NavLink style={{ color: "white" }} tag={Link} to="/controlPanel">Control Panel</NavLink>
                     </NavItem>
@@ -44,6 +44,13 @@ function AppNavbar() {
                 <>
                     <NavItem>
                         <NavLink style={{ color: "white" }} tag={Link} to={`/achievements/${loggedUserId}`}>Achievements</NavLink>
+                    </NavItem>
+                </>
+            )
+            profileLinks = (
+                <>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/profile/${loggedUserId}`}>{username}</NavLink>
                     </NavItem>
                 </>
             )
@@ -84,9 +91,6 @@ function AppNavbar() {
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
                 </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/profile/${loggedUserId}`}>{username}</NavLink>
-                </NavItem>
                 <NavItem className="d-flex">
                     <NavLink style={{ color: "white" }} id="logout" tag={Link} to="/logout">Logout</NavLink>
                 </NavItem>
@@ -98,7 +102,6 @@ function AppNavbar() {
     return (
         <div>
             <Navbar expand="md" dark color="dark">
-                
                 <NavbarToggler onClick={toggleNavbar} className="ms-2" />
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav className="me-auto mb-2 mb-lg-0" navbar>
@@ -108,6 +111,7 @@ function AppNavbar() {
                         {playerLinks}
                     </Nav>
                     <Nav className="ms-auto mb-2 mb-lg-0" navbar>
+                        {profileLinks}
                         {publicLinks}
                         {userLogout}
                     </Nav>

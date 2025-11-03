@@ -10,7 +10,7 @@ import jwt_decode from "jwt-decode";
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
-export default function ProfileView() {
+export default function PlayerView() {
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
     const [alerts, setAlerts] = useState([]);
@@ -90,7 +90,7 @@ export default function ProfileView() {
         if (loggedUserId === playerUser.id) {
             return (
                 <div style={{ marginTop: '10px' }}>
-                    <button className="profile-edit-button" onClick={() => navigate(`/profile/edit/${playerUser.id}`)}>Editar perfil</button>
+                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${playerUser.id}`)}>Editar perfil</button>
                 </div>
             );
         }
@@ -100,7 +100,7 @@ export default function ProfileView() {
         if (loggedUserId === playerUser.id) {
             return (
                 <div style={{ width: '50%', marginTop: '10px' }}>
-                    <button className="profile-edit-button-2" onClick={() => navigate(`/profile/modifyPassword/${playerUser.id}`)}>Modificar contraseña</button>
+                    <button className="profile-edit-button-2" onClick={() => navigate(`/player/modifyPassword/${playerUser.id}`)}>Modificar contraseña</button>
                 </div>
             );
         }

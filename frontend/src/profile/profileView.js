@@ -90,8 +90,17 @@ export default function ProfileView() {
         if (loggedUserId === playerUser.id) {
             return (
                 <div style={{ marginTop: '10px' }}>
-                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${playerUser.id}`)}>Editar perfil</button>
+                    <button className="profile-edit-button" onClick={() => navigate(`/profile/edit/${playerUser.id}`)}>Editar perfil</button>
+                </div>
+            );
+        }
+    }
 
+    function modifyPasswordButton() {
+        if (loggedUserId === playerUser.id) {
+            return (
+                <div style={{ width: '50%', marginTop: '10px' }}>
+                    <button className="profile-edit-button-2" onClick={() => navigate(`/profile/modifyPassword/${playerUser.id}`)}>Modificar contraseña</button>
                 </div>
             );
         }
@@ -101,19 +110,18 @@ export default function ProfileView() {
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
-                <table style={{width:'100%'}}>
+                <table style={{ width: '100%' }}>
                     <td className="profile-avatar">
-                        <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username}  />
-                        
+                        <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username} />
                     </td>
-                    <td style={{ width: '80%', height:'80%',verticalAlign:'top' }}>
+                    <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
                         <h2>{playerUser.username}</h2>
                         <div class="profileInfo">
                             {player.profileInfo}
                         </div>
                     </td>
                 </table>
-                <table style={{width:'100%', marginTop: '20px'}}>
+                <table style={{ width: '100%', marginTop: '20px' }}>
                     <tbody>
                             <td> 
                                 <center><h4>Últimos logros de {playerUser.username}</h4></center>
@@ -123,7 +131,16 @@ export default function ProfileView() {
                             <td>
                                 <center><h4>Estadísticas de {playerUser.username}</h4></center>
                                 {statsList()}
+                            </td>
+                    </tbody>
+                </table>
+                <table style={{ width: '100%', marginTop: '20px' }}>
+                    <tbody>
+                            <td> 
                                 {editButton()}
+                            </td>
+                            <td>
+                                {modifyPasswordButton()}
                             </td>
                     </tbody>
                 </table>

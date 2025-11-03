@@ -36,7 +36,7 @@ export default function EditPlayer() {
     }
 
     const playerUser = player.user;
-    
+
 
     console.log(player);
 
@@ -47,7 +47,8 @@ export default function EditPlayer() {
                     try {
                         console.log(document.getElementById("username").value)
                         console.log(document.getElementById("profileInfo").value)
-                        navigate(`/player/${playerUser.id}`)
+                        console.log(document.getElementById("avatar").value)
+                        //navigate(`/player/${playerUser.id}`)
                     } catch (error) {
                         console.log(error)
                     }
@@ -68,6 +69,7 @@ export default function EditPlayer() {
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
+                <h4></h4>
                 <table style={{ width: '100%' }}>
                     <td className="profile-avatar">
                         <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username} />
@@ -80,6 +82,11 @@ export default function EditPlayer() {
                         <input id="profileInfo" defaultValue={player.profileInfo} required maxlength="500" size="35" />
                     </td>
                 </table>
+                <h4></h4>
+                <div>
+                    <h4>Avatar:</h4>
+                    <input id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
+                </div>
                 <table style={{ width: '100%', marginTop: '20px' }}>
                     <tbody>
                             <td>

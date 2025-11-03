@@ -56,7 +56,7 @@ public class Player extends Person {
     private List<Achievement> achievements; 
 
     @NotNull(message = "User can't be null")
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true) // Add orphanRemoval to handle cascading deletes
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false) 
     private User user;
 }

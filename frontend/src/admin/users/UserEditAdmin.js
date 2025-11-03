@@ -17,7 +17,7 @@ export default function UserEditAdmin() {
     password: "",
     authority: null,
   };
-  const id = getIdFromUrl(2);
+  const id = getIdFromUrl(3);
   const [message, setMessage] = useState(null);
   const [visible, setVisible] = useState(false);
   const [user, setUser] = useFetchState(
@@ -57,7 +57,7 @@ export default function UserEditAdmin() {
         if (json.message) {
           setMessage(json.message);
           setVisible(true);
-        } else window.location.href = "/users";
+        } else window.location.href = "/controlPanel/users";
       })
       .catch((message) => alert(message));
   }
@@ -138,7 +138,7 @@ export default function UserEditAdmin() {
           <div className="custom-button-row">
             <button className="auth-button">Save</button>
             <Link
-              to={`/users`}
+              to={`/controlPanel/users`}
               className="auth-button"
               style={{ textDecoration: "none" }}
             >
@@ -146,6 +146,7 @@ export default function UserEditAdmin() {
             </Link>
           </div>
         </Form>
+        
       </div>
     </div>
   );

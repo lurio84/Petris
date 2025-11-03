@@ -19,7 +19,37 @@ export default function UserListAdmin() {
     setMessage,
     setVisible
   );
+  const [players, setPlayers] = useFetchState(
+    [],
+    `/api/v1/player`,
+    jwt,
+    setMessage,
+    setVisible
+  );
   const [alerts, setAlerts] = useState([]);
+
+  const safeDeletePlayer = (userId) => {
+    const playerUser = players.find((player) => player.user.id === userId); // Find the player associated with the user
+    if (!playerUser) {
+      deleteFromList(
+        `/api/v1/users/${userId}`,
+        userId,
+        [users, setUsers],
+        [alerts, setAlerts],
+        setMessage,
+        setVisible
+      );
+    } else {
+      deleteFromList(
+        `/api/v1/player/${playerUser.id}`,
+        playerUser.id,
+        [players, setPlayers],
+        [alerts, setAlerts],
+        setMessage,
+        setVisible
+      );
+    }
+  };
 
   const userList = users.map((user) => {
     return (
@@ -33,7 +63,7 @@ export default function UserListAdmin() {
               color="primary"
               aria-label={"edit-" + user.id}
               tag={Link}
-              to={"/users/" + user.id}
+              to={"/controlPanel/users/" + user.id}
             >
               Edit
             </Button>
@@ -41,16 +71,7 @@ export default function UserListAdmin() {
               size="sm"
               color="danger"
               aria-label={"delete-" + user.id}
-              onClick={() =>
-                deleteFromList(
-                  `/api/v1/users/${user.id}`,
-                  user.id,
-                  [users, setUsers],
-                  [alerts, setAlerts],
-                  setMessage,
-                  setVisible
-                )
-              }
+              onClick={() => safeDeletePlayer(user.id)}
             >
               Delete
             </Button>
@@ -59,6 +80,7 @@ export default function UserListAdmin() {
       </tr>
     );
   });
+
   const modal = getErrorModal(setVisible, visible, message);
 
   return (
@@ -66,7 +88,7 @@ export default function UserListAdmin() {
       <h1 className="text-center">Users</h1>
       {alerts.map((a) => a.alert)}
       {modal}
-      <Button color="success" tag={Link} to="/users/new">
+      <Button color="success" tag={Link} to="/controlPanel/users/new">
         Add User
       </Button>
       <div>
@@ -80,6 +102,9 @@ export default function UserListAdmin() {
           </thead>
           <tbody>{userList}</tbody>
         </Table>
+        <Button color="success" tag={Link} to="/controlPanel">
+          Back to Control Panel
+        </Button>
       </div>
     </div>
   );

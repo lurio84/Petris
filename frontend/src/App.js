@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { ErrorBoundary } from "react-error-boundary";
 import AppNavbar from "./AppNavbar";
 import Home from "./home";
+import Dashboard from "./home/dashboard";
 import PrivateRoute from "./privateRoute";
 import Register from "./auth/register";
 import Login from "./auth/login";
@@ -14,10 +15,12 @@ import UserListAdmin from "./admin/users/UserListAdmin";
 import UserEditAdmin from "./admin/users/UserEditAdmin";
 import SwaggerDocs from "./public/swagger";
 import DeveloperList from "./developers";
-import AchievementList from "./achievements/achievementList";
-import AchievementEdit from "./achievements/achievementEdit";
+import AchievementListAdmin from "./admin/achievement/achievementListAdmin";
+import AchievementEditAdmin from "./admin/achievement/achievementEditAdmin";
+import ControlPanel from "./admin/controlPanel";
 import PlayerAchievementList from "./achievements/playerAchievement/playerAchievementList";
-import ProfileView from "./player/profileView"
+import PlayerView from "./player/playerView"
+import EditPlayer from "./player/editPlayer"
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -51,18 +54,20 @@ function App() {
     if (role === "ADMIN") {
       adminRoutes = (
         <>
-          <Route path="/users" exact={true} element={<PrivateRoute><UserListAdmin /></PrivateRoute>} />
-          <Route path="/users/:username" exact={true} element={<PrivateRoute><UserEditAdmin /></PrivateRoute>} />
-          <Route path="/achievements" exact={true} element={<PrivateRoute><AchievementList/></PrivateRoute>} />
-          <Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />
+          <Route path="/controlPanel/users" exact={true} element={<PrivateRoute><UserListAdmin /></PrivateRoute>} />
+          <Route path="/controlPanel/users/:username" exact={true} element={<PrivateRoute><UserEditAdmin /></PrivateRoute>} />
+          <Route path="/controlPanel" exact={true} element={<PrivateRoute><ControlPanel/></PrivateRoute>} />
+          <Route path="/controlPanel/achievements" exact={true} element={<PrivateRoute><AchievementListAdmin/></PrivateRoute>} />
+          <Route path="/controlPanel/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEditAdmin/></PrivateRoute>} />
         </>)
     }
     if (role === "PLAYER") {
       ownerRoutes = (
         <>
-          <Route path="/achievements/:profileId" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
-          <Route path="/profile/:profileId" exact={true} element={<PrivateRoute><ProfileView/></PrivateRoute>} />
-          {/*<Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />*/}
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/achievements/:playerId" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
+          <Route path="/player/:playerId" exact={true} element={<PrivateRoute><PlayerView/></PrivateRoute>} />
+          <Route path="/player/edit/:playerId" exact={true} element={<PrivateRoute><EditPlayer/></PrivateRoute>} />
         </>)
     }
   })

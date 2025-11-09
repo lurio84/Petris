@@ -3,12 +3,14 @@ import { Navbar, NavbarBrand, NavLink, NavItem, Nav, NavbarText, NavbarToggler, 
 import { Link } from 'react-router-dom';
 import tokenService from './services/token.service';
 import jwt_decode from "jwt-decode";
+import logo from './static/images/logo-petris.png';
 
 function AppNavbar() {
     const [roles, setRoles] = useState([]);
     const [username, setUsername] = useState("");
     const jwt = tokenService.getLocalAccessToken();
     const [collapsed, setCollapsed] = useState(true);
+    const loggedUserId = tokenService.getUser() == null ? "" : tokenService.getUser().id;
 
     const toggleNavbar = () => setCollapsed(!collapsed);
 
@@ -25,13 +27,14 @@ function AppNavbar() {
     let userLogout = <></>;
     let publicLinks = <></>;
     let playerLinks = <></>;
+    let profileLinks = <></>;
 
     roles.forEach((role) => {
         if (role === "ADMIN") {
             adminLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/users">Users</NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/controlPanel">Control Panel</NavLink>
                     </NavItem>
                 </>
             )
@@ -40,7 +43,14 @@ function AppNavbar() {
             playerLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/achievements">Achievements</NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to={`/achievements/${loggedUserId}`}>Achievements</NavLink>
+                    </NavItem>
+                </>
+            )
+            profileLinks = (
+                <>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/player/${loggedUserId}`}>{username}</NavLink>
                     </NavItem>
                 </>
             )
@@ -54,9 +64,6 @@ function AppNavbar() {
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
-                </NavItem>
-                <NavItem>
                     <NavLink style={{ color: "white" }} id="register" tag={Link} to="/register">Register</NavLink>
                 </NavItem>
                 <NavItem>
@@ -67,6 +74,9 @@ function AppNavbar() {
     } else {
         userLinks = (
             <>
+                <NavbarBrand href="/dashboard">
+                    <img alt="logo" src={logo} style={{ height: 40 }} />
+                </NavbarBrand>
                 <NavItem>
                     <NavLink style={{ color: "white" }} tag={Link} to="/dashboard">Dashboard</NavLink>
                 </NavItem>
@@ -77,13 +87,10 @@ function AppNavbar() {
         )
         userLogout = (
             <>
+                
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
                 </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
-                </NavItem>
-                <NavbarText style={{ color: "white" }} className="justify-content-end">{username}</NavbarText>
                 <NavItem className="d-flex">
                     <NavLink style={{ color: "white" }} id="logout" tag={Link} to="/logout">Logout</NavLink>
                 </NavItem>
@@ -95,9 +102,6 @@ function AppNavbar() {
     return (
         <div>
             <Navbar expand="md" dark color="dark">
-                <NavbarBrand href="/">
-                    <img alt="logo" src="/logo-petris.png" style={{ height: 40 }} />
-                </NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className="ms-2" />
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav className="me-auto mb-2 mb-lg-0" navbar>
@@ -107,6 +111,7 @@ function AppNavbar() {
                         {playerLinks}
                     </Nav>
                     <Nav className="ms-auto mb-2 mb-lg-0" navbar>
+                        {profileLinks}
                         {publicLinks}
                         {userLogout}
                     </Nav>

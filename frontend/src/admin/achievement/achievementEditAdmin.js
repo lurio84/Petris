@@ -1,16 +1,16 @@
 import { useState } from "react";
-import tokenService from "../services/token.service";
+import tokenService from "../../services/token.service";
 import { Link } from "react-router-dom";
 import { Form, Input, Label } from "reactstrap";
-import getErrorModal from "./../util/getErrorModal";
-import getIdFromUrl from "./../util/getIdFromUrl";
-import useFetchState from "./../util/useFetchState";
+import getErrorModal from "../../util/getErrorModal";
+import getIdFromUrl from "../../util/getIdFromUrl";
+import useFetchState from "../../util/useFetchState";
 import { useNavigate } from "react-router-dom";
 
 const jwt = tokenService.getLocalAccessToken();
 
-export default function AchievementEdit() {
-    const id = getIdFromUrl(2);
+export default function AchievementEditAdmin() {
+    const id = getIdFromUrl(3);
     const emptyAchievement = {
         id: id === "new" ? null : id,
         name: "",
@@ -49,14 +49,14 @@ export default function AchievementEdit() {
             .then((response) => response.text())
             .then((data) => {
                 if (data === "")
-                    navigate("/achievements");
+                    navigate("/controlPanel/achievements");
                 else {
                     let json = JSON.parse(data);
                     if (json.message) {
                         setMessage(JSON.parse(data).message);
                         setVisible(true);
                     } else
-                        navigate("/achievements");
+                        navigate("/controlPanel/achievements");
                 }
             })
             .catch((message) => alert(message));
@@ -133,9 +133,15 @@ export default function AchievementEdit() {
                             className="custom-input"
                         >
                             <option value="">None</option>
+                            <option value="GAMES_WON">GAMES_WON</option>
                             <option value="GAMES_PLAYED">GAMES_PLAYED</option>
-                            <option value="VICTORIES">VICTORIES</option>
-                            <option value="TOTAL_PLAY_TIME">TOTAL_PLAY_TIME</option>
+                            <option value="VICTORIES_AS_GREEN">VICTORIES_AS_GREEN</option>
+                            <option value="VICTORIES_AS_PURPLE">VICTORIES_AS_PURPLE</option>
+                            <option value="GAMES_AS_GREEN">GAMES_AS_GREEN</option>
+                            <option value="GAMES_AS_PURPLE">GAMES_AS_PURPLE</option>
+                            <option value="MAX_BACTERY_PLAYED">MAX_BACTERY_PLAYED</option>
+                            <option value="MAX_SARCINE_PLAYED">MAX_SARCINE_PLAYED</option>
+                            <option value="MAX_TURNS_PLAYED">MAX_TURNS_PLAYED</option>
                         </Input>
                     </div>
                     <div className="custom-form-input">
@@ -155,7 +161,7 @@ export default function AchievementEdit() {
                     <div className="custom-button-row">
                         <button className="auth-button">Save</button>
                         <Link
-                            to={`/achievements`}
+                            to={`/controlPanel/achievements`}
                             className="auth-button"
                             style={{ textDecoration: "none" }}
                         >

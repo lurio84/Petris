@@ -1,12 +1,25 @@
+
+
 .admin-page-container {
-  height: 100%;
-  width: 100%;
+  margin: 20px;
+  z-index: -1;
   display: flex;
+  size: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #704ABA;
+  height: 100%; /* Ensure the body takes the full height */
+  margin: 0;    /* Remove default margin */
+  background: linear-gradient(180deg, #F0F7C3 0%,  #D7E88A  40%, #F0F7C3 100%);
 }
+  
 
+
+
+.admin-page-container h2 {
+  color: #597C39;
+}
 .custom-form-input {
   position: relative;
 }
@@ -57,4 +70,24 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.control-panel-button {
+    background-color: #597C39; /* Button background color */
+    color: white;              /* Text color */
+    border: 2px dashed white;              /* Remove default border */
+    border-radius: 10px;       /* Rounded corners */
+    padding: 10px 20px;       /* Padding for the button */
+    font-size: 20px;          /* Font size */
+    cursor: pointer;           /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+}
+
+.control-panel-button:hover {
+    background-color: #597C39; /* Darker shade on hover */
+    transform: scale(1.05);    /* Slightly enlarge on hover */
+}
+
+.control-panel-button:focus {
+    outline: none;              /* Remove outline on focus */
 }

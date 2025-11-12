@@ -64,19 +64,6 @@
     margin: 0 auto;            
 }
 
-.profile-edit-button-2 {
-    background-color: #704ABA; /* Button background color */
-    color: white;             
-    border: 2px dashed white; 
-    border-radius: 10px;       /* Rounded corners */
-    padding: 10px 20px;       
-    font-size: 30px;          
-    cursor: pointer;           
-    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
-    display: flex;             
-    align-items: center;       
-    margin: 0 auto;            
-}
 /* Player statistics and recent achievements */
 
 .profile-small-container {
@@ -164,6 +151,25 @@
     border-radius: 20px;
 }
 
+.avatar-selection-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    padding: 2vh;
+    border-radius: 20px;
+    overflow-y: auto;   
+    scrollbar-width: 10px; 
+}
+
+.avatar-selection-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin: 10px;
+    cursor: pointer;
+}
 /*######## User achievement page #########*/
 
 .achievement-grid {

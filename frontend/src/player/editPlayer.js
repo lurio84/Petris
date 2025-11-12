@@ -20,7 +20,7 @@ export default function EditPlayer() {
     const navigate = useNavigate();
 
     const [newDescription, setNewDescription] = useState("");
-    const [editSection, setEditSection] = useState(0); // 0: Editar perfil, 1: Modificar contraseña, 2: Eliminar jugador
+    const [editSection, setEditSection] = useState(0); // 0: Editar perfil, 1: Modificar contraseña, 2: Eliminar jugador, 3: Elegir avatar
     let section = 0;
 
     const [player, setPlayer] = useFetchState(
@@ -31,9 +31,8 @@ export default function EditPlayer() {
         setVisible
     );
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        fetch(
+    function updatePlayerData() {
+         fetch(
             "/api/v1/player/" + id,
             {
                 method: "PUT",
@@ -59,6 +58,10 @@ export default function EditPlayer() {
                 }
             })
             .catch((message) => alert(message));
+    }
+    function handleSubmit(event) {
+        event.preventDefault();
+        updatePlayerData(player);
     }
 
     function handleChange(event) {
@@ -91,6 +94,37 @@ export default function EditPlayer() {
                 onChange={handleChange}
                 placeholder="¡Escribe aquí tu nueva descripción!"/>
                 <button className="profile-save-button" onClick={handleSubmit} >Guardar descripción</button> 
+                <button className="profile-edit-section-button" onClick={() => setEditSection(3)}>Elegir avatar</button>
+            </div>
+            
+        );
+    }
+
+    function avatarSelection() {
+        const avatarNames = ["avatar1.png", "avatar2.png", "placeholder1.png", "placeholder2.png", "placeholder3.png", "placeholder1.png", "placeholder2.png", "placeholder3.png", "placeholder1.png", "placeholder2.png", "placeholder3.png"]; // Hay avatares repetidos para probar el scroll
+        const avatarList = avatarNames.map((avatarName) => {
+            return (
+                <div key={avatarName} className="avatar-selection-image">
+                    <img 
+                        src={`${process.env.PUBLIC_URL}/avatar/${avatarName}`} 
+                        alt={avatarName} 
+                        onClick={() => {
+                            const newPlayer = player;
+                            newPlayer.avatar = avatarName;
+                            setPlayer(newPlayer);
+                            updatePlayerData();
+                            setEditSection(0);
+                        }}
+                    />
+                </div>
+            );
+        });
+        return (
+            <div>
+            <h3>Selecciona un avatar</h3>
+                <div className="avatar-selection-container">
+                    {avatarList}
+                </div>
             </div>
         );
     }
@@ -121,6 +155,8 @@ export default function EditPlayer() {
             section = modifyPassword();
         } else if (editSection == 2) {
             section = removePlayer();
+        } else if (editSection == 3) {
+            section = avatarSelection();
         }
         return (
             <div className="edit-area">

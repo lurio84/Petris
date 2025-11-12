@@ -54,7 +54,6 @@ public class SecurityConfiguration {
 
         http
                 .cors(withDefaults())
-                // Si usas H2, conviene ignorar su CSRF:
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .headers(headers -> headers.frameOptions(frame -> frame.disable()))
@@ -93,15 +92,13 @@ public class SecurityConfiguration {
 
                         // API restringida para usuarios autenticados
                         .requestMatchers(HttpMethod.GET, "/api/v1/player/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/player/**").authenticated()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/player/**").authenticated()
                         .requestMatchers(HttpMethod.GET, "/api/v1/achievements").authenticated()
                         .requestMatchers(HttpMethod.GET, "/api/v1/achievements/**").authenticated()
-                        .requestMatchers(HttpMethod.GET, "api/v1/playerstatistics").authenticated()
-                        .requestMatchers(HttpMethod.GET, "api/v1/playerstatistics/**").authenticated()
-                        // API restringida para jugadores
-                        .requestMatchers(HttpMethod.POST, "/api/v1/achievements/**").hasAuthority(PLAYER)
-                        .requestMatchers(HttpMethod.PUT, "/api/v1/achievements/**").hasAuthority(PLAYER)
-                        .requestMatchers(HttpMethod.DELETE, "/api/v1/achievements/**").hasAuthority(PLAYER)
-
+                        .requestMatchers(HttpMethod.GET, "/api/v1/playerstatistics").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/playerstatistics/**").authenticated()
+                        
                         // El resto denegado
                         .anyRequest().denyAll())
 

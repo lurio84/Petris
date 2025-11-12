@@ -5,18 +5,21 @@ import useFetchState from "../util/useFetchState";
 import getIdFromUrl from "../util/getIdFromUrl";
 import { useState, useEffect } from "react";
 import { PlayerNotFoundErrorScreen, UnauthorizedEditErrorScreen } from "../components/errorScreen/errorScreens";
+import { useNavigate } from "react-router-dom";
 
 const jwt = tokenService.getLocalAccessToken();
 
 export default function EditPlayer() {
-
+    
     // Validamos si el usuario tiene permiso para editar este perfil
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
     const modal = getErrorModal(setVisible, visible, message);
     const id = getIdFromUrl(3);
     const loggedUserId = tokenService.getUser().id;
-    
+    const navigate = useNavigate();
+
+    const [newDescription, setNewDescription] = useState("");
     const [editSection, setEditSection] = useState(0); // 0: Editar perfil, 1: Modificar contraseña, 2: Eliminar jugador
     let section = 0;
 
@@ -28,9 +31,44 @@ export default function EditPlayer() {
         setVisible
     );
 
-    const errorShouldNotEdit = UnauthorizedEditErrorScreen;
-    const errorPlayerNotFound = PlayerNotFoundErrorScreen;
+    function handleSubmit(event) {
+        event.preventDefault();
+        fetch(
+            "/api/v1/player/" + id,
+            {
+                method: "PUT",
+                headers: {
+                    Authorization: `Bearer ${jwt}`,
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(player),
+            }
+        )
+            .then((response) => response.text())
+            .then((data) => {
+                if (data === "")
+                    navigate("/player/edit/" + id);
+                else {
+                    let json = JSON.parse(data);
+                    if (json.message) {
+                        setMessage(JSON.parse(data).message);
+                        setVisible(true);
+                    } else
+                        navigate("/player/edit/" + id);
+                }
+            })
+            .catch((message) => alert(message));
+    }
 
+    function handleChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        setPlayer({ ...player, [name]: value });
+    }
+
+    
     const playerUser = player.user;
     if (!player || !playerUser) {
         return ( <PlayerNotFoundErrorScreen/>);
@@ -46,6 +84,13 @@ export default function EditPlayer() {
         return (
             <div>
                 <h3>Editar perfil</h3>
+                <h5>Descripción de perfil:</h5>
+                <textarea rows="4" cols="50"
+                name="profileInfo"
+                value={player.profileInfo || ""}
+                onChange={handleChange}
+                placeholder="¡Escribe aquí tu nueva descripción!"/>
+                <button className="profile-save-button" onClick={handleSubmit} >Guardar descripción</button> 
             </div>
         );
     }
@@ -86,6 +131,7 @@ export default function EditPlayer() {
 
     return (
         <div className="user-page-container">
+            {modal} 
             <div className="smaller-user-page-container">
                 <table style={{ width: '100%', marginBottom: '3vh' }}>
                     <tbody>

@@ -4,20 +4,21 @@ import getErrorModal from "../util/getErrorModal";
 import useFetchState from "../util/useFetchState";
 import getIdFromUrl from "../util/getIdFromUrl";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
+import { PlayerNotFoundErrorScreen, UnauthorizedEditErrorScreen } from "../components/errorScreen/errorScreens";
 
-
-const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
+
 export default function EditPlayer() {
+
+    // Validamos si el usuario tiene permiso para editar este perfil
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
-    const [alerts, setAlerts] = useState([]);
     const modal = getErrorModal(setVisible, visible, message);
     const id = getIdFromUrl(3);
-    const navigate = useNavigate();
-
+    const loggedUserId = tokenService.getUser().id;
+    
+    const [editSection, setEditSection] = useState(0); // 0: Editar perfil, 1: Modificar contraseña, 2: Eliminar jugador
+    let section = 0;
 
     const [player, setPlayer] = useFetchState(
         [],
@@ -27,77 +28,99 @@ export default function EditPlayer() {
         setVisible
     );
 
-    if (!player || !player.user) {
-        return (
-            <div className="user-page-container">
-                <h2>Player not found</h2>
-            </div>
-        );
-    }
+    const errorShouldNotEdit = UnauthorizedEditErrorScreen;
+    const errorPlayerNotFound = PlayerNotFoundErrorScreen;
 
     const playerUser = player.user;
+    if (!player || !playerUser) {
+        return ( <PlayerNotFoundErrorScreen/>);
+    }
 
+    if (parseInt(id) !== parseInt(loggedUserId)) {
+        return ( <UnauthorizedEditErrorScreen/>);
+    }
 
-    console.log(player);
+   
 
-    function saveButton() {
+    function editProfile() {
         return (
-            <div style={{ marginTop: '10px' }}>
-                <button className="profile-edit-button-2" onClick={() => {
-                    try {
-                        console.log(document.getElementById("username").value)
-                        console.log(document.getElementById("profileInfo").value)
-                        console.log(document.getElementById("avatar").value)
-                        //navigate(`/player/${playerUser.id}`)
-                    } catch (error) {
-                        console.log(error)
-                    }
-                }}>Guardar cambios</button>
+            <div>
+                <h3>Editar perfil</h3>
             </div>
         );
     }
+
+    function modifyPassword() {
+        return (
+            <div>
+                <h3>Modificar contraseña</h3>
+            </div>
+        );
+    }
+
+    function removePlayer() {
+        return (
+            <div>
+                <h3>Eliminar jugador</h3>
+            </div>
+        );
+    }
+
     
-    function deleteButton() {
+
+    function editArea() {
+        section = null;
+        if (editSection == 0) {
+            section = editProfile();
+        } else if (editSection == 1) {
+            section = modifyPassword();
+        } else if (editSection == 2) {
+            section = removePlayer();
+        }
         return (
-            <div style={{ marginTop: '10px' }}>
-                <button className="profile-edit-button" onClick={() => console.log("Eliminado")}>Eliminar cuenta</button>
+            <div className="edit-area">
+                {section}
             </div>
         );
     }
-
 
     return (
         <div className="user-page-container">
             <div className="smaller-user-page-container">
-                <h4></h4>
-                <table style={{ width: '100%' }}>
-                    <td className="profile-avatar">
-                        <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username} />
-                    </td>
-                    <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
-                        <h4>Nombre de usuario:</h4>
-                        <input id="username" defaultValue={playerUser.username} required maxlength="60" size="20" />
-                        <h4></h4>
-                        <h4>Descripción:</h4>
-                        <input id="profileInfo" defaultValue={player.profileInfo} required maxlength="500" size="35" />
-                    </td>
-                </table>
-                <h4></h4>
-                <div>
-                    <h4>Avatar:</h4>
-                    <input id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
-                </div>
-                <table style={{ width: '100%', marginTop: '20px' }}>
+                <table style={{ width: '100%', marginBottom: '3vh' }}>
                     <tbody>
-                            <td>
-                                {saveButton()}
-                            </td>
-                            <td>
-                                {deleteButton()}
-                            </td>
+                        <td className="profile-avatar">
+                            <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username} />
+                        </td>
+                        <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
+                            <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{playerUser.username}</h2>
+                            <div class="profileInfo">
+                                {player.profileInfo}
+                            </div>
+                        </td>
                     </tbody>
                 </table>
+                {/* Parte de edición de usuario */}
+                <div className="edit-player-container">
+                  <table style={{ width: '120vh', margin: '2vh', height: '40vh' }}>
+                    <tbody>
+                        <td style={{width: '20%', verticalAlign: 'middle'}}>
+                            <button className="profile-edit-section-button" onClick={() => setEditSection(0)}>Editar perfil</button>
+                            <button className="profile-edit-section-button" onClick={() => setEditSection(1)}>Modificar contraseña</button>
+                            <button className="profile-edit-section-button" onClick={() => setEditSection(2)}>Eliminar jugador</button>
+                        </td>
+                        <td style={{height: '100%', verticalAlign: 'middle'}}>
+                            {editArea()}
+                        </td>
+                    </tbody> 
+                  </table>  
+                </div>
             </div>
         </div>
     );
+    
+    
+    
+
+    
 }

@@ -5,7 +5,7 @@ import useFetchState from "../util/useFetchState";
 import getIdFromUrl from "../util/getIdFromUrl";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
+import { PlayerNotFoundErrorScreen } from "../components/errorScreen/errorScreens";
 
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
@@ -13,12 +13,12 @@ const jwt = tokenService.getLocalAccessToken();
 export default function PlayerView() {
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
-    const [alerts, setAlerts] = useState([]);
     const modal = getErrorModal(setVisible, visible, message);
     const id = getIdFromUrl(2);
     const loggedUserId = tokenService.getUser().id;
     const navigate = useNavigate();
 
+    
 
     const [player, setPlayer] = useFetchState(
         [],
@@ -29,11 +29,7 @@ export default function PlayerView() {
     );
 
     if (!player || !player.user) {
-        return (
-            <div className="user-page-container">
-                <h2>Player not found</h2>
-            </div>
-        );
+        return ( <PlayerNotFoundErrorScreen/>);
     }
 
     const playerUser = player.user;
@@ -79,6 +75,7 @@ export default function PlayerView() {
                 </div>
             );
         });
+
         return (
             <div className="profile-small-container">
                 {achievementCapsules}
@@ -89,22 +86,14 @@ export default function PlayerView() {
     function editButton() {
         if (loggedUserId === playerUser.id) {
             return (
-                <div style={{ marginTop: '10px' }}>
+                <div style={{ marginTop: '20px' }}>
                     <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${playerUser.id}`)}>Editar perfil</button>
                 </div>
             );
         }
     }
 
-    function modifyPasswordButton() {
-        if (loggedUserId === playerUser.id) {
-            return (
-                <div style={{ width: '50%', marginTop: '10px' }}>
-                    <button className="profile-edit-button-2" onClick={() => navigate(`/player/modifyPassword/${playerUser.id}`)}>Modificar contraseña</button>
-                </div>
-            );
-        }
-    }
+    
    
 
     return (
@@ -115,7 +104,7 @@ export default function PlayerView() {
                         <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username} />
                     </td>
                     <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
-                        <h2>{playerUser.username}</h2>
+                        <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{playerUser.username}</h2>
                         <div class="profileInfo">
                             {player.profileInfo}
                         </div>
@@ -131,17 +120,9 @@ export default function PlayerView() {
                             <td>
                                 <center><h4>Estadísticas de {playerUser.username}</h4></center>
                                 {statsList()}
+                                <center>{editButton()}</center>
                             </td>
-                    </tbody>
-                </table>
-                <table style={{ width: '100%', marginTop: '20px' }}>
-                    <tbody>
-                            <td> 
-                                {editButton()}
-                            </td>
-                            <td>
-                                {modifyPasswordButton()}
-                            </td>
+                            
                     </tbody>
                 </table>
             </div>

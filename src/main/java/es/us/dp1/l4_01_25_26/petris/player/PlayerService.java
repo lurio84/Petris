@@ -52,6 +52,18 @@ public class PlayerService {
                 .orElse(null);
     }
 
+    @Transactional(readOnly = true)
+    public Player getByUserUsername(String username) {
+        return playerRepository.findByUserUsername(username)
+                .orElseThrow(() -> new RuntimeException("Player not found for user " + username));
+    }
+
+    @Transactional(readOnly = true)
+    public Player getByIdEntity(Integer id) {
+        return playerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Player not found: " + id));
+    }
+
     @Transactional
     public PlayerDTO postPlayer(CreateEditPlayerDTO dto) {
         Player player = new Player();

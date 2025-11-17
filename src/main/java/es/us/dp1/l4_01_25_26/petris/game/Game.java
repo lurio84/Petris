@@ -53,6 +53,12 @@ public class Game extends BaseEntity {
     @Transient
     private List<Player> spectators = new ArrayList<>();
 
+    @Transient
+    private Integer contaminationGreen = 0;
+
+    @Transient
+    private Integer contaminationPurple = 0;
+    
     // ################ RELATIONS ################
     @NotNull(message = "Game owner can't be null")
     @ManyToOne
@@ -69,55 +75,5 @@ public class Game extends BaseEntity {
     @JoinColumn(name = "purple_player", nullable = false)
     private Player purplePlayer;
 
-    public Game() {
-        this.code = generateRandomCode(10);
-        this.startDate = LocalDateTime.now();
 
-        // 7 PetriPlates default
-        this.petriPlates = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
-            this.petriPlates.add(new PetriPlate());
-        }
-
-        // Microorganisms: 20 bacterium & 4 sarcine each team
-        this.microorganisms = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            Microorganism m1 = new Microorganism();
-            m1.setTeam(Team.GREEN);
-            m1.setType(MicroOrganismType.BACTERIUM);
-            this.microorganisms.add(m1);
-
-            Microorganism m2 = new Microorganism();
-            m2.setTeam(Team.PURPLE);
-            m2.setType(MicroOrganismType.BACTERIUM);
-            this.microorganisms.add(m2);
-        }
-        for (int i = 0; i < 4; i++) {
-            Microorganism m1 = new Microorganism();
-            m1.setTeam(Team.GREEN);
-            m1.setType(MicroOrganismType.SARCINE);
-            this.microorganisms.add(m1);
-
-            Microorganism m2 = new Microorganism();
-            m2.setTeam(Team.PURPLE);
-            m2.setType(MicroOrganismType.SARCINE);
-            this.microorganisms.add(m2);
-        }
-
-        // TurnManager
-        this.turn = new TurnManager();
-
-        // Spectators default
-        this.spectators = new ArrayList<>();
-    }
-
-    private static String generateRandomCode(int length) {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        String code = "";
-        for (int i = 0; i < length; i++) {
-            int idx = (int) (Math.random() * chars.length());
-            code += chars.charAt(idx);
-        }
-        return code;
-    }
 }

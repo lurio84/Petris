@@ -42,7 +42,7 @@ INSERT INTO achievements (id,name,description,badge_image,threshold,metric) VALU
  (15,'Maratonista','Completa una partida de 60 turnos','achievement1.png',60,'MAX_TURNS_PLAYED');
 
 INSERT INTO players (id,first_name,last_name,avatar,profile_info,is_online,user_id) VALUES
-(1, 'nombre1', 'apellido1', 'avatar1', 'info1', false, 4),
+(1, 'Jesús', 'Cárdenas Conejo', 'avatar1', 'Jugador Old G de Petris', false, 14),
 (2, 'nombre2', 'apellido2', 'avatar1', 'info2', false, 5),
 (3, 'nombre3', 'apellido3', 'avatar1', 'info3', false, 6),
 (4, 'nombre4', 'apellido4', 'avatar2', 'info4',false, 7);

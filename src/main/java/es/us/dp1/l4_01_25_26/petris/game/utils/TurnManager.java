@@ -1,7 +1,11 @@
 package es.us.dp1.l4_01_25_26.petris.game.utils;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TurnManager {
 
     @NotNull(message = "Turn counter cannot be null")

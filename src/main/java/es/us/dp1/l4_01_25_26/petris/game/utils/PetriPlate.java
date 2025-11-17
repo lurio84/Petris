@@ -3,7 +3,11 @@ package es.us.dp1.l4_01_25_26.petris.game.utils;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class PetriPlate {
     
     @NotNull(message = "The list of green bacteria must not be null")

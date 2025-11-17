@@ -73,9 +73,9 @@ public class Game extends BaseEntity {
         this.code = generateRandomCode(10);
         this.startDate = LocalDateTime.now();
 
-        // 4 PetriPlates default
+        // 7 PetriPlates default
         this.petriPlates = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 7; i++) {
             this.petriPlates.add(new PetriPlate());
         }
 

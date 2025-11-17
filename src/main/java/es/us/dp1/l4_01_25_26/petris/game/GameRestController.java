@@ -2,6 +2,9 @@ package es.us.dp1.l4_01_25_26.petris.game;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import es.us.dp1.l4_01_25_26.petris.game.dto.GameDTO;
+import es.us.dp1.l4_01_25_26.petris.game.dto.StartGameDTO;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -21,12 +24,12 @@ public class GameRestController {
     }
 
     @GetMapping
-    public List<Game> getAllGames() {
+    public List<GameDTO> getAllGames() {
         return gameService.getAllGames();
     }
 
     @GetMapping("/{code}")
-    public Game getGameByCode(@PathVariable String code) {
+    public GameDTO getGameByCode(@PathVariable String code) {
         return gameService.getByCode(code); 
     }
 
@@ -44,4 +47,10 @@ public class GameRestController {
     public void deleteGameByCode(@PathVariable String code) {
         gameService.deleteByCode(code);
     }
+
+    @PostMapping("/start")
+    public GameDTO startGame(@Valid @RequestBody StartGameDTO gameDTO) {
+        return gameService.startGame(gameDTO);
+    }
+
 }

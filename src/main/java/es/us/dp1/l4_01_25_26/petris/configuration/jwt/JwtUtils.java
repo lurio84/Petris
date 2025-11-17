@@ -12,7 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import es.us.dp1.l4_01_25_26.petris.configuration.services.UserDetailsImpl;
-import es.us.dp1.l4_01_25_26.petris.user.Authorities;
+import es.us.dp1.l4_01_25_26.petris.user.authorities.Authorities;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;

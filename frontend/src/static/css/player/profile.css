@@ -15,72 +15,55 @@
 }
 
 .smaller-user-page-container {
-    color:#704ABA;
-    height: 100%;
-    width: 70%;
-    padding: 80px;
+    z-index: -1;
     display: flex;
+    size: 100%;
     flex-direction: column;
-    justify-content: center, flex-end;
+    justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #F0F7C3 0%, #F0F7C3 40%, #D7E88A 100%);
-
+    color: #704ABA;
+    height: 100%; 
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(180deg, #F0F7C3 0%,  #D7E88A  40%, #F0F7C3 100%);
 }
+
 
 /*######## PERFIL #########*/
 
 /* Profile info description */
 
 .profileInfo {
-    padding: 16px;
-    width: 100%;
-    height: 130px;
+    margin-left: 2vh;
+    padding: 2vh;
+    width: 95%;
+    height: 18vh;
     color:#597C39;
     background-color: #FDFEFC;
-    border: #597C39;
+    border: #ABCD61 0.8vh solid;
     border-radius: 20px;
 }
 
 .profile-avatar img {
-    width: 80%;
-    height: 40%;
-    border: 6px solid #ABCD61;
+    width: 100%;
+    height: 50%;
+    border: 1vh solid #ABCD61;
     border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    margin-right: 16px;
-
 }
 
 .profile-edit-button {
-    background-color: #ABCD61; /* Button background color */
+    background-color: #ABCD61;
     color: white;             
-    border: 2px dashed white; 
-    border-radius: 10px;       /* Rounded corners */
-    padding: 10px 20px;       
-    font-size: 30px;          
+    border: 0.6vh dashed white;
+    border-radius: 10px;       
+    padding: 2vh 4vh;       
+    font-size: 4vh;          
     cursor: pointer;           
-    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
     display: flex;             
     align-items: center;       
     margin: 0 auto;            
 }
 
-.profile-edit-button-2 {
-    background-color: #704ABA; /* Button background color */
-    color: white;             
-    border: 2px dashed white; 
-    border-radius: 10px;       /* Rounded corners */
-    padding: 10px 20px;       
-    font-size: 30px;          
-    cursor: pointer;           
-    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
-    display: flex;             
-    align-items: center;       
-    margin: 0 auto;            
-}
 /* Player statistics and recent achievements */
 
 .profile-small-container {
@@ -122,6 +105,71 @@
     background: #b366d4;
 }
 
+/*######## User edit page #########*/
+
+.text-input {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+.profile-edit-section-button {
+    background-color: #F0BFFA; 
+    color: #704ABA;              
+    border: 0.5vh dashed #b366d4;
+    height: 8vh;
+    width: 26vh;
+    border-radius: 10px;
+    margin: 1.5vh;    
+    padding: 5px 10px;       
+    font-size: 20px;          
+    cursor: pointer;          
+}
+
+.edit-player-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 3vh;
+    background-color: #FDFEFC;
+    border: solid 6px #F0BFFA;
+    border-radius: 20px;
+}
+
+.edit-area {
+    width: 100%;
+    height: 40vh;
+    padding: 2vh;
+    background-color: #FDFEFC;
+    border-left: solid 6px #F0BFFA;
+    border-radius: 20px;
+}
+
+.avatar-selection-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    padding: 2vh;
+    border-radius: 20px;
+    overflow-y: auto;   
+    scrollbar-width: 10px; 
+}
+
+.avatar-selection-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin: 10px;
+    cursor: pointer;
+}
 /*######## User achievement page #########*/
 
 .achievement-grid {
@@ -182,7 +230,7 @@
   border: 6px dashed #CA78F0;
   border-radius: 20px;
   padding: 8px;
-  margin: 12px;
+  margin: 10px 30px;
   width: 400px;
   display : flex;
 }

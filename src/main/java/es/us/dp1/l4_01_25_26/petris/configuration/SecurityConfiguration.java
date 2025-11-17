@@ -52,7 +52,6 @@ public class SecurityConfiguration {
 
         http
                 .cors(withDefaults())
-                // Si usas H2, conviene ignorar su CSRF:
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .headers(headers -> headers.frameOptions(frame -> frame.disable()))
@@ -80,25 +79,39 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/developers").permitAll()
                         .requestMatchers("/api/v1/plan").permitAll()
-                        
 
-                        // API restringida para administradores
-                        .requestMatchers("/api/v1/users/**").hasAuthority(ADMIN)
-                        .requestMatchers(HttpMethod.DELETE, "/api/v1/player/**").hasAuthority(ADMIN)
-                        .requestMatchers(HttpMethod.POST, "/api/v1/achievements/**").hasAuthority(ADMIN)
-                        .requestMatchers(HttpMethod.PUT, "/api/v1/achievements/**").hasAuthority(ADMIN)
-                        .requestMatchers(HttpMethod.DELETE, "/api/v1/achievements/**").hasAuthority(ADMIN)
+                        // USER
+                        .requestMatchers("/api/v1/users/**").permitAll()
 
-                        // API restringida para usuarios autenticados
-                        .requestMatchers(HttpMethod.GET, "/api/v1/player/**").authenticated()
-                        .requestMatchers(HttpMethod.GET, "/api/v1/achievements").authenticated()
-                        .requestMatchers(HttpMethod.GET, "/api/v1/achievements/**").authenticated()
-                        .requestMatchers(HttpMethod.GET, "api/v1/playerstatistics").authenticated()
-                        .requestMatchers(HttpMethod.GET, "api/v1/playerstatistics/**").authenticated()
-                        // API restringida para jugadores
-                        .requestMatchers(HttpMethod.POST, "/api/v1/achievements/**").hasAuthority(PLAYER)
-                        .requestMatchers(HttpMethod.PUT, "/api/v1/achievements/**").hasAuthority(PLAYER)
-                        .requestMatchers(HttpMethod.DELETE, "/api/v1/achievements/**").hasAuthority(PLAYER)
+                        // PLAYER
+                        .requestMatchers(HttpMethod.GET, "api/v1/players/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/v1/players/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "api/v1/players/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/players/**").permitAll()
+
+                        // PLAYER STATISTICS
+                        .requestMatchers(HttpMethod.GET, "api/v1/player-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/v1/player-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "api/v1/player-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/player-statistics/**").permitAll()
+
+                        // GAMES
+                        .requestMatchers(HttpMethod.GET, "api/v1/games/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/games/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/games/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/games/**").permitAll()
+
+                        // GAME STATISTICS
+                        .requestMatchers(HttpMethod.GET, "api/v1/game-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/game-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/game-statistics/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/game-statistics/**").permitAll()
+
+                        // ACHIEVEMENTS
+                        .requestMatchers(HttpMethod.GET, "/api/v1/achievements/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/achievements/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/achievements/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/achievements/**").permitAll()
 
                         .requestMatchers("/api/v1/statistics").permitAll()
 
@@ -124,7 +137,7 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 
-    //#region CORS HEADERS
+    // #region CORS HEADERS
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -138,6 +151,6 @@ public class SecurityConfiguration {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-    //#endregion
+    // #endregion
 
 }

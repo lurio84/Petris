@@ -6,8 +6,15 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PlayerStatisticRepository extends CrudRepository<PlayerStatistic, Integer> {
-    
+
     List<PlayerStatistic> findAll();
-    
-    public Optional<PlayerStatistic> findById(int id);
+
+    Optional<PlayerStatistic> findById(int id);
+
+    Optional<PlayerStatistic> findByPlayerUserUsername(String username);
+
+    boolean existsByPlayerUserUsername(String username);
+
+    void deleteByPlayerUserUsername(String username);
+
 }

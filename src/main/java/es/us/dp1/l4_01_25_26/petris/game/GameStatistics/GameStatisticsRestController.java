@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/api/v1/game-statistics")
@@ -25,7 +27,7 @@ public class GameStatisticsRestController {
 
     // CREATE
     @PostMapping
-    public ResponseEntity<GameStatistics> create(@RequestBody GameStatistics newStats) {
+    public ResponseEntity<GameStatistics> create(@Valid @RequestBody GameStatistics newStats) {
         GameStatistics saved = gameStatisticsService.save(newStats);
         return ResponseEntity.ok(saved);
     }
@@ -47,7 +49,7 @@ public class GameStatisticsRestController {
     // UPDATE
     @PutMapping("/{id}")
     public ResponseEntity<GameStatistics> update(@PathVariable Integer id,
-                                                 @RequestBody GameStatistics body) {
+                                                 @Valid @RequestBody GameStatistics body) {
         return gameStatisticsService.update(id, body)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

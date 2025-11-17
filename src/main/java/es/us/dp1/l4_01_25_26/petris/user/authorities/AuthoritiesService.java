@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package es.us.dp1.l4_01_25_26.petris.user;
+package es.us.dp1.l4_01_25_26.petris.user.authorities;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;

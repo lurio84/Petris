@@ -1,10 +1,12 @@
 package es.us.dp1.l4_01_25_26.petris.game.utils;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
+@AllArgsConstructor
 public class Microorganism {
     
     @NotNull(message = "Team cannot be null")
@@ -12,5 +14,6 @@ public class Microorganism {
 
     @NotNull(message = "Type cannot be null")
     private MicroOrganismType type;
+
 
 }

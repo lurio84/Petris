@@ -61,7 +61,7 @@ public class GameService {
 
     @Transactional
     public Game updateGame(Game game) {
-        Game gameToUpdate = gameRepository.findByCode(game.getCode());
+        Game gameToUpdate = gameRepository.findByCode(game.getCode()).get();
         if (gameToUpdate != null) {
             game.setId(gameToUpdate.getId());
             game.setCode(gameToUpdate.getCode());

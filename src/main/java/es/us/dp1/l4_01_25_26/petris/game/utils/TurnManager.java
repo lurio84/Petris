@@ -10,15 +10,15 @@ public class TurnManager {
 
     @NotNull(message = "Turn counter cannot be null")
     @PositiveOrZero(message = "Turn counter must be positive or zero")
-    private Integer turnCounter = 0;
+    private Integer turnCounter = 1;
 
     @NotNull(message = "Turn cannot be null")
     private Team team;
 
     @NotNull(message = "Turn type cannot be null")
-    private TurnType turnType=TurnType.CONTAMINATION;
+    private TurnType turnType=TurnType.MOVEMENT;
 
-    private Integer round = 0;
+    private Integer round = 1;
 
     public static void nextTurn(TurnManager turnManager){
         turnManager.setTurnCounter(turnManager.getTurnCounter() + 1);
@@ -30,10 +30,16 @@ public class TurnManager {
 
     public static TurnManager teamChange(TurnManager turnManager){
         TurnManager turnManagerCopy = turnManager;
-        if(turnManagerCopy.getRound()%2==0 && turnManagerCopy.getTurnCounter()%2==1){
-            turnManagerCopy.setTeam(Team.PURPLE);
+        if(turnManagerCopy.getRound()%2==1){
+            if((turnManagerCopy.getTurnCounter()+1)%3==1)
+                turnManagerCopy.setTeam(Team.PURPLE);
+            else if((turnManagerCopy.getTurnCounter()+1)%3==2)
+                turnManagerCopy.setTeam(Team.GREEN);
         }else{
-            turnManagerCopy.setTeam(Team.GREEN);
+            if((turnManagerCopy.getTurnCounter()+1)%3==1)
+                turnManagerCopy.setTeam(Team.PURPLE);
+            else if((turnManagerCopy.getTurnCounter()+1)%3==2)
+                turnManagerCopy.setTeam(Team.GREEN);
         }
         return turnManagerCopy;
     }
@@ -42,21 +48,41 @@ public class TurnManager {
     public static void turnLogic(TurnManager turnManager){
         TurnManager newTurn = teamChange(turnManager);
         Integer turnNumber = newTurn.getTurnCounter(); 
-        if((turnNumber)%3==0){
+        if((turnNumber+1)%3==0){
             //fision
-            turnManager.setTurnType(TurnType.MOLECULAR_FISSION);
-            nextTurn(turnManager);
-        }else if(turnNumber%10==0){
+            newTurn.setTurnType(TurnType.MOLECULAR_FISSION);
+            nextTurn(newTurn);
+            teamChange(newTurn);
+        }else if((turnNumber+1)%10==0){
             //contaminacion
-            turnManager.setTurnType(TurnType.CONTAMINATION);
-            nextRound(turnManager);
-            nextTurn(turnManager);
+            newTurn.setTurnType(TurnType.CONTAMINATION);
+            newTurn.setTurnCounter(0);
+            nextRound(newTurn);
+            //nextTurn(newTurn);
+            teamChange(newTurn);
         }else{
-            turnManager.setTurnType(TurnType.MOVEMENT);
-            nextTurn(turnManager);
+            newTurn.setTurnType(TurnType.MOVEMENT);
+            teamChange(newTurn);
+            nextTurn(newTurn);
+            System.out.println("Siguiente turno normal");
         }
 
         //purple turns: 1,4,7,  12,15,18,  21,24,27,  32,35,38
         //green turns: 2,5,8,  11,14,17,  22,25,28,  31,34,37
     }
+
+    public static void main(String[] args) {
+        TurnManager turnManager = new TurnManager();
+        turnManager.setTeam(Team.PURPLE);
+        for(int i =0 ; i<39;i++){
+            System.out.println("Ronda: " + turnManager.getRound());
+            System.out.println(turnManager.getTeam());
+            System.out.println("Tipo: " + turnManager.getTurnType());
+            System.out.println("Turno: " + turnManager.getTurnCounter());
+            System.out.println("---------------------------------");
+            turnLogic(turnManager);
+        }
+
+    }
 }
+

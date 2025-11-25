@@ -88,8 +88,8 @@ export default function AchievementsPage() {
         
     
     return (
-            <div className="user-page-container">
-                <div className="smaller-user-page-container">
+            <div className="page-container-A1">
+                <div className="page-container-A2">
                     <h1 style={{color:'#704ABA'}}>Logros de {player.username}</h1>
                     <div className="all-achievements">
                         <div className="achievement-grid">

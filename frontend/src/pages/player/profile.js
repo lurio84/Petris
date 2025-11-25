@@ -36,7 +36,7 @@ export default function Profile() {
         setVisible
     );
 
-    if (!player || player.id === undefined) {
+    if (!player || player.username === undefined) {
         return ( <PlayerNotFoundErrorScreen/>);
     }
 
@@ -45,6 +45,7 @@ export default function Profile() {
 
     console.log(player);
     
+    //#region  Parte de estadisticas y logros
     function statsList() {
         if (!stats) {
             return <p>Loading statistics...</p>;
@@ -93,6 +94,7 @@ export default function Profile() {
             </div>
         )
     }
+    //#endregion
 
     function editButton() {
         if (username === loggedUser.username) {
@@ -104,38 +106,35 @@ export default function Profile() {
         }
     }
 
-    
-   
-
     return (
-        <div className="user-page-container">
-            <div className="smaller-user-page-container">
-                <table style={{ width: '100%' }}>
-                    <td className="profile-avatar">
-                        <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}.png`} alt={player.username} />
-                    </td>
-                    <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
-                        <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{player.username}</h2>
-                        <div class="profileInfo">
-                            {player.profileInfo}
+        <div className="page-container-A1">
+            <div className="page-container-A2">
+                <div className="profile-container">
+                    <div className="profile-section">
+                        <div className="profile-avatar">
+                            <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}.png`} alt={player.username} />
                         </div>
-                    </td>
-                </table>
-                <table style={{ width: '100%', marginTop: '20px' }}>
-                    <tbody>
-                            <td> 
-                                <center><h4>Últimos logros de {player.username}</h4></center>
+                        <div className="profile-section-inner">
+                            <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{player.username}</h2>
+                            <div className="profileInfo">
+                                {player.profileInfo}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="profile-section">
+                        <div>
+                            <center><h4>Últimos logros de {player.username}</h4></center>
                                 {recentAchievementList()}
-                                <div style={{marginTop: '10px'}}><a href={`/achievements/${username}`} ><center>Haz click aqui para ver el resto de logros de {player.username}</center></a></div>
-                            </td>
-                            <td>
-                                <center><h4>Estadísticas de {player.username}</h4></center>
+                            <div style={{marginTop: '10px'}}><a href={`/achievements/${username}`} ><center>Haz click aqui para ver el resto de logros de {player.username}</center></a></div>
+                        </div>
+                        <div style={{marginTop: '30px'}}>
+                            <center><h4>Estadísticas de {player.username}</h4></center>
                                 {statsList()}
-                                <center>{editButton()}</center>
-                            </td>
-                            
-                    </tbody>
-                </table>
+                            <center>{editButton()}</center>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

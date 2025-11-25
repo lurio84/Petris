@@ -1,7 +1,10 @@
 package es.us.dp1.l4_01_25_26.petris.game.GameStatistics;
 
+import es.us.dp1.l4_01_25_26.petris.game.Game;
 import es.us.dp1.l4_01_25_26.petris.model.BaseEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -46,9 +49,7 @@ public class GameStatistics extends BaseEntity {
     @NotNull
     private Integer purplePlayerSarcines = 0;
 
-/* 
     @OneToOne(optional = false)
     @JoinColumn(name = "game_id", nullable = false, unique = true)
     private Game game;
-*/
 }

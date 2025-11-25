@@ -14,15 +14,15 @@ export default function Profile() {
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
     const modal = getErrorModal(setVisible, visible, message);
-    const id = getIdFromUrl(2);
-    const loggedUserId = tokenService.getUser().id;
+    const username = getIdFromUrl(2);
+    const loggedUser = tokenService.getUser();
     const navigate = useNavigate();
 
     
 
     const [player, setPlayer] = useFetchState(
         [],
-        `/api/v1/players/${id}`,
+        `/api/v1/players/username/${username}`,
         jwt,
         setMessage,
         setVisible
@@ -96,7 +96,7 @@ export default function Profile() {
     }
 
     function editButton() {
-        if (loggedUserId === player.id) {
+        if (username === loggedUser.username) {
             return (
                 <div style={{ marginTop: '20px' }}>
                     <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${player.id}`)}>Editar perfil</button>
@@ -127,7 +127,7 @@ export default function Profile() {
                             <td> 
                                 <center><h4>Últimos logros de {player.username}</h4></center>
                                 {recentAchievementList()}
-                                <div style={{marginTop: '10px'}}><a href={`/achievements/${id}`} ><center>Haz click aqui para ver el resto de logros de {player.username}</center></a></div>
+                                <div style={{marginTop: '10px'}}><a href={`/achievements/${username}`} ><center>Haz click aqui para ver el resto de logros de {player.username}</center></a></div>
                             </td>
                             <td>
                                 <center><h4>Estadísticas de {player.username}</h4></center>

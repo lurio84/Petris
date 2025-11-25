@@ -11,7 +11,7 @@ function AppNavbar() {
     const jwt = tokenService.getLocalAccessToken();
     const [collapsed, setCollapsed] = useState(true);
     const loggedUserId = tokenService.getUser() == null ? "" : tokenService.getUser().id;
-
+    const loggedUsername = tokenService.getUser() == null ? "" : tokenService.getUser().username;
     const toggleNavbar = () => setCollapsed(!collapsed);
 
     useEffect(() => {
@@ -43,14 +43,14 @@ function AppNavbar() {
             playerLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to={`/achievements/${loggedUserId}`}>Achievements</NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to={`/achievements/${loggedUsername}`}>Achievements</NavLink>
                     </NavItem>
                 </>
             )
             profileLinks = (
                 <>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/player/${loggedUserId}`}>{username}</NavLink>
+                        <NavLink style={{ color: "white" }} id="profile" tag={Link} to={`/player/${loggedUsername}`}>{username}</NavLink>
                     </NavItem>
                 </>
             )

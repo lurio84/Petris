@@ -4,7 +4,7 @@ import useFetchState from "../../../util/useFetchState";
 import { useState } from "react";
 import getErrorModal from "../../../util/getErrorModal";
 import getIdFromUrl from "../../../util/getIdFromUrl";
-
+import { PlayerNotFoundErrorScreen } from "../../errorScreen/errorScreens";
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
 
@@ -13,7 +13,7 @@ export default function AchievementsPage() {
     const [visible, setVisible] = useState(false);
     const [alerts, setAlerts] = useState([]);
     const modal = getErrorModal(setVisible, visible, message);
-    const id = getIdFromUrl(2);
+    const username = getIdFromUrl(2);
     const loggedUserId = tokenService.getUser().id;
 
 
@@ -25,21 +25,18 @@ export default function AchievementsPage() {
 
      const [player, setPlayer] = useFetchState(
             [],
-            `/api/v1/player/${id}`,
+            `/api/v1/players/username/${username}`,
             jwt,
             setMessage,
             setVisible
         );
     
-        if (!player || !player.user) {
-            return (
-                <div className="user-page-container">
-                    <h2>Player not found</h2>
-                </div>
-            );
-        }
-    
-    const playerUser = player.user;
+    if (!player || player.username === undefined) {
+        return (
+            <PlayerNotFoundErrorScreen/>
+        );
+    }
+
     const playerAchievements = player.achievements;
 
     const playerAchievementList =
@@ -93,7 +90,7 @@ export default function AchievementsPage() {
     return (
             <div className="user-page-container">
                 <div className="smaller-user-page-container">
-                    <h1 style={{color:'#704ABA'}}>Logros de {playerUser.username}</h1>
+                    <h1 style={{color:'#704ABA'}}>Logros de {player.username}</h1>
                     <div className="all-achievements">
                         <div className="achievement-grid">
                             {playerAchievementList}

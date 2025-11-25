@@ -18,7 +18,7 @@ import DeveloperList from "./views/developers";
 import AchievementListAdmin from "./pages/admin/achievement/achievementListAdmin";
 import AchievementEditAdmin from "./pages/admin/achievement/achievementEditAdmin";
 import ControlPanel from "./pages/admin/controlPanel";
-import AchievementsPage from "./pages/player/playerAchievement/achievementPage";
+import AchievementsPage from "./pages/player/achievement/achievementPage";
 import Profile from "./pages/player/profile"
 import EditPlayer from "./pages/player/editPlayer"
 

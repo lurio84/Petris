@@ -26,7 +26,7 @@ public class PetriPlate extends BaseEntity {
     private int purpleSarcines = 0;
 
     @NotNull(message = "The position of the tile must not be null")
-    @Min(1)
-    @Max(7)
+    @Min(0)
+    @Max(6)
     private Integer position;
 }

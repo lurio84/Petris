@@ -28,15 +28,15 @@ export default function Profile() {
         setVisible
     );
 
-    const [achievements, setAchievements] = useFetchState(
+    const [stats, setStats] = useFetchState(
         [],
-        `/api/v1/achievements/`,
+        `/api/v1/player-statistics/${username}`,
         jwt,
         setMessage,
         setVisible
     );
 
-    if (!player) {
+    if (!player || player.id === undefined) {
         return ( <PlayerNotFoundErrorScreen/>);
     }
 
@@ -46,11 +46,10 @@ export default function Profile() {
     console.log(player);
     
     function statsList() {
-        if (!player.stats) {
+        if (!stats) {
             return <p>Loading statistics...</p>;
         }
 
-        const stats = player.stats;
         return (
             <div className="profile-small-container">
                 <p>

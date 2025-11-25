@@ -3,24 +3,24 @@ import { Route, Routes } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { ErrorBoundary } from "react-error-boundary";
 import AppNavbar from "./AppNavbar";
-import Home from "./home";
-import Dashboard from "./home/dashboard";
+import Home from "./views/home";
+import Dashboard from "./views/home/dashboard";
 import PrivateRoute from "./privateRoute";
 import Register from "./auth/register";
 import Login from "./auth/login";
 import Logout from "./auth/logout";
 import PlanList from "./public/plan";
 import tokenService from "./services/token.service";
-import UserListAdmin from "./admin/users/UserListAdmin";
-import UserEditAdmin from "./admin/users/UserEditAdmin";
+import UserListAdmin from "./views/admin/users/UserListAdmin";
+import UserEditAdmin from "./views/admin/users/UserEditAdmin";
 import SwaggerDocs from "./public/swagger";
-import DeveloperList from "./developers";
-import AchievementListAdmin from "./admin/achievement/achievementListAdmin";
-import AchievementEditAdmin from "./admin/achievement/achievementEditAdmin";
-import ControlPanel from "./admin/controlPanel";
-import PlayerAchievementList from "./achievements/playerAchievement/playerAchievementList";
-import PlayerView from "./player/playerView"
-import EditPlayer from "./player/editPlayer"
+import DeveloperList from "./views/developers";
+import AchievementListAdmin from "./views/admin/achievement/achievementListAdmin";
+import AchievementEditAdmin from "./views/admin/achievement/achievementEditAdmin";
+import ControlPanel from "./views/admin/controlPanel";
+import PlayerAchievementList from "./components/playerAchievement/playerAchievementList";
+import Profile from "./views/player/profile"
+import EditPlayer from "./views/player/editPlayer"
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -66,7 +66,7 @@ function App() {
         <>
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="/achievements/:playerId" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
-          <Route path="/player/:playerId" exact={true} element={<PrivateRoute><PlayerView/></PrivateRoute>} />
+          <Route path="/player/:playerId" exact={true} element={<PrivateRoute><Profile/></PrivateRoute>} />
           <Route path="/player/edit/:playerId" exact={true} element={<PrivateRoute><EditPlayer/></PrivateRoute>} />
         </>)
     }

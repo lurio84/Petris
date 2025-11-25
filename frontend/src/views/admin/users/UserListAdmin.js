@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, ButtonGroup, Table } from "reactstrap";
-import tokenService from "../../services/token.service";
-import "../../static/css/admin/adminPage.css";
-import deleteFromList from "../../util/deleteFromList";
-import getErrorModal from "../../util/getErrorModal";
-import useFetchState from "../../util/useFetchState";
+import tokenService from "../../../services/token.service";
+import "./../admin.css";
+import deleteFromList from "../../../util/deleteFromList";
+import getErrorModal from "../../../util/getErrorModal";
+import useFetchState from "../../../util/useFetchState";
 
 const jwt = tokenService.getLocalAccessToken();
 

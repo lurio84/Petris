@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+
 public interface PetriPlateRepository extends CrudRepository<PetriPlate, Integer> {
     List<PetriPlate> findAll();
     Optional<PetriPlate> findById(Integer id);

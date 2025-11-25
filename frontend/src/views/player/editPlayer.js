@@ -1,10 +1,10 @@
-import tokenService from "../services/token.service";
-import "../static/css/player/profile.css";
-import getErrorModal from "../util/getErrorModal";
-import useFetchState from "../util/useFetchState";
-import getIdFromUrl from "../util/getIdFromUrl";
+import tokenService from "../../services/token.service";
+import "./player.css";
+import getErrorModal from "../../util/getErrorModal";
+import useFetchState from "../../util/useFetchState";
+import getIdFromUrl from "../../util/getIdFromUrl";
 import { useState, useEffect } from "react";
-import { PlayerNotFoundErrorScreen, UnauthorizedEditErrorScreen } from "../components/errorScreen/errorScreens";
+import { PlayerNotFoundErrorScreen, UnauthorizedEditErrorScreen } from "../../components/errorScreen/errorScreens";
 import { useNavigate } from "react-router-dom";
 
 const jwt = tokenService.getLocalAccessToken();

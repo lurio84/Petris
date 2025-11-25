@@ -1,5 +1,5 @@
 import {   Table   } from "reactstrap";
-import useFetchState from "../util/useFetchState";
+import useFetchState from "../../util/useFetchState";
 
 export default function DeveloperList() {
     

@@ -1,9 +1,8 @@
 import React from 'react';
-import '../App.css';
-import '../static/css/home/home.css';
-import logo from '../static/images/logo-petris.png';
+import './home.css';
+import logo from '../../static/images/logo-petris.png';
 import { useNavigate } from "react-router-dom";
-import tokenService from '../services/token.service';
+import tokenService from '../../services/token.service';
 
 export default function Home(){
     const navigate = useNavigate();

@@ -1,16 +1,16 @@
-import tokenService from "../services/token.service";
-import "../static/css/player/profile.css";
-import getErrorModal from "../util/getErrorModal";
-import useFetchState from "../util/useFetchState";
-import getIdFromUrl from "../util/getIdFromUrl";
+import tokenService from "../../services/token.service";
+import "./player.css";
+import getErrorModal from "../../util/getErrorModal";
+import useFetchState from "../../util/useFetchState";
+import getIdFromUrl from "../../util/getIdFromUrl";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { PlayerNotFoundErrorScreen } from "../components/errorScreen/errorScreens";
+import { PlayerNotFoundErrorScreen } from "../../components/errorScreen/errorScreens";
 
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
-export default function PlayerView() {
+export default function Profile() {
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
     const modal = getErrorModal(setVisible, visible, message);

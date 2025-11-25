@@ -1,11 +1,11 @@
 import "./../../static/css/player/profile.css"
 import { Link } from "react-router-dom";
-import tokenService from "./../../services/token.service";
-import useFetchState from "./../../util/useFetchState";
-import deleteFromList from "./../../util/deleteFromList";
+import tokenService from "../../services/token.service";
+import useFetchState from "../../util/useFetchState";
+import deleteFromList from "../../util/deleteFromList";
 import { useState } from "react";
-import getErrorModal from "./../../util/getErrorModal";
-import getIdFromUrl from "./../../util/getIdFromUrl";
+import getErrorModal from "../../util/getErrorModal";
+import getIdFromUrl from "../../util/getIdFromUrl";
 
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();

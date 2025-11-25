@@ -1,11 +1,11 @@
-import "./../static/css/admin/adminPage.css"
+import "./admin.css";
 
 import { useState } from "react";
-import getErrorModal from "../util/getErrorModal";
-import getIdFromUrl from "../util/getIdFromUrl";
-import useFetchState from "../util/useFetchState";
+import getErrorModal from "../../util/getErrorModal";
+import getIdFromUrl from "../../util/getIdFromUrl";
+import useFetchState from "../../util/useFetchState";
 import { useNavigate } from "react-router-dom";
-import tokenService from "../services/token.service";
+import tokenService from "../../services/token.service";
 
 const jwt = tokenService.getLocalAccessToken();
 

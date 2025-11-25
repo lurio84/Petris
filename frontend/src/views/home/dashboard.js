@@ -1,12 +1,11 @@
 import React from 'react';
-import '../App.css';
-import '../static/css/home/home.css';
-import logo from '../static/images/logo-petris.png';
-import tokenService from '../services/token.service';
+import './home.css';
+import logo from '../../static/images/logo-petris.png';
+import tokenService from '../../services/token.service';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import getErrorModal from "../util/getErrorModal";
-import useFetchState from '../util/useFetchState';
+import getErrorModal from "../../util/getErrorModal";
+import useFetchState from '../../util/useFetchState';
 
 
 

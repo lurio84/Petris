@@ -116,7 +116,7 @@ export default function Profile() {
                         </div>
                         <div className="profile-section-inner">
                             <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{player.username}</h2>
-                            <div className="profileInfo">
+                            <div className="profile-info">
                                 {player.profileInfo}
                             </div>
                         </div>

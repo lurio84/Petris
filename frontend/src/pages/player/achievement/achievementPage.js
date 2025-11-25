@@ -64,7 +64,7 @@ export default function AchievementsPage() {
                         <div className="achievement-image-obtained">
                             <img src={`${process.env.PUBLIC_URL}/achievement/${a.badgeImage}`} alt={a.name} className="achievement-image-obtained" />
                         </div>
-                        <div className="achievement-content-obtained">
+                        <div>
                             <h4>{a.name}</h4>
                             <p>{a.description}</p>
                         </div>
@@ -77,7 +77,7 @@ export default function AchievementsPage() {
                     <div className="achievement-image">
                         <img src={`${process.env.PUBLIC_URL}/achievement/${a.badgeImage}`} alt={a.name} className="achievement-image" />
                     </div>
-                    <div className="achievement-content">
+                    <div>
                         <h4>{a.name}</h4>
                         <p>{a.description}</p>
                     </div>
@@ -86,24 +86,22 @@ export default function AchievementsPage() {
         });
 
         
-    
-    return (
-            <div className="page-container-A1">
-                <div className="page-container-A2">
-                    <h1 style={{color:'#704ABA'}}>Logros de {player.username}</h1>
+   return (
+        <div className="page-container-A1">
+            <div className="page-container-A2">
+                <div className="achievement-container">
+                    <h1 style={{color:'#704ABA'}}>Logros de {player.username}:</h1>
                     <div className="all-achievements">
-                        <div className="achievement-grid">
-                            {playerAchievementList}
-                        </div>
+                        <div className="achievement-grid">{playerAchievementList}</div>
+                        
                     </div>
                     <h1 style={{color:'#704ABA'}}>Todos los logros:</h1>
                     <div className="all-achievements">
-                        <div className="achievement-grid">
-                            {achievementList}
-                        </div>
+                        <div className="achievement-grid">{achievementList}</div>
                     </div>
                 </div>
             </div>
-    );
+        </div>
+   );
 }
 

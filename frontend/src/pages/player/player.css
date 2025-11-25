@@ -7,9 +7,9 @@
 	justify-content: center;
 	align-items: center;
 	align-content: stretch;
+    margin-top: 5%;
 }
 
-/* Profile info description */
 
 .profile-section {
     display: flex;
@@ -19,15 +19,7 @@
     width: 100%;
 }
 
-.profile-section {
-    display: 'flex';
-    flex-direction: 'column';
-    justify-content: 'center';
-    align-items: 'flex-start';
-    margin-left: '20px';
-}
-
-.profileInfo {
+.profile-info {
     margin-left: 2vh;
     padding: 2vh;
     min-width: 70vh;
@@ -68,7 +60,7 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     border-radius: 20px;
     height: 400px;
     max-height: 50%;
@@ -167,21 +159,33 @@
 }
 /*######## User achievement page #########*/
 
+.achievement-container {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+    align-items: center;
+	align-items: stretch;
+	align-content: stretch;
+    text-align: center;
+    height: 85%;
+    width: 80%;
+}
+
 .achievement-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
+    gap: 0px;
     height: 100%;
     overflow-y: auto;   
     scrollbar-width: 10px; 
-    scrollbar-color: #ABCD61 #F0F7C3; 
+    scrollbar-color: var(--L2-green) var(--L3-green); 
     
 }
 
 .all-achievements {
     margin: 15px;
-    height: 43%;
+    height: 40%;
     padding: 10px;
     background-color: #FDFEFC;
     border: solid 6px #F0BFFA;
@@ -207,27 +211,34 @@
 }
 
 .achievement-badge {
-  display: flex;
-  align-items: center;
-  background-color: #F0F7C3;
-  border: 6px dashed #ABCD61;
-  border-radius: 20px;
-  padding: 8px;
-  margin: 12px;
-  width: 400px;
-  display : flex;
+    display: flex;
+    align-items: center;
+    background-color: var(--L3-green);
+    border: 6px dashed var(--L2-green);
+    border-radius: 20px;
+    padding: 2%;
+    margin: 12px;
+    height: 13vh;
+    width: 40vh;
+    color: var(--L1-green);
+    background-color: var(--L3-green);
+    font-size: 1.5vh;
+  
 }
 
 .achievement-badge-obtained {
-  display: flex;
-  align-items: center;
-  background-color: #F0BFFA;
-  border: 6px dashed #CA78F0;
-  border-radius: 20px;
-  padding: 8px;
-  margin: 10px 30px;
-  width: 400px;
-  display : flex;
+    display: flex;
+    align-items: center;
+    background-color: var(--L3-purple);
+    border: 6px dashed var(--L2-purple);
+    border-radius: 20px;
+    padding: 2%;
+    margin: 12px;
+    height: 13vh;
+    width: 40vh;
+    color: #704ABA;
+    background-color: #F0BFFA;
+    font-size: 1.5vh;
 }
 
 .achievement-image-obtained img {
@@ -238,29 +249,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   margin-right: 16px;
 }
 
 
-.achievement-content-obtained {
-    color: #704ABA;
-    background-color: #F0BFFA;
-}
 
 .achievement-image img {
   width: 80px;
   height: 80px;
-  border: 6px solid #ABCD61;
+  border: 6px solid var(--L2-green);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   margin-right: 16px;
 }
 
-.achievement-content {
-    color: #597C39;
-    background-color: #F0F7C3;
-}

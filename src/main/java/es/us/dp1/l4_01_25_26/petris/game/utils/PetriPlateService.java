@@ -163,7 +163,7 @@ public class PetriPlateService {
         boolean changed = false;
 
         if (greenConversion) {
-            plate.setGreenBacteria(0);(0);
+            plate.setGreenBacteria(0);
             plate.setGreenSarcines(plate.getGreenSarcines() + 1);
             changed = true;
         } else if (purpleConversion) {

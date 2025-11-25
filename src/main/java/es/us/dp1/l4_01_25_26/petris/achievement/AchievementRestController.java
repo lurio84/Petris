@@ -33,6 +33,7 @@ public class AchievementRestController {
         return achievementService.getById(id);
     }
 
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Achievement create(@RequestBody @Valid Achievement achievement) {

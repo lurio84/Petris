@@ -22,17 +22,24 @@ export default function Profile() {
 
     const [player, setPlayer] = useFetchState(
         [],
-        `/api/v1/player/${id}`,
+        `/api/v1/players/${id}`,
         jwt,
         setMessage,
         setVisible
     );
 
-    if (!player || !player.user) {
+    const [achievements, setAchievements] = useFetchState(
+        [],
+        `/api/v1/achievements/`,
+        jwt,
+        setMessage,
+        setVisible
+    );
+
+    if (!player) {
         return ( <PlayerNotFoundErrorScreen/>);
     }
 
-    const playerUser = player.user;
     const playerAchievements = player.achievements;
 
 
@@ -61,8 +68,13 @@ export default function Profile() {
     }
 
     function recentAchievementList() {
+        if (!playerAchievements||playerAchievements.length === 0) {
+            return (<div className="profile-small-container">
+                        <p>Este jugador no ha obtenido ningún logro aún.</p>
+                    </div>);
+        }
         const achievementCapsules =
-        playerAchievements.map((a) => { 
+        playerAchievements.map((a) => {
             return (
                 <div key={a.id} className="achievement-badge-obtained">
                     <div className="achievement-image-obtained">
@@ -84,10 +96,10 @@ export default function Profile() {
     }
 
     function editButton() {
-        if (loggedUserId === playerUser.id) {
+        if (loggedUserId === player.id) {
             return (
                 <div style={{ marginTop: '20px' }}>
-                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${playerUser.id}`)}>Editar perfil</button>
+                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${player.id}`)}>Editar perfil</button>
                 </div>
             );
         }
@@ -101,10 +113,10 @@ export default function Profile() {
             <div className="smaller-user-page-container">
                 <table style={{ width: '100%' }}>
                     <td className="profile-avatar">
-                        <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username} />
+                        <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}.png`} alt={player.username} />
                     </td>
                     <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
-                        <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{playerUser.username}</h2>
+                        <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{player.username}</h2>
                         <div class="profileInfo">
                             {player.profileInfo}
                         </div>
@@ -113,12 +125,12 @@ export default function Profile() {
                 <table style={{ width: '100%', marginTop: '20px' }}>
                     <tbody>
                             <td> 
-                                <center><h4>Últimos logros de {playerUser.username}</h4></center>
+                                <center><h4>Últimos logros de {player.username}</h4></center>
                                 {recentAchievementList()}
-                                <div style={{marginTop: '10px'}}><a href={`/achievements/${id}`} ><center>Haz click aqui para ver el resto de logros de {playerUser.username}</center></a></div>
+                                <div style={{marginTop: '10px'}}><a href={`/achievements/${id}`} ><center>Haz click aqui para ver el resto de logros de {player.username}</center></a></div>
                             </td>
                             <td>
-                                <center><h4>Estadísticas de {playerUser.username}</h4></center>
+                                <center><h4>Estadísticas de {player.username}</h4></center>
                                 {statsList()}
                                 <center>{editButton()}</center>
                             </td>

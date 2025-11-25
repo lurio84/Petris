@@ -107,10 +107,10 @@ public class PlayerService {
         // Achievements
         List<Achievement> achievements = new ArrayList<>();
         if (dto.getAchievements() != null) {
-            for (String name : dto.getAchievements()) {
-                Achievement ach = achievementRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Achievement not found: " + name));
-                achievements.add(ach);
+            for (Achievement ach1 : dto.getAchievements()) {
+                Achievement ach2 = achievementRepository.findByName(ach1.getName())
+                        .orElseThrow(() -> new RuntimeException("Achievement not found: " + ach1.getName()));
+                achievements.add(ach2);
             }
         }
         player.setAchievements(achievements);
@@ -152,9 +152,9 @@ public class PlayerService {
         // achievements
         List<Achievement> achievements = new ArrayList<>();
         if (dto.getAchievements() != null) {
-            for (String name : dto.getAchievements()) {
-                Achievement ach = achievementRepository.findByName(name)
-                        .orElseThrow(() -> new RuntimeException("Achievement " + name + " not found."));
+            for (Achievement ach1 : dto.getAchievements()) {
+                Achievement ach = achievementRepository.findByName(ach1.getName())
+                        .orElseThrow(() -> new RuntimeException("Achievement " + ach1.getName() + " not found."));
                 achievements.add(ach);
             }
         }

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,16 +20,17 @@ import io.qameta.allure.Owner;
 @Epic("Statistics Module")
 @Feature("Game Statistics")
 @Owner("DP1_L4-1_Developers")
-//@SpringBootTest
-//@AutoConfigureTestDatabase
+@SpringBootTest
+@AutoConfigureTestDatabase
 public class GameStatisticsServiceTests {
 
     @Autowired
     private GameStatisticsService gameStatisticsService;
-    
-    //###################################### GET ######################################
 
-    //########### GET ALL ###########
+    // ###################################### GET
+    // ######################################
+
+    // ########### GET ALL ###########
     @Test
     void shouldGetAllGameStatistics() {
         List<GameStatistics> gameStatistics = gameStatisticsService.findAll();
@@ -37,22 +38,23 @@ public class GameStatisticsServiceTests {
         assertThat(gameStatistics.size()).isGreaterThanOrEqualTo(0);
     }
 
-    //########### GET BY ID ###########
-    @Test //200
+    // ########### GET BY ID ###########
+    @Test // 200
     void shouldGetGameStatisticsById() {
-        GameStatistics gameStatistics = gameStatisticsService.findById(1).orElse(null); 
+        GameStatistics gameStatistics = gameStatisticsService.findById(1).orElse(null);
         assertThat(gameStatistics).isNotNull();
         assertThat(gameStatistics.getId()).isEqualTo(1);
     }
 
-    @Test //404
+    @Test // 404
     void shouldNotGetByIdNotFound() {
         GameStatistics result = gameStatisticsService.findById(999).orElse(null); // id que no existe
         assertNull(result);
     }
 
-    // ###################################### POST ######################################
-    @Test //204
+    // ###################################### POST
+    // ######################################
+    @Test // 204
     void shouldPostGameStatistics() {
         GameStatistics newStats = new GameStatistics();
         newStats.setTurnsPlayed(10);
@@ -70,7 +72,7 @@ public class GameStatisticsServiceTests {
         assertThat(savedStats.getWinner()).isEqualTo("green");
     }
 
-    @Test //400
+    @Test // 400
     void shouldNotPostGameStatisticsBadRequest() {
         GameStatistics newStats = new GameStatistics();
         newStats.setTurnsPlayed(-5); // Valor inválido
@@ -82,12 +84,15 @@ public class GameStatisticsServiceTests {
         newStats.setPurplePlayerBacteries(20);
         newStats.setPurplePlayerSarcines(10);
 
-        assertThatThrownBy(() -> {gameStatisticsService.save(newStats);});
+        assertThatThrownBy(() -> {
+            gameStatisticsService.save(newStats);
+        });
     }
 
-    // ###################################### DELETE ######################################
+    // ###################################### DELETE
+    // ######################################
 
-    @Test //204
+    @Test // 204
     void shouldDeleteGameStatistics() {
         int initialSize = gameStatisticsService.findAll().size();
 
@@ -102,7 +107,7 @@ public class GameStatisticsServiceTests {
         newStats.setPurplePlayerSarcines(25);
 
         GameStatistics savedStats = gameStatisticsService.save(newStats);
-        assertThat(gameStatisticsService.findAll().size()).isEqualTo(initialSize+1);
+        assertThat(gameStatisticsService.findAll().size()).isEqualTo(initialSize + 1);
 
         gameStatisticsService.delete(savedStats.getId());
         assertThat(gameStatisticsService.findAll().size()).isEqualTo(initialSize);

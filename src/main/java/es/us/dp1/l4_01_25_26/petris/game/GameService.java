@@ -126,7 +126,7 @@ public class GameService {
 
         Integer bNum = dto.getBacteriaNumber() != null ? dto.getBacteriaNumber() : 20;
         Integer sNum = dto.getSarcinesNumber() != null ? dto.getSarcinesNumber() : 4;
-
+/* 
         List<Microorganism> micro = new ArrayList<>();
         for (int i = 0; i < bNum; i++) {
             Microorganism m1 = new Microorganism();
@@ -151,7 +151,7 @@ public class GameService {
             micro.add(m2);
         }
         game.setMicroorganisms(micro);
-
+*/
         // 8th Set TurnManager
         TurnManager tm = new TurnManager();
         tm.setTeam(dto.getTurnTeam() != null ? dto.getTurnTeam()

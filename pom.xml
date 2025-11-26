@@ -70,11 +70,6 @@
 			<email>robservil@alumn.us.es</email>
 			<url>https://github.com/robservil</url>
 		</developer>
-		<developer>
-			<name>Antonio José López Cubiles</name>
-			<email>antlopcub@alumn.us.es</email>
-			<url>https://github.com/antlopcub</url>
-		</developer>
 	</developers>
 
 	<dependencies>

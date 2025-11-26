@@ -154,8 +154,8 @@
     height: 40vh;
     width: 100%;
     margin-top: 3vh;
-    background-color: #FDFEFC;
-    border: solid 6px #F0BFFA;
+    background-color: var(--L4-purple);
+    border: solid 6px var(--L3-purple);
     border-radius: 20px;
 }
 
@@ -163,8 +163,8 @@
     width: 100%;
     height: 100%;
     padding: 2vh;
-    background-color: #FDFEFC;
-    border-left: solid 6px #F0BFFA;
+    background-color: var(--L4-purple);
+    border-left: solid 6px var(--L3-purple);
     border-radius: 20px;
 }
 
@@ -176,6 +176,28 @@
     width: 30%;
     height: 100%;
     padding: 2vh;
+}
+
+.profile-save-buttonA {
+    background-color: var(--L3-green); 
+    color: var(--L1-green);              
+    border: 0.3vh solid var(--L1-green);
+    border-radius: 0.5vh;       
+    padding: 5px 10px;       
+    font-size: 1.4vh;          
+    cursor: pointer;           
+    margin-top: 1vh;
+}
+
+.profile-save-buttonB {
+    background-color: var(--L3-purple); 
+    color: var(--L1-purple);              
+    border: 0.5vh solid var(--L1-purple);
+    border-radius: 0.8vh;       
+    padding: 5px 10px;       
+    font-size: 2vh;          
+    cursor: pointer;           
+    margin-top: 1vh;
 }
 
 .avatar-selection-container {

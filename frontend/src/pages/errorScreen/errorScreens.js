@@ -7,3 +7,6 @@ export function PlayerNotFoundErrorScreen() {
 export function UnauthorizedEditErrorScreen() {
     return GenericErrorScreen("No tienes permiso para editar este perfil");
 }
+export function PlayerNotIdentifiedErrorScreen() {
+    return GenericErrorScreen("No estas identificado. Por favor, inicia sesión.");
+}

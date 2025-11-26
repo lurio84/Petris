@@ -1,0 +1,54 @@
+.page-container {
+    background: linear-gradient(var(--L4-purple) 0%, var(--L3-purple) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+}
+.turn-manager {
+    background: linear-gradient(var(--L2-green) 0%, var(--L3-green) 100%);
+    width:25%;
+    border-right: 1vh dashed var(--L1-green);
+    padding-left: 0.5vh;
+    padding-top: 6.5vh;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: repeat(10, auto);
+    grid-auto-flow: column;
+    place-items:center;
+}
+
+.turn-image {
+    min-width: 65%;
+    min-height: 65%;
+    width:65%;
+}
+
+.turn-image img {
+    width:100%;
+    border-radius: 100%;
+    border: 0.5vh solid var(--L3-green);
+}
+.turn-image-empty {
+    min-width: 65%;
+    min-height: 65%;
+    width:65%;
+}
+
+.turn-image-empty img {
+    width:100%;
+    border-radius: 100%;
+    border: none;
+}
+.game-area {
+    width:75%;
+}

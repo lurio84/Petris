@@ -1,12 +1,12 @@
 import React from 'react';
 import './home.css';
 import logo from '../../static/images/logo-petris.png';
-import tokenService from '../../util/services/token.service';
+import tokenService from '../../util/services/token.service.js';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import getErrorModal from "../../util/getErrorModal";
-import useFetchState from '../../util/useFetchState';
-
+import getErrorModal from "../../util/getErrorModal.js";
+import useFetchState from '../../util/useFetchState.js';
+import { PlayerNotIdentifiedErrorScreen } from '../errorScreen/errorScreens.js';
 
 
 
@@ -18,29 +18,26 @@ export default function Dashboard(){
     const [visible, setVisible] = useState(false);
     const [alerts, setAlerts] = useState([]);
     const modal = getErrorModal(setVisible, visible, message);
-    const loggedUserId = tokenService.getUser().id;
+    const username = tokenService.getUser().username;
     const navigate = useNavigate();
 
     const [player, setPlayer] = useFetchState(
             [],
-            `/api/v1/player/${loggedUserId}`,
+            `/api/v1/players/username/${username}`,
             jwt,
             setMessage,
             setVisible
         );
-    if (!player || !player.user) {
+    if (!player) {
         return (
-            <div className="user-page-container">
-                <h2>Player not found</h2>
-            </div>
+            <PlayerNotIdentifiedErrorScreen />
         );
     }
-    const loggedUser = player.user;
     return(
-        <div className="home-page-container">
+        <div className="page-container-A1">
             <div className="hero-div">
                 <img src={logo} style={{ height: '100px' }} />
-                <p>¡Bienvenido {loggedUser.username}! ¡Ponte la bata de laboratorioy empieza a jugar!</p>
+                <p>¡Bienvenido {player.username}! ¡Ponte la bata de laboratorio y empieza a jugar!</p>
                 <div style={{ marginTop: '10px' }}>
                     <button className="login-button" onClick={() => navigate(`/play`)}>Partida pública</button>
                 </div>

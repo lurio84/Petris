@@ -11,29 +11,40 @@ const jwt = tokenService.getLocalAccessToken();
 
 export default function EditPlayer() {
     
-    // Validamos si el usuario tiene permiso para editar este perfil
+    
     const [message, setMessage] = useState(null);
     const [visible, setVisible] = useState(false);
     const modal = getErrorModal(setVisible, visible, message);
-    const id = getIdFromUrl(3);
-    const loggedUserId = tokenService.getUser().id;
+    const username = getIdFromUrl(3);
+    const loggedUsername = tokenService.getUser().username;
     const navigate = useNavigate();
-
     const [newDescription, setNewDescription] = useState("");
-    const [editSection, setEditSection] = useState(0); // 0: Editar perfil, 1: Modificar contraseña, 2: Eliminar jugador, 3: Elegir avatar
+    const [editSection, setEditSection] = useState(0); 
     let section = 0;
+
+    
 
     const [player, setPlayer] = useFetchState(
         [],
-        `/api/v1/player/${id}`,
+        `/api/v1/players/username/${username}`,
         jwt,
         setMessage,
         setVisible
     );
 
+    const id = player.id;
+
+    if (!player) {
+        return ( <PlayerNotFoundErrorScreen/>);
+    }
+
+    if (loggedUsername != username) {
+        return ( <UnauthorizedEditErrorScreen/>);
+    }
+
     function updatePlayerData() {
          fetch(
-            "/api/v1/player/" + id,
+            "/api/v1/players/" + id,
             {
                 method: "PUT",
                 headers: {
@@ -47,18 +58,19 @@ export default function EditPlayer() {
             .then((response) => response.text())
             .then((data) => {
                 if (data === "")
-                    navigate("/player/edit/" + id);
+                    navigate("/player/edit/" + username);
                 else {
                     let json = JSON.parse(data);
                     if (json.message) {
                         setMessage(JSON.parse(data).message);
                         setVisible(true);
                     } else
-                        navigate("/player/edit/" + id);
+                        navigate("/player/edit/" + username);
                 }
             })
             .catch((message) => alert(message));
     }
+    
     function handleSubmit(event) {
         event.preventDefault();
         updatePlayerData(player);
@@ -71,21 +83,12 @@ export default function EditPlayer() {
         setPlayer({ ...player, [name]: value });
     }
 
-    
-    const playerUser = player.user;
-    if (!player || !playerUser) {
-        return ( <PlayerNotFoundErrorScreen/>);
-    }
-
-    if (parseInt(id) !== parseInt(loggedUserId)) {
-        return ( <UnauthorizedEditErrorScreen/>);
-    }
 
    
-
+    //#region Edit profile info
     function editProfile() {
         return (
-            <div>
+            <div className="edit-area-inner">
                 <h3>Editar perfil</h3>
                 <h5>Descripción de perfil:</h5>
                 <textarea rows="4" cols="50"
@@ -101,12 +104,12 @@ export default function EditPlayer() {
     }
 
     function avatarSelection() {
-        const avatarNames = ["avatar1.png", "avatar2.png", "placeholder1.png", "placeholder2.png", "placeholder3.png", "placeholder1.png", "placeholder2.png", "placeholder3.png", "placeholder1.png", "placeholder2.png", "placeholder3.png"]; // Hay avatares repetidos para probar el scroll
+        const avatarNames = ["avatar1", "avatar2", "placeholder1", "placeholder2", "placeholder3", "placeholder1", "placeholder2", "placeholder3", "placeholder1", "placeholder2", "placeholder3"]; // Hay avatares repetidos para probar el scroll
         const avatarList = avatarNames.map((avatarName) => {
             return (
                 <div key={avatarName} className="avatar-selection-image">
                     <img 
-                        src={`${process.env.PUBLIC_URL}/avatar/${avatarName}`} 
+                        src={`${process.env.PUBLIC_URL}/avatar/${avatarName}.png`} 
                         alt={avatarName} 
                         onClick={() => {
                             const newPlayer = player;
@@ -129,17 +132,21 @@ export default function EditPlayer() {
         );
     }
 
+    //#endregion
+
+    //#region Modify password
     function modifyPassword() {
         return (
-            <div>
+            <div className="edit-area-inner">
                 <h3>Modificar contraseña</h3>
             </div>
         );
     }
+    //#endregion
 
     function removePlayer() {
         return (
-            <div>
+            <div className="edit-area-inner">
                 <h3>Eliminar jugador</h3>
             </div>
         );
@@ -165,43 +172,38 @@ export default function EditPlayer() {
         );
     }
 
+
     return (
-        <div className="user-page-container">
-            {modal} 
-            <div className="smaller-user-page-container">
-                <table style={{ width: '100%', marginBottom: '3vh' }}>
-                    <tbody>
-                        <td className="profile-avatar">
-                            <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}`} alt={playerUser.username} />
-                        </td>
-                        <td style={{ width: '80%', height: '80%', verticalAlign: 'top' }}>
-                            <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{playerUser.username}</h2>
-                            <div class="profileInfo">
+        <div className="page-container-A1">
+            <div className="page-container-A2">
+                <div className="profile-container">
+                    <div className="profile-section">
+                        <div className="profile-avatar">
+                            <img src={`${process.env.PUBLIC_URL}/avatar/${player.avatar}.png`} alt={player.username} />
+                        </div>
+                        <div className="profile-section-inner">
+                            <h2 style={{fontSize: '4vh',marginLeft: '2vh'}}>{player.username}</h2>
+                            <div className="profile-info">
                                 {player.profileInfo}
                             </div>
-                        </td>
-                    </tbody>
-                </table>
-                {/* Parte de edición de usuario */}
-                <div className="edit-player-container">
-                  <table style={{ width: '120vh', margin: '2vh', height: '40vh' }}>
-                    <tbody>
-                        <td style={{width: '20%', verticalAlign: 'middle'}}>
-                            <button className="profile-edit-section-button" onClick={() => setEditSection(0)}>Editar perfil</button>
-                            <button className="profile-edit-section-button" onClick={() => setEditSection(1)}>Modificar contraseña</button>
-                            <button className="profile-edit-section-button" onClick={() => setEditSection(2)}>Eliminar jugador</button>
-                        </td>
-                        <td style={{height: '100%', verticalAlign: 'middle'}}>
-                            {editArea()}
-                        </td>
-                    </tbody> 
-                  </table>  
+                        </div>
+                    </div>
+
+                    <div className="profile-section">
+                        <div className="edit-player-container">
+                            <div className="edit-sidebar">
+                                <button className="profile-edit-section-button" onClick={() => setEditSection(0)}>Editar perfil</button>
+                                <button className="profile-edit-section-button" onClick={() => setEditSection(1)}>Modificar contraseña</button>
+                                <button className="profile-edit-section-button" onClick={() => setEditSection(2)}>Eliminar jugador</button>
+                            </div>
+                        {editArea()}
+                        </div>
+                    </div>
                 </div>
             </div>
+            {modal}
         </div>
     );
-    
-    
     
 
     

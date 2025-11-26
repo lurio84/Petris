@@ -100,7 +100,7 @@ export default function Profile() {
         if (username === loggedUser.username) {
             return (
                 <div style={{ marginTop: '20px' }}>
-                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${player.id}`)}>Editar perfil</button>
+                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${username}`)}>Editar perfil</button>
                 </div>
             );
         }

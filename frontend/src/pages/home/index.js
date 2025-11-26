@@ -10,7 +10,7 @@ export default function Home(){
     if (!jwt) {
 
     return(
-        <div className="home-page-container">
+        <div className="page-container-A1">
             <div className="hero-div">
                 <img src={logo} style={{ height: '100px' }} />
                 <p>¡Bienvenido a Petris! El juego de mesa donde sacas tu cientifico interior y controlas la propagación de bacterias. Ponte la bata de laboratorio, inicia sesión y empieza a jugar o conviertete en un cientifico registrandote</p>

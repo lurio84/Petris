@@ -5,20 +5,20 @@ import { ErrorBoundary } from "react-error-boundary";
 import AppNavbar from "./util/components/AppNavbar";
 import Home from "./pages/home";
 import Dashboard from "./pages/home/dashboard";
-import PrivateRoute from "./privateRoute";
+import PrivateRoute from "./pages/privateRoute";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
 import Logout from "./pages/auth/logout";
-import PlanList from "./public/plan";
+import PlanList from "./pages/public/plan";
 import tokenService from "./util/services/token.service";
 import UserListAdmin from "./pages/admin/users/UserListAdmin";
 import UserEditAdmin from "./pages/admin/users/UserEditAdmin";
-import SwaggerDocs from "./public/swagger";
-import DeveloperList from "./views/developers";
+import SwaggerDocs from "./pages/public/swagger";
+import DeveloperList from "./pages/developers";
 import AchievementListAdmin from "./pages/admin/achievement/achievementListAdmin";
 import AchievementEditAdmin from "./pages/admin/achievement/achievementEditAdmin";
 import ControlPanel from "./pages/admin/controlPanel";
-import AchievementsPage from "./pages/player/achievement/achievementPage";
+import AchievementsPage from "./pages/achievement/achievementPage";
 import Profile from "./pages/player/profile"
 import EditPlayer from "./pages/player/editPlayer"
 

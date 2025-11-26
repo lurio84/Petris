@@ -1,10 +1,10 @@
-import "./../player.css"
-import tokenService from "../../../util/services/token.service";
-import useFetchState from "../../../util/useFetchState";
+import "./achievement.css"
+import tokenService from "../../util/services/token.service";
+import useFetchState from "../../util/useFetchState";
 import { useState } from "react";
-import getErrorModal from "../../../util/getErrorModal";
-import getIdFromUrl from "../../../util/getIdFromUrl";
-import { PlayerNotFoundErrorScreen } from "../../errorScreen/errorScreens";
+import getErrorModal from "../../util/getErrorModal";
+import getIdFromUrl from "../../util/getIdFromUrl";
+import { PlayerNotFoundErrorScreen } from "../errorScreen/errorScreens";
 const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
 const jwt = tokenService.getLocalAccessToken();
 

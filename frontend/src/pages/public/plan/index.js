@@ -2,7 +2,7 @@ import React from "react";
 import { BsDot, BsFillRocketTakeoffFill } from "react-icons/bs";
 import { FaCheck, FaPaperPlane, FaTimes } from "react-icons/fa";
 import { ImAirplane } from "react-icons/im";
-import "../../static/css/pricing/pricingPage.css";
+import "./pricingPage.css";
 
 export default function PlanList() {
   

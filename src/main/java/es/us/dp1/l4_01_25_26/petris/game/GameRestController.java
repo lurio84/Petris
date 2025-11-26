@@ -1,6 +1,7 @@
 package es.us.dp1.l4_01_25_26.petris.game;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import es.us.dp1.l4_01_25_26.petris.game.dto.GameDTO;
@@ -30,7 +31,7 @@ public class GameRestController {
 
     @GetMapping("/{code}")
     public GameDTO getGameByCode(@PathVariable String code) {
-        return gameService.getByCode(code); 
+        return gameService.getByCode(code);
     }
 
     @PostMapping
@@ -51,6 +52,11 @@ public class GameRestController {
     @PostMapping("/start")
     public GameDTO startGame(@Valid @RequestBody StartGameDTO gameDTO) {
         return gameService.startGame(gameDTO);
+    }
+
+    @PostMapping("/games/{code}/turn")
+    public ResponseEntity<GameDTO> playTurn(@PathVariable String code) {
+        return ResponseEntity.ok(gameService.playTurn(code));
     }
 
 }

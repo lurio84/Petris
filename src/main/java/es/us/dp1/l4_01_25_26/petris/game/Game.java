@@ -40,6 +40,9 @@ public class Game extends BaseEntity {
     @Column(nullable = false)
     private LocalDateTime endDate;
 
+    private Integer initialBacteriaNumber;
+    private Integer initialSarcinesNumber;
+
     // ################ GAME OBJECTS IN MEMORY (not persisted in db)
     // ################
     @Transient

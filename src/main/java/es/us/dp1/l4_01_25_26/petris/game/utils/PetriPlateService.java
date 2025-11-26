@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import es.us.dp1.l4_01_25_26.petris.game.Game;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -79,12 +80,13 @@ public class PetriPlateService {
      * Normalmente platesNumber = 7.
      */
     @Transactional
-    public List<PetriPlate> initializeBoard(int platesNumber) {
+    public List<PetriPlate> initializeBoard(Game game, int platesNumber) {
         List<PetriPlate> plates = new ArrayList<>();
 
         for (int pos = 0; pos < platesNumber; pos++) {
             PetriPlate plate = new PetriPlate();
             plate.setPosition(pos);
+            plate.setGame(game);
             plates.add(repository.save(plate));
         }
 

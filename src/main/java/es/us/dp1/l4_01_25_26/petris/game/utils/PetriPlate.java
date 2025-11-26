@@ -1,7 +1,10 @@
 package es.us.dp1.l4_01_25_26.petris.game.utils;
 
+import es.us.dp1.l4_01_25_26.petris.game.Game;
 import es.us.dp1.l4_01_25_26.petris.model.BaseEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -29,4 +32,8 @@ public class PetriPlate extends BaseEntity {
     @Min(0)
     @Max(6)
     private Integer position;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "game_id", nullable = false)
+    private Game game;
 }

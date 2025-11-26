@@ -40,10 +40,8 @@ public class Game extends BaseEntity {
     @Column(nullable = false)
     private LocalDateTime endDate;
 
-    // ################ GAME OBJECTS IN MEMORY (not persisted in db) ################
-    @Transient
-    private List<PetriPlate> petriPlates = new ArrayList<>();
-
+    // ################ GAME OBJECTS IN MEMORY (not persisted in db)
+    // ################
     @Transient
     private List<Microorganism> microorganisms = new ArrayList<>();
 
@@ -58,7 +56,7 @@ public class Game extends BaseEntity {
 
     @Transient
     private Integer contaminationPurple = 0;
-    
+
     // ################ RELATIONS ################
     @NotNull(message = "Game owner can't be null")
     @ManyToOne
@@ -75,5 +73,7 @@ public class Game extends BaseEntity {
     @JoinColumn(name = "purple_player", nullable = false)
     private Player purplePlayer;
 
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PetriPlate> petriPlates = new ArrayList<>();
 
 }

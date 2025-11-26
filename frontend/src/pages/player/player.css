@@ -1,0 +1,200 @@
+/*######## PERFIL #########*/
+
+.profile-container {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+    margin-top: 5%;
+}
+
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.profile-info {
+    margin-left: 2vh;
+    padding: 2vh;
+    min-width: 70vh;
+    width: 100%;
+    height: 18vh;
+    color:#597C39;
+    background-color: #FDFEFC;
+    border: #ABCD61 0.8vh solid;
+    border-radius: 20px;
+}
+
+.profile-avatar img {
+    width: auto;
+    height: 25vh;
+    border: 1vh solid #ABCD61;
+    border-radius: 100%;
+}
+
+.profile-edit-button {
+    background-color: #ABCD61;
+    color: white;             
+    border: 0.6vh dashed white;
+    border-radius: 10px;       
+    padding: 2vh 4vh;       
+    font-size: 4vh;          
+    cursor: pointer;           
+    display: flex;             
+    align-items: center;       
+    margin: 0 auto;            
+}
+
+/* Player statistics and recent achievements */
+
+.profile-small-container {
+    font-size: 20px;
+    color: #704ABA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 20px;
+    height: 400px;
+    max-height: 50%;
+    padding: 30px;
+    background-color: #FDFEFC;
+    border: solid 6px #F0BFFA;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: 10px;
+    scrollbar-color: #CA78F0 #F0BFFA;
+}
+
+
+.profile-small-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.profile-small-container::-webkit-scrollbar-track {
+    background: #F0BFFA;
+    border-radius: 10px;
+}
+
+.profile-small-container::-webkit-scrollbar-thumb {
+    background: #CA78F0;
+    border-radius: 10px;
+}
+
+.profile-small-container::-webkit-scrollbar-thumb:hover {
+    background: #b366d4;
+}
+
+/*######## User edit page #########*/
+
+.text-input {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+.profile-edit-section-button {
+    background-color: #F0BFFA; 
+    color: #704ABA;              
+    border: 0.5vh dashed #b366d4;
+    height: 8vh;
+    width: 26vh;
+    border-radius: 10px;
+    margin: 1.5vh;    
+    padding: 5px 10px;       
+    font-size: 20px;          
+    cursor: pointer;          
+}
+
+.edit-player-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 3vh;
+    background-color: #FDFEFC;
+    border: solid 6px #F0BFFA;
+    border-radius: 20px;
+}
+
+.edit-area {
+    width: 100%;
+    height: 40vh;
+    padding: 2vh;
+    background-color: #FDFEFC;
+    border-left: solid 6px #F0BFFA;
+    border-radius: 20px;
+}
+
+.avatar-selection-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    padding: 2vh;
+    border-radius: 20px;
+    overflow-y: auto;   
+    scrollbar-width: 10px; 
+}
+
+.avatar-selection-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+.achievement-badge-obtained {
+    display: flex;
+    align-items: center;
+    background-color: var(--L3-purple);
+    border: 6px dashed var(--L2-purple);
+    border-radius: 20px;
+    padding: 2%;
+    margin: 12px;
+    height: 13vh;
+    width: 40vh;
+    color: #704ABA;
+    background-color: #F0BFFA;
+    font-size: 1.5vh;
+}
+
+.achievement-image-obtained img {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #CA78F0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+
+
+.achievement-image img {
+  width: 80px;
+  height: 80px;
+  border: 6px solid var(--L2-green);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+

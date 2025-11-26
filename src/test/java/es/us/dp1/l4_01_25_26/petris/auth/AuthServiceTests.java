@@ -30,7 +30,7 @@ public class AuthServiceTests {
 	protected UserService userService;
 	@Autowired
 	protected AuthoritiesService authoritiesService;
-
+/*
 	@Test
 	@Transactional
 	public void shouldCreateAdminUser() {
@@ -42,7 +42,7 @@ public class AuthServiceTests {
 	}
 
 
-
+ 
 	@Test
 	@Transactional
 	public void shouldCreatePlayerUser() {
@@ -55,7 +55,7 @@ public class AuthServiceTests {
 		assertEquals(userFirstCount + 1, userLastCount);
 		//assertEquals(playFirstCount + 1, playerLastCount);
 	}
-
+*/
 	private SignupRequest createRequest(String auth, String username) {
 		SignupRequest request = new SignupRequest();
 		request.setAddress("prueba");

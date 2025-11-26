@@ -3,6 +3,8 @@ package es.us.dp1.l4_01_25_26.petris.player;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import es.us.dp1.l4_01_25_26.petris.player.dto.CreateEditPlayerDTO;
@@ -37,10 +39,17 @@ public class PlayerRestController {
         return playerService.getById(id);
     }
 
+    @GetMapping(value = "/username/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PlayerDTO> getPlayerByUsername(@PathVariable String username) {
+        Player player = playerService.getByUserUsername(username);
+        return ResponseEntity.ok(new PlayerDTO(player));
+    }
+
     @GetMapping("/me")
-    public Player getCurrentPlayer() {
+    public PlayerDTO getCurrentPlayer() {
         User currentUser = userService.findCurrentUser();
-        return playerService.getByUserUsername(currentUser.getUsername());
+        Player player = playerService.getByUserUsername(currentUser.getUsername());
+        return new PlayerDTO(player);
     }
 
     @PostMapping

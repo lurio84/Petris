@@ -1,4 +1,4 @@
-import tokenService from "../services/token.service";
+import tokenService from "./services/token.service";
 import getDeleteAlertsOrModal from "./getDeleteAlertsOrModal";
 
 

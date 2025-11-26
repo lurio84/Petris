@@ -2,25 +2,25 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { ErrorBoundary } from "react-error-boundary";
-import AppNavbar from "./AppNavbar";
-import Home from "./home";
-import Dashboard from "./home/dashboard";
-import PrivateRoute from "./privateRoute";
-import Register from "./auth/register";
-import Login from "./auth/login";
-import Logout from "./auth/logout";
-import PlanList from "./public/plan";
-import tokenService from "./services/token.service";
-import UserListAdmin from "./admin/users/UserListAdmin";
-import UserEditAdmin from "./admin/users/UserEditAdmin";
-import SwaggerDocs from "./public/swagger";
-import DeveloperList from "./developers";
-import AchievementListAdmin from "./admin/achievement/achievementListAdmin";
-import AchievementEditAdmin from "./admin/achievement/achievementEditAdmin";
-import ControlPanel from "./admin/controlPanel";
-import PlayerAchievementList from "./achievements/playerAchievement/playerAchievementList";
-import PlayerView from "./player/playerView"
-import EditPlayer from "./player/editPlayer"
+import AppNavbar from "./util/components/AppNavbar";
+import Home from "./pages/home";
+import Dashboard from "./pages/home/dashboard";
+import PrivateRoute from "./pages/privateRoute";
+import Register from "./pages/auth/register";
+import Login from "./pages/auth/login";
+import Logout from "./pages/auth/logout";
+import PlanList from "./pages/public/plan";
+import tokenService from "./util/services/token.service";
+import UserListAdmin from "./pages/admin/users/UserListAdmin";
+import UserEditAdmin from "./pages/admin/users/UserEditAdmin";
+import SwaggerDocs from "./pages/public/swagger";
+import DeveloperList from "./pages/developers";
+import AchievementListAdmin from "./pages/admin/achievement/achievementListAdmin";
+import AchievementEditAdmin from "./pages/admin/achievement/achievementEditAdmin";
+import ControlPanel from "./pages/admin/controlPanel";
+import AchievementsPage from "./pages/achievement/achievementPage";
+import Profile from "./pages/player/profile"
+import EditPlayer from "./pages/player/editPlayer"
 
 
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -65,8 +65,8 @@ function App() {
       ownerRoutes = (
         <>
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-          <Route path="/achievements/:playerId" exact={true} element={<PrivateRoute><PlayerAchievementList/></PrivateRoute>} />
-          <Route path="/player/:playerId" exact={true} element={<PrivateRoute><PlayerView/></PrivateRoute>} />
+          <Route path="/achievements/:playerId" exact={true} element={<PrivateRoute><AchievementsPage/></PrivateRoute>} />
+          <Route path="/player/:playerId" exact={true} element={<PrivateRoute><Profile/></PrivateRoute>} />
           <Route path="/player/edit/:playerId" exact={true} element={<PrivateRoute><EditPlayer/></PrivateRoute>} />
         </>)
     }

@@ -3,6 +3,7 @@ package es.us.dp1.l4_01_25_26.petris.player.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import es.us.dp1.l4_01_25_26.petris.achievement.Achievement;
 import es.us.dp1.l4_01_25_26.petris.player.Player;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +19,7 @@ public class PlayerDTO {
     private String profileInfo;
     private Boolean isOnline;
     private List<String> friends;       // usernames
-    private List<String> achievements;  // achievement names
+    private List<Achievement> achievements;  // achievement
 
     public PlayerDTO(Player player) {
         this.id = player.getId();
@@ -32,8 +33,6 @@ public class PlayerDTO {
         this.friends = player.getFriends().stream()
                              .map(f -> f.getUser().getUsername())
                              .collect(Collectors.toList());
-        this.achievements = player.getAchievements().stream()
-                                  .map(a -> a.getName())
-                                  .collect(Collectors.toList());
+        this.achievements = player.getAchievements();
     }
 }

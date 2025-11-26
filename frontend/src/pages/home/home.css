@@ -1,0 +1,58 @@
+.hero-div{
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+    max-width: 35%;
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    border: 4px dashed white;
+    
+}
+
+.login-button {
+    background-color: #ABCD61; /* Button background color */
+    color: white;             
+    border: 6px dashed white; 
+    border-radius: 10px;       /* Rounded corners */
+    padding: 10px 20px;       
+    font-size: 40px;          
+    cursor: pointer;           
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+    display: flex;             
+    align-items: center;       
+    margin: 0 auto;            
+}
+
+
+.register-button {
+    background-color: #CA78F0; /* Button background color */
+    color: white;             
+    border: 6px dashed white; 
+    border-radius: 10px;       /* Rounded corners */
+    padding: 10px 20px;       
+    font-size: 40px;          
+    cursor: pointer;           
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+    display: flex;             
+    align-items: center;       
+    margin: 0 auto;
+            
+}
+
+
+.hero-div h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2f324f;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hero-div h3{
+    text-align: center;
+}

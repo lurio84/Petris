@@ -5,6 +5,12 @@
     --green-shadow-color: rgba(46, 229, 157, 0.4);
     --blue-shadow-color: rgba(46, 92, 229, 0.4);
     --red-shadow-color: rgba(229, 46, 46, 0.4);
+    --L1-green: #597C39;
+    --L2-green: #ABCD61;
+    --L3-green:#F0F7C3;
+    --L1-purple: #704ABA;
+    --L2-purple: #CA78F0;
+    --L3-purple: #F0BFFA;
 }
 
 @font-face {
@@ -15,6 +21,50 @@
 * {
     font-family: 'american-typewriter';
 }
+
+.page-container-A1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./../public/backgrounds/background_1.png');
+    background-size: cover;
+}
+
+.page-container-B1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./../public/backgrounds/background_1.png');
+    background-size: cover;
+}
+
+.page-container-A2 {
+    z-index: -1;
+    display: flex;
+    size: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--L1-purple);
+    height: 100%;
+    width: 65%;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(180deg, var(--L3-green) 0%,  var(--L2-green)  70%, var(--L3-green) 100%);
+}
+
 
 /* div {
     border: 1px dotted red;

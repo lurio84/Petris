@@ -1,0 +1,106 @@
+.achievement-container {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+    align-items: center;
+	align-items: stretch;
+	align-content: stretch;
+    text-align: center;
+    height: 85%;
+    width: 80%;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
+    height: 100%;
+    overflow-y: auto;   
+    scrollbar-width: 10px; 
+    scrollbar-color: var(--L2-green) var(--L3-green); 
+    
+}
+
+.all-achievements {
+    margin: 15px;
+    height: 40%;
+    padding: 10px;
+    background-color: #FDFEFC;
+    border: solid 6px #F0BFFA;
+    border-radius: 20px;
+}
+
+.achievement-grid::-webkit-scrollbar {
+    width: 10px;
+}
+
+.achievement-grid::-webkit-scrollbar-track {
+    background: #F0F7C3;
+    border-radius: 10px;
+}
+
+.achievement-grid::-webkit-scrollbar-thumb {
+    background: #ABCD61;
+    border-radius: 10px;
+}
+
+.achievement-grid::-webkit-scrollbar-thumb:hover {
+    background: #ABCD61;
+}
+
+.achievement-badge {
+    display: flex;
+    align-items: center;
+    background-color: var(--L3-green);
+    border: 6px dashed var(--L2-green);
+    border-radius: 20px;
+    padding: 2%;
+    margin: 12px;
+    height: 13vh;
+    width: 40vh;
+    color: var(--L1-green);
+    background-color: var(--L3-green);
+    font-size: 1.5vh;
+  
+}
+
+.achievement-badge-obtained {
+    display: flex;
+    align-items: center;
+    background-color: var(--L3-purple);
+    border: 6px dashed var(--L2-purple);
+    border-radius: 20px;
+    padding: 2%;
+    margin: 12px;
+    height: 13vh;
+    width: 40vh;
+    color: #704ABA;
+    background-color: #F0BFFA;
+    font-size: 1.5vh;
+}
+
+.achievement-image-obtained img {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #CA78F0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+
+
+.achievement-image img {
+  width: 80px;
+  height: 80px;
+  border: 6px solid var(--L2-green);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+

@@ -95,3 +95,4 @@ export function ContaminationBar({ color, contamination }) {
         </div>
     );
 }
+

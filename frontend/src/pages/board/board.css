@@ -160,6 +160,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 1%;
+    margin: 1%;
 
 }
 
@@ -187,6 +188,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 1%;
+    margin: 1%;
 }
 .contamination-PURPLE-counter {
     width: 8vh;
@@ -208,3 +210,59 @@
 .contamination-GREEN-counter img {
     height: 10vh;
 }
+
+.petriplatesArea tr{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+.petriplate {
+    position: relative;
+    width: 28vh;
+    height: 21vh; /* Add explicit height */
+}
+
+.petriplate-bg {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.petriplate-bg img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.petriplate-microbes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    pointer-events: none;
+    user-select: none;
+}
+
+.petriplate-microbes img {
+    width: 8vh;
+    height: auto;
+}
+
+

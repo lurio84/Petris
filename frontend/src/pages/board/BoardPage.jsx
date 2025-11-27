@@ -1,6 +1,7 @@
 import React from 'react';
 import './board.css';
 import {TurnManager, ContaminationBar} from './BoardPresentation';
+import { Petriplate } from './Petriplate';
 
 
 
@@ -14,13 +15,20 @@ function ContaminationPlayer() {
     return <ContaminationBar color={"PURPLE"} contamination={0} />;
 }
 
-function Petriplate() {
+function Petriplates() {
     return (
         <div className="petriplatesArea">
-            
+            <table>
+                <tbody>
+                    <td><Petriplate/><Petriplate/></td>
+                    <td><Petriplate/><Petriplate/><Petriplate/></td>
+                    <td><Petriplate/><Petriplate/></td>
+                </tbody>
+            </table>
         </div>
     )
 }
+
 
 // Current turn tiene un valor de ejemplo ahora mismo, cambiar con estado de la partida
 export default function BoardPage() {

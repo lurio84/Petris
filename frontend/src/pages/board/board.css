@@ -15,15 +15,32 @@
 	align-content: stretch;
 }
 
+.game-area {
+    width:75%;
+    height: 100%;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: stretch;
+}
+
+
+
+/* ################ Turn Manager ################ */
+
+
+
 .turns {
     position: relative;
-    width: 25%; /* Set a fixed width for the container */
+    width: 25%;
     height: 25%;
 }
 
 .turn-manager-movement {
     background: none;
-    width: 100%; /* Use 100% of the parent container */
+    width: 100%;
     border-right: none;
     padding-left: 0.5vh;
     padding-top: 6.5vh;
@@ -32,16 +49,17 @@
     grid-template-rows: repeat(10, auto);
     grid-auto-flow: column;
     place-items: center;
-    position: absolute; /* Position absolutely */
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 2; /* Higher z-index to be on top */
-    pointer-events: none; /* Allow clicks to pass through if needed */
+    z-index: 2;
+    pointer-events: none;
+    user-select: none;
 }
 
 .turn-manager-visual {
     background: linear-gradient(var(--L2-green) 0%, var(--L3-green) 100%);
-    width: 100%; /* Use 100% of the parent container */
+    width: 100%;
     border-right: 1vh dashed var(--L1-green);
     padding-left: 0.5vh;
     padding-top: 6.5vh;
@@ -50,8 +68,10 @@
     grid-template-rows: repeat(10, auto);
     grid-auto-flow: column;
     place-items: center;
-    position: relative; /* Position relatively */
-    z-index: 1; /* Lower z-index to be behind */
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
 }
 
 
@@ -60,12 +80,16 @@
     min-height: 65%;
     width:65%;
     margin: 5%;
+    pointer-events: none;
+    user-select: none;
 }
 
 .turn-image img {
     width:100%;
     border-radius: 100%;
     border: 0.5vh solid var(--L3-green);
+    pointer-events: none;
+    user-select: none;
 }
 
 .turn-indicator {
@@ -73,11 +97,15 @@
     min-height: 65%;
     width:65%;
     margin: 5%;
+    pointer-events: none;
+    user-select: none;
 }
 
 .turn-indicator img {
     width:100%;
     border-radius: 100%;
+    pointer-events: none;
+    user-select: none;
 }
 
 
@@ -85,13 +113,17 @@
     min-width: 65%;
     min-height: 65%;
     width:65%;
-    margin: 5%
+    margin: 5%;
+    pointer-events: none;
+    user-select: none;
 }
 
 .turn-image-empty img {
     width:100%;
     border-radius: 100%;
     border: none;
+    pointer-events: none;
+    user-select: none;
 }
 
 .turn-propagation {
@@ -105,11 +137,74 @@
     margin-top:5%;
     margin-bottom: 5%;
     justify-content: center;
+    pointer-events: none;
+    user-select: none;
 }
 .turn-propagation img{
     width:65%;
     border-radius: 100%;
+    pointer-events: none;
+    user-select: none;
 }
-.game-area {
-    width:75%;
+
+
+/* ################ Contamination bar ################ */
+
+.contamination-GREEN {
+    width: 70%;
+    background: var(--L1-green);
+    border: 0.8vh dashed var(--L2-green);
+    border-radius: 2vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;
+
+}
+
+.contamination-GREEN-counter {
+    width: 8vh;
+    height: 8vh;
+    border: var(--L3-green) 0.5vh dashed;
+    border-radius: 50%;
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vh;
+    color: var(--L4-purple);
+    background: var(--L2-green);
+}
+
+.contamination-PURPLE {
+    width: 70%;
+    background: var(--L1-purple);
+    border: 0.8vh dashed var(--L2-purple);
+    border-radius: 2vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;
+}
+.contamination-PURPLE-counter {
+    width: 8vh;
+    height: 8vh;
+    border: var(--L3-purple) 0.5vh dashed;
+    border-radius: 50%;
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vh;
+    color: var(--L4-purple);
+    background: var(--L2-purple);
+}
+
+.contamination-PURPLE-counter img {
+    height: 10vh;
+}
+.contamination-GREEN-counter img {
+    height: 10vh;
 }

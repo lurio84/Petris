@@ -21,7 +21,7 @@ import ControlPanel from "./pages/admin/controlPanel";
 import AchievementsPage from "./pages/achievement/achievementPage";
 import Profile from "./pages/player/profile"
 import EditPlayer from "./pages/player/editPlayer"
-
+import BoardPage from "./pages/board/BoardPage";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
@@ -68,6 +68,7 @@ function App() {
           <Route path="/achievements/:playerId" exact={true} element={<PrivateRoute><AchievementsPage/></PrivateRoute>} />
           <Route path="/player/:playerId" exact={true} element={<PrivateRoute><Profile/></PrivateRoute>} />
           <Route path="/player/edit/:playerId" exact={true} element={<PrivateRoute><EditPlayer/></PrivateRoute>} />
+          <Route path="/game/:gameId" exact={true} element={<PrivateRoute><BoardPage/></PrivateRoute>} />
         </>)
     }
   })

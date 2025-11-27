@@ -92,6 +92,33 @@
     background: #b366d4;
 }
 
+.achievement-badge-obtained {
+    display: flex;
+    align-items: center;
+    background-color: var(--L3-purple);
+    border: 6px dashed var(--L2-purple);
+    border-radius: 20px;
+    padding: 2%;
+    margin: 12px;
+    height: 13vh;
+    width: 40vh;
+    color: #704ABA;
+    background-color: #F0BFFA;
+    font-size: 1.5vh;
+}
+
+.achievement-image-obtained img {
+  width: 80px;
+  height: 80px;
+  border: 6px solid #CA78F0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+
 /*######## User edit page #########*/
 
 .text-input {
@@ -120,22 +147,57 @@
 
 .edit-player-container {
     display: flex;
-    flex-direction: row;
+	flex-direction: row;
+	flex-wrap: nowrap;
     align-items: center;
+	justify-content: flex-start;
+    height: 40vh;
     width: 100%;
     margin-top: 3vh;
-    background-color: #FDFEFC;
-    border: solid 6px #F0BFFA;
+    background-color: var(--L4-purple);
+    border: solid 6px var(--L3-purple);
     border-radius: 20px;
 }
 
 .edit-area {
     width: 100%;
-    height: 40vh;
+    height: 100%;
     padding: 2vh;
-    background-color: #FDFEFC;
-    border-left: solid 6px #F0BFFA;
+    background-color: var(--L4-purple);
+    border-left: solid 6px var(--L3-purple);
     border-radius: 20px;
+}
+
+.edit-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    padding: 2vh;
+}
+
+.profile-save-buttonA {
+    background-color: var(--L3-green); 
+    color: var(--L1-green);              
+    border: 0.3vh solid var(--L1-green);
+    border-radius: 0.5vh;       
+    padding: 5px 10px;       
+    font-size: 1.4vh;          
+    cursor: pointer;           
+    margin-top: 1vh;
+}
+
+.profile-save-buttonB {
+    background-color: var(--L3-purple); 
+    color: var(--L1-purple);              
+    border: 0.5vh solid var(--L1-purple);
+    border-radius: 0.8vh;       
+    padding: 5px 10px;       
+    font-size: 2vh;          
+    cursor: pointer;           
+    margin-top: 1vh;
 }
 
 .avatar-selection-container {
@@ -158,43 +220,14 @@
     cursor: pointer;
 }
 
-
-.achievement-badge-obtained {
-    display: flex;
-    align-items: center;
-    background-color: var(--L3-purple);
-    border: 6px dashed var(--L2-purple);
-    border-radius: 20px;
-    padding: 2%;
-    margin: 12px;
-    height: 13vh;
-    width: 40vh;
-    color: #704ABA;
-    background-color: #F0BFFA;
-    font-size: 1.5vh;
-}
-
-.achievement-image-obtained img {
-  width: 80px;
-  height: 80px;
-  border: 6px solid #CA78F0;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 16px;
+.edit-area-inner {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
 }
 
 
-
-.achievement-image img {
-  width: 80px;
-  height: 80px;
-  border: 6px solid var(--L2-green);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 16px;
-}
 

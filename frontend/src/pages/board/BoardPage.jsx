@@ -4,7 +4,6 @@ import './board.css';
 export default function BoardPage() {
 
     const TurnManager = () => {
-        
         const turnImages = Array.from({ length: 40 }, (_, i) => i + 1).map((num) => {
             if (num % 10 !== 3 && num % 10 != 6 && num % 10 != 9 && num % 10 !== 0) {
                 if ((num + Math.floor(num/10)) % 2 === 0) {
@@ -48,9 +47,33 @@ export default function BoardPage() {
             }
         });
 
+        
+        const turnIndicator = Array.from({ length: 40 }, (_, i) => i + 1).map((num) => {
+            if (num == 1) { // Aquí estaría el turno actual
+                return(
+                    <div key={num} className="turn-indicator">
+                        <img src={`${process.env.PUBLIC_URL}/board/turn_indicator.png`} />   
+                    </div>
+                );
+            } else {
+                return(
+                    <div key={num} className="turn-image-empty">
+                        <img src={`${process.env.PUBLIC_URL}/board/empty.png`}></img>
+                    </div>
+                );
+            }
+        });
+        
+        
+        
         return(
-            <div className="turn-manager">
-                {turnImages}
+            <div className="turns">
+                <div className="turn-manager-movement">
+                    {turnIndicator}
+                </div>
+                <div className="turn-manager-visual">
+                    {turnImages}
+                </div>
             </div>
         );
     }

@@ -14,23 +14,52 @@
 	align-items: stretch;
 	align-content: stretch;
 }
-.turn-manager {
+
+.turns {
+    position: relative;
+    width: 25%; /* Set a fixed width for the container */
+    height: 25%;
+}
+
+.turn-manager-movement {
+    background: none;
+    width: 100%; /* Use 100% of the parent container */
+    border-right: none;
+    padding-left: 0.5vh;
+    padding-top: 6.5vh;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(10, auto);
+    grid-auto-flow: column;
+    place-items: center;
+    position: absolute; /* Position absolutely */
+    top: 0;
+    left: 0;
+    z-index: 2; /* Higher z-index to be on top */
+    pointer-events: none; /* Allow clicks to pass through if needed */
+}
+
+.turn-manager-visual {
     background: linear-gradient(var(--L2-green) 0%, var(--L3-green) 100%);
-    width:25%;
+    width: 100%; /* Use 100% of the parent container */
     border-right: 1vh dashed var(--L1-green);
     padding-left: 0.5vh;
     padding-top: 6.5vh;
     display: grid;
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: repeat(4, auto);
     grid-template-rows: repeat(10, auto);
     grid-auto-flow: column;
-    place-items:center;
+    place-items: center;
+    position: relative; /* Position relatively */
+    z-index: 1; /* Lower z-index to be behind */
 }
+
 
 .turn-image {
     min-width: 65%;
     min-height: 65%;
     width:65%;
+    margin: 5%;
 }
 
 .turn-image img {
@@ -38,10 +67,25 @@
     border-radius: 100%;
     border: 0.5vh solid var(--L3-green);
 }
+
+.turn-indicator {
+    min-width: 65%;
+    min-height: 65%;
+    width:65%;
+    margin: 5%;
+}
+
+.turn-indicator img {
+    width:100%;
+    border-radius: 100%;
+}
+
+
 .turn-image-empty {
     min-width: 65%;
     min-height: 65%;
     width:65%;
+    margin: 5%
 }
 
 .turn-image-empty img {
@@ -58,10 +102,12 @@
     background-image: url('../../../public/board/propagation_bg.png');
     background-size: cover;
     display: flex;
+    margin-top:5%;
+    margin-bottom: 5%;
     justify-content: center;
 }
 .turn-propagation img{
-    width:60%;
+    width:65%;
     border-radius: 100%;
 }
 .game-area {

@@ -224,6 +224,7 @@
     position: relative;
     width: 28vh;
     height: 21vh; /* Add explicit height */
+    pointer-events: auto;
 }
 
 .petriplate-bg {
@@ -233,7 +234,7 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    pointer-events: none;
+    pointer-events: auto;
     user-select: none;
 }
 
@@ -255,14 +256,32 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2; 
-    pointer-events: none;
+    z-index: 2;
+    pointer-events: auto;
     user-select: none;
 }
 
 .petriplate-microbes img {
     width: 8vh;
     height: auto;
+    pointer-events: auto;
 }
+
+.petriplate-microbe {
+    width: 8vh;
+    height: auto;
+    pointer-events: auto !important;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.petriplate-microbe:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s;
+    pointer-events: auto;
+    
+}
+
+
 
 

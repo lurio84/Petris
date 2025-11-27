@@ -19,10 +19,32 @@ export default function BoardPage() {
                         </div>);
                 }
            } else {
-                return(
-            <div key={num} className="turn-image-empty">
-                <img src={`${process.env.PUBLIC_URL}/board/empty.png`} />
-            </div>);
+                if(num % 10 === 3 || num % 10 === 6 || num % 10 === 9) {
+                    if ((num + Math.floor(num/10)) % 2 === 0) {
+                        return(
+                        <div key={num} className="turn-propagation">
+                            <img src={`${process.env.PUBLIC_URL}/board/propagation_icon_PURPLE.png`} />   
+                        </div>);
+                    } else {
+                        return(
+                        <div key={num} className="turn-propagation">
+                            <img src={`${process.env.PUBLIC_URL}/board/propagation_icon_GREEN.png`} />   
+                        </div>);
+                    }
+                } else {
+                    if ((num + Math.floor(num/10)) % 2 === 0) {
+                        return(
+                        <div key={num} className="turn-propagation">
+                            <img src={`${process.env.PUBLIC_URL}/board/biohazard_PURPLE.png`} />   
+                        </div>);
+                    } else {
+                        return(
+                        <div key={num} className="turn-propagation">
+                            <img src={`${process.env.PUBLIC_URL}/board/biohazard_GREEN.png`} />   
+                        </div>);
+                    }
+                }
+                
             }
         });
 

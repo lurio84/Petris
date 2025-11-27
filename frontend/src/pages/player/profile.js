@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { PlayerNotFoundErrorScreen } from "../errorScreen/errorScreens";
 
 
-const imgnotfound = "https://cdn-icons-png.flaticon.com/512/5778/5778223.png";
+
 const jwt = tokenService.getLocalAccessToken();
 export default function Profile() {
     const [message, setMessage] = useState(null);
@@ -100,7 +100,7 @@ export default function Profile() {
         if (username === loggedUser.username) {
             return (
                 <div style={{ marginTop: '20px' }}>
-                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${player.id}`)}>Editar perfil</button>
+                    <button className="profile-edit-button" onClick={() => navigate(`/player/edit/${username}`)}>Editar perfil</button>
                 </div>
             );
         }

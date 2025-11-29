@@ -1,5 +1,6 @@
 package es.us.dp1.l4_01_25_26.petris.game.utils;
 
+import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Embeddable
 public class TurnManager {
 
     // Turno absoluto: 1..40 (4 rondas x 10 turnos)

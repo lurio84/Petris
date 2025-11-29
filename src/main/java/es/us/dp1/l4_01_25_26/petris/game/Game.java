@@ -13,8 +13,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-import es.us.dp1.l4_01_25_26.petris.game.utils.MicroOrganismType;
-import es.us.dp1.l4_01_25_26.petris.game.utils.Microorganism;
+
 import es.us.dp1.l4_01_25_26.petris.game.utils.PetriPlate;
 import es.us.dp1.l4_01_25_26.petris.game.utils.Team;
 import es.us.dp1.l4_01_25_26.petris.game.utils.TurnManager;
@@ -40,14 +39,14 @@ public class Game extends BaseEntity {
     @Column(nullable = false)
     private LocalDateTime endDate;
 
-    // ################ GAME OBJECTS IN MEMORY (not persisted in db) ################
-    @Transient
-    private List<PetriPlate> petriPlates = new ArrayList<>();
+    private Integer initialBacteriaNumber;
+    private Integer initialSarcinesNumber;
 
-    @Transient
-    private List<Microorganism> microorganisms = new ArrayList<>();
+    // ################ GAME OBJECTS IN MEMORY (not persisted in db)
+    // ################
 
-    @Transient
+
+    @Embedded
     private TurnManager turn = new TurnManager();
 
     @Transient
@@ -58,7 +57,7 @@ public class Game extends BaseEntity {
 
     @Transient
     private Integer contaminationPurple = 0;
-    
+
     // ################ RELATIONS ################
     @NotNull(message = "Game owner can't be null")
     @ManyToOne
@@ -75,5 +74,7 @@ public class Game extends BaseEntity {
     @JoinColumn(name = "purple_player", nullable = false)
     private Player purplePlayer;
 
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PetriPlate> petriPlates = new ArrayList<>();
 
 }

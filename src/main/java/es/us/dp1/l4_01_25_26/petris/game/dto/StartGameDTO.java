@@ -3,7 +3,7 @@ package es.us.dp1.l4_01_25_26.petris.game.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import es.us.dp1.l4_01_25_26.petris.game.utils.Microorganism;
+
 import es.us.dp1.l4_01_25_26.petris.game.utils.PetriPlate;
 import es.us.dp1.l4_01_25_26.petris.game.utils.Team;
 import jakarta.validation.constraints.NotNull;

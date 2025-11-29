@@ -1,14 +1,14 @@
 package es.us.dp1.l4_01_25_26.petris.game.utils;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import es.us.dp1.l4_01_25_26.petris.game.Game;
 import jakarta.transaction.Transactional;
 
 @SpringBootTest
@@ -25,7 +25,7 @@ public class PetriPlateServiceTests {
     @Test
     void initializeBoard_createsSevenPlatesWithCorrectPositions() {
         // Arrange & Act
-        List<PetriPlate> plates = petriPlateService.initializeBoard(7);
+        List<PetriPlate> plates = petriPlateService.initializeBoard(new Game(), 7);
 
         // Assert
         assertThat(plates).hasSize(7);
@@ -36,7 +36,7 @@ public class PetriPlateServiceTests {
 
     @Test
     void checkAdjacent_returnsTrueForNeighboursAndFalseOtherwise() {
-        petriPlateService.initializeBoard(7);
+        petriPlateService.initializeBoard(new Game(), 7);
 
         // 0 es adyacente a 1,5,6
         assertThat(petriPlateService.checkAdjacent(0, 1)).isTrue();
@@ -49,7 +49,7 @@ public class PetriPlateServiceTests {
 
     @Test
     void addGreenBacterium_triggersSarcineConversionOnlyOnFission() {
-        petriPlateService.initializeBoard(7);
+        petriPlateService.initializeBoard(new Game(), 7);
 
         // Añadimos 5 bacterias verdes en la posición 0 simulando 5 fisiones
         for (int i = 0; i < 5; i++) {

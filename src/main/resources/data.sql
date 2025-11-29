@@ -98,3 +98,17 @@ INSERT INTO players_achievements (player_id, achievements_id) VALUES
 INSERT INTO players_friends (player_id, friend_id) VALUES
 (1, 2),
 (2, 1); 
+
+-- Games
+INSERT INTO games (id, code, start_date, end_date, initial_bacteria_number, initial_sarcines_number, game_owner, green_player, purple_player, turn_counter, team, turn_type, round) VALUES
+(1, 'GAMECODE01', '2025-11-29 10:00:00', '2025-11-29 10:30:00', 2, 1, 1, 1, 2, 1, 1, 0, 1);
+
+-- Petri Plates for Game 1
+INSERT INTO petri_plate (id, green_bacteria, green_sarcines, purple_bacteria, purple_sarcines, position, game_id) VALUES
+(1, 1, 0, 0, 0, 0, 1),
+(2, 0, 0, 1, 0, 1, 1),
+(3, 0, 0, 0, 0, 2, 1),
+(4, 0, 0, 0, 0, 3, 1),
+(5, 0, 0, 0, 0, 4, 1),
+(6, 0, 0, 0, 0, 5, 1),
+(7, 0, 0, 0, 0, 6, 1);

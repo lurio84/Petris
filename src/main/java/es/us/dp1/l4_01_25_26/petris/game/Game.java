@@ -13,8 +13,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-import es.us.dp1.l4_01_25_26.petris.game.utils.MicroOrganismType;
-import es.us.dp1.l4_01_25_26.petris.game.utils.Microorganism;
+
 import es.us.dp1.l4_01_25_26.petris.game.utils.PetriPlate;
 import es.us.dp1.l4_01_25_26.petris.game.utils.Team;
 import es.us.dp1.l4_01_25_26.petris.game.utils.TurnManager;
@@ -45,10 +44,9 @@ public class Game extends BaseEntity {
 
     // ################ GAME OBJECTS IN MEMORY (not persisted in db)
     // ################
-    @Transient
-    private List<Microorganism> microorganisms = new ArrayList<>();
 
-    @Transient
+
+    @Embedded
     private TurnManager turn = new TurnManager();
 
     @Transient

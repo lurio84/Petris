@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.us.dp1.l4_01_25_26.petris.game.dto.GameDTO;
+import es.us.dp1.l4_01_25_26.petris.game.dto.PetriPlateDTO;
 import es.us.dp1.l4_01_25_26.petris.game.dto.StartGameDTO;
+import es.us.dp1.l4_01_25_26.petris.game.dto.TurnDTO;
 import es.us.dp1.l4_01_25_26.petris.game.utils.PetriPlate;
 import es.us.dp1.l4_01_25_26.petris.game.utils.PetriPlateService;
 import es.us.dp1.l4_01_25_26.petris.game.utils.Team;
@@ -158,14 +160,35 @@ public class GameService {
 
         // PetriPlates
         dto.setPetriPlatesNumber(game.getPetriPlates() != null ? game.getPetriPlates().size() : 0);
+        if (game.getPetriPlates() != null) {
+            dto.setPetriPlates(game.getPetriPlates().stream().map(this::convertPetriPlateToDTO).toList());
+        }
 
         // TurnManager
-        dto.setTurnTeam(game.getTurn() != null ? game.getTurn().getTeam() : null);
+        if (game.getTurn() != null) {
+            TurnDTO turnDTO = new TurnDTO();
+            turnDTO.setTurnCounter(game.getTurn().getTurnCounter());
+            turnDTO.setTeam(game.getTurn().getTeam());
+            turnDTO.setTurnType(game.getTurn().getTurnType());
+            turnDTO.setRound(game.getTurn().getRound());
+            dto.setTurn(turnDTO);
+        }
 
         // Contamination
         dto.setContaminationGreen(game.getContaminationGreen() != null ? game.getContaminationGreen() : 0);
         dto.setContaminationPurple(game.getContaminationPurple() != null ? game.getContaminationPurple() : 0);
 
+        return dto;
+    }
+
+    private PetriPlateDTO convertPetriPlateToDTO(PetriPlate plate) {
+        PetriPlateDTO dto = new PetriPlateDTO();
+        dto.setId(plate.getId());
+        dto.setGreenBacteria(plate.getGreenBacteria());
+        dto.setGreenSarcines(plate.getGreenSarcines());
+        dto.setPurpleBacteria(plate.getPurpleBacteria());
+        dto.setPurpleSarcines(plate.getPurpleSarcines());
+        dto.setPosition(plate.getPosition());
         return dto;
     }
 
